@@ -7,6 +7,7 @@ import PagesPopular from "../pages/PagesPopular";
 import PagesTopRated from "../pages/PagesTopRated";
 import PagesNowPlaying from "../pages/PagesNowPlaying";
 import PagesUpcoming from "../pages/PagesUpcoming";
+import PagesFavorites from "../pages/PagesFavorites";
 
 function AppRouter() {
   return (

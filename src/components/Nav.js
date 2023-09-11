@@ -19,6 +19,9 @@ function Nav() {
         <li>
           <NavLink to="/upcoming">Upcoming</NavLink>
         </li>
+        <li>
+          <NavLink to="/favorites">Favorites</NavLink>
+        </li>
       </ul>
     </nav>
   );
