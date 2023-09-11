@@ -12,8 +12,8 @@ import PagesFavorites from "../pages/PagesFavorites";
 import {accessToken, apiKey} from "../api/APIVariables";
 
 function AppRouter() {
-  const [movie, setMovie] = useState('');
-  const [picture, setPicture] = useState()
+  const [movies, setMovie] = useState([]);
+  
   
   const options = {
     method: 'GET',
@@ -22,18 +22,20 @@ function AppRouter() {
       Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlZjI3MGZmZmVkNjliYzFkNDdkZTMyNjQ4ZmYwNTBjZCIsInN1YiI6IjY0ZWQwMzNjYzYxM2NlMDEyY2M2YWU5OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.46gYzA8BqZarsSismrtiSK-mV5olei9Q30Xvvlpwo5A'
     }
   };
-  
-  fetch('https://api.themoviedb.org/3/trending/movie/week?language=en-US', options)
-  .then(response => response.json())
-  .then(response => setMovie(response.results[0].title + ' ' + response.results[0].overview))
-  .then(response => console.log("This is movie", movie))
-  // .then(response => console.log(response))
-  .catch(err => console.error(err));
+
+  useEffect(() => {
+    fetch('https://api.themoviedb.org/3/trending/movie/week?language=en-US', options)
+    .then(response => response.json())
+    .then(data => {
+      setMovie(data.results);
+    })
+    .catch(err => console.error(err));
+  }, []);
+
   
   return (
     <BrowserRouter>
       <div className="wrapper">
-        <h2>{movie}</h2>
         <Nav>
         <Routes>
           <Route path="/popular" element={<PagesPopular />} />
@@ -44,6 +46,14 @@ function AppRouter() {
         </Routes>
         </Nav>
         <Banner />
+        <ul>
+            {movies.map((movie) => (
+              <li key={movie.id}>{movie.title}
+              <img  key={movie.id} src={"https://image.tmdb.org/t/p/w185/" + movie.poster_path}>
+              </img>
+              </li>
+            ))}
+        </ul>
 
         <Footer />
       </div>
