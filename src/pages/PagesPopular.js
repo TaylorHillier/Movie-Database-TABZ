@@ -8,7 +8,7 @@ function PagesPopular() {
 
   return (
     <main>
-      <h2>Popular ~</h2>
+      <h2>Popular</h2>
       
       {twelvemovies.map((movie) => (
         <li key={movie.id}>
