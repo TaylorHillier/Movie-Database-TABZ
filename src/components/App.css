@@ -1,1 +1,16 @@
 
+body{
+    background-color: #07112E;
+    color: white;
+}
+
+nav{
+    background-color: #770013;
+    position: absolute;
+    top: 0;
+}
+
+a{
+    color: white;
+    list-style: none;
+}
