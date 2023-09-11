@@ -12,14 +12,16 @@ function AppRouter() {
   return (
     <BrowserRouter>
       <div className="wrapper">
-        <Nav />
-        <Banner />
+        <Nav>
         <Routes>
           <Route path="/popular" element={<PagesPopular />} />
           <Route path="/top-rated" element={<PagesTopRated />} />
           <Route path="/now-playing" element={<PagesNowPlaying />} />
           <Route path="/upcoming" element={<PagesUpcoming />} />
+          <Route path="/favorites" element={<PagesFavorites />} />
         </Routes>
+        </Nav>
+        <Banner />
         <Footer />
       </div>
     </BrowserRouter>
