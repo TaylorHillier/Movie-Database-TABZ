@@ -18,6 +18,7 @@ function AppRouter() {
     <BrowserRouter>
       <div className="wrapper">
         <Nav>
+        </Nav>
         <Routes>
           <Route path="/popular" element={<PagesPopular />} />
           <Route path="/top-rated" element={<PagesTopRated />} />
@@ -25,9 +26,7 @@ function AppRouter() {
           <Route path="/upcoming" element={<PagesUpcoming />} />
           <Route path="/favorites" element={<PagesFavorites />} />
         </Routes>
-        </Nav>
         <Banner />
-        <HomeAPI />
         <Footer />
       </div>
     </BrowserRouter>
