@@ -9,12 +9,12 @@ import PagesTopRated from "../pages/PagesTopRated";
 import PagesNowPlaying from "../pages/PagesNowPlaying";
 import PagesUpcoming from "../pages/PagesUpcoming";
 import PagesFavorites from "../pages/PagesFavorites";
-import {accessToken, apiKey} from "../api/APIVariables";
+import {accessToken, apiKey} from "../api/APIFunctionality";
 
 function AppRouter() {
   const [movies, setMovie] = useState([]);
   
-  
+
   const options = {
     method: 'GET',
     headers: {
