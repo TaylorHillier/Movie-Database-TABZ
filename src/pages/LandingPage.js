@@ -11,8 +11,6 @@ function Banner() {
   if (isLandingPage) {
     return (
       <div className="banner">
-        {/* Your banner content here */}
-        <h1>Welcome to the Landing Page</h1>
       </div>
     );
   }
