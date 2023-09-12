@@ -1,8 +1,8 @@
 
-import PopAPI from "../api/APIFunctionality";
+import GeneralAPI from "../api/APIFunctionality";
 
 function PagesTopRated() {
-  const movies = PopAPI('top_rated');
+  const movies = GeneralAPI('top_rated');
 
   const twelvemovies = movies.slice(0,12);
 

@@ -1,8 +1,8 @@
 
-import PopAPI from "../api/APIFunctionality";
+import GeneralAPI from "../api/APIFunctionality";
 
 function PagesNowPlaying() {
-  const movies = PopAPI('now_playing');
+  const movies = GeneralAPI('now_playing');
 
   const twelvemovies = movies.slice(0,12);
 

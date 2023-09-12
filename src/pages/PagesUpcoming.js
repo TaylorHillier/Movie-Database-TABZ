@@ -1,8 +1,8 @@
 
-import PopAPI from "../api/APIFunctionality";
+import GeneralAPI from "../api/APIFunctionality";
 
 function PagesUpcoming() {
-  const movies = PopAPI('upcoming');
+  const movies = GeneralAPI('upcoming');
 
   const twelvemovies = movies.slice(0,12);
 
