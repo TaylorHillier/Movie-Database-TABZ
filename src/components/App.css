@@ -4,13 +4,76 @@ body{
     color: white;
 }
 
-nav{
+.main-nav{
     background-color: #770013;
-    position: absolute;
-    top: 0;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+}
+
+.menu{
+    grid-column: 3/3;
+}
+
+.filltering {
+    grid-column: 2/3;
+    margin-right: 0;
+}
+
+nav li {
+    list-style: none;
+    margin: 0 1.5rem 0 .5rem;
 }
 
 a{
     color: white;
-    list-style: none;
+    text-decoration: none;
 }
+
+ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+
+#app {
+    height: 100%;
+  }
+  html,
+  body {
+    position: relative;
+    height: 100%;
+  }
+  
+  body {
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #000;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .swiper {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+  
+    /* Center slide text vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  

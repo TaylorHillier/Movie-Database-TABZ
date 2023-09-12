@@ -33,7 +33,7 @@ function AppRouter() {
   return (
     <BrowserRouter>
       <div className="wrapper">
-        <h2>{movie}</h2>
+        {/* <h2>{movie}</h2> */}
         <Nav>
         <Routes>
           <Route path="/popular" element={<PagesPopular />} />
