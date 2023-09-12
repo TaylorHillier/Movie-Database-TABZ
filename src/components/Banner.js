@@ -16,7 +16,7 @@ export default function App() {
   const location = useLocation();
 
   // Check if the current route is the landing page ("/landingpage")
-  const isLandingPage = location.pathname === "/landingpage";
+  const isLandingPage = location.pathname === "/";
 
   return (
     <>

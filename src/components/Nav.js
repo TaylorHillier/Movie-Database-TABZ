@@ -22,7 +22,7 @@ function Nav() {
         <div className="menu">
           <ul>
             <li>
-              <NavLink to="/landingpage">Home</NavLink>
+              <NavLink to="/">Home</NavLink>
             </li>
             <li>
               <NavLink to="/favorites">Favorites</NavLink>
