@@ -8,6 +8,7 @@ import PagesPopular from "../pages/PagesPopular";
 import PagesTopRated from "../pages/PagesTopRated";
 import PagesNowPlaying from "../pages/PagesNowPlaying";
 import PagesUpcoming from "../pages/PagesUpcoming";
+import LandingPage from "../pages/LandingPage";
 import PagesFavorites from "../pages/PagesFavorites";
 import {accessToken, apiKey} from "../api/APIVariables";
 
@@ -40,6 +41,7 @@ function AppRouter() {
           <Route path="/top-rated" element={<PagesTopRated />} />
           <Route path="/now-playing" element={<PagesNowPlaying />} />
           <Route path="/upcoming" element={<PagesUpcoming />} />
+          <Route path="/landingpage" element={<LandingPage />} />
           <Route path="/favorites" element={<PagesFavorites />} />
         </Routes>
         </Nav>
