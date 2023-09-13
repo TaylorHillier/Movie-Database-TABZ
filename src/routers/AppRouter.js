@@ -9,6 +9,7 @@ import PagesTopRated from "../pages/PagesTopRated";
 import PagesNowPlaying from "../pages/PagesNowPlaying";
 import PagesUpcoming from "../pages/PagesUpcoming";
 import PagesFavorites from "../pages/PagesFavorites";
+import PageAbout from "../pages/PageAbout";
 import HomeAPI from "../api/APIFunctionality";
 
 function AppRouter() {
@@ -25,6 +26,7 @@ function AppRouter() {
           <Route path="/now-playing" element={<PagesNowPlaying />} />
           <Route path="/upcoming" element={<PagesUpcoming />} />
           <Route path="/favorites" element={<PagesFavorites />} />
+          <Route path="/about" element={<PageAbout />} />
         </Routes>
         {/* <HomeAPI /> */}
         <Footer />

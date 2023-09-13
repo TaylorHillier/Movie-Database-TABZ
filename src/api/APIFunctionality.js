@@ -5,7 +5,7 @@ const accessToken = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlZjI3MGZmZmVkNjliYzFkNDdkZT
 
 const apiKey = 'ef270fffed69bc1d47de32648ff050cd';
   
-function HomeAPI () {
+function GeneralAPI (movieType) {
     const [movies, setMovie] = useState([]);
   
 
@@ -18,7 +18,7 @@ function HomeAPI () {
     };
   
     useEffect(() => {
-      fetch('https://api.themoviedb.org/3/trending/movie/week?language=en-US', options)
+      fetch(`https://api.themoviedb.org/3/movie/${movieType}?language=en-US&page=1`, options)
       .then(response => response.json())
       .then(data => {
         setMovie(data.results);
@@ -26,16 +26,7 @@ function HomeAPI () {
       .catch(err => console.error(err));
     }, []);
 
-    return(
-    <ul>
-        {movies.map((movie) => (
-          <li key={movie.id}>{movie.title}
-          <img  key={movie.id} src={"https://image.tmdb.org/t/p/w185/" + movie.poster_path}>
-          </img>
-          </li>
-        ))}
-    </ul>
-    );
+    return movies;
 }
 
-export default HomeAPI;
+export default GeneralAPI;
