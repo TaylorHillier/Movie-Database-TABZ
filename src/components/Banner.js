@@ -12,7 +12,7 @@ import "./App.css";
 // import required modules
 import { Pagination } from "swiper/modules";
 
-export default function App() {
+function Banner() {
   const location = useLocation();
 
   // Check if the current route is the landing page ("/landingpage")
@@ -38,3 +38,4 @@ export default function App() {
     </>
   );
 }
+ export default Banner;
