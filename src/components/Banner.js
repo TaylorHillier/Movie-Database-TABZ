@@ -6,9 +6,9 @@ import { register } from "swiper/element/bundle";
 // register Swiper custom elements
 register();
 
-function Banner() {
+function Banner({category}) {
   //   const [posters, setPosters] = useState([]);
-  const backdrops = GeneralAPI("popular");
+  const backdrops = GeneralAPI(category);
   const movies = backdrops.slice(0, 6);
   //   const getBackdrop = () => {
   //     let poster = posters.find((poster) => poster.vote_count > 9);
@@ -25,13 +25,13 @@ function Banner() {
       effect="fade"
       fade-effect-cross-fade="true"
       centered-slides="true"
-      autoplay-delay="3000"
+      autoplay-delay="3500"
       autoplay-disable-on-interaction="false"
       space-between="30"
     >
       {movies.map((movie, index) => (
         <swiper-slide>
-          <div class="title">
+          <div className="title">
             <h3>{movie.original_title}</h3>
           </div>
           <img

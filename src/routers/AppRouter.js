@@ -18,7 +18,7 @@ function AppRouter() {
     <BrowserRouter>
       <div className="wrapper">
         <Nav/>
-        <Banner />
+        <Banner category={"popular"}/>
         <Routes>
           <Route path="/popular" element={<PagesPopular />} />
           <Route path="/top-rated" element={<PagesTopRated />} />
