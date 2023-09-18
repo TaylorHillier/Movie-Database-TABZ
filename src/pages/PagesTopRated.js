@@ -1,4 +1,4 @@
-
+import MovieTab from "../components/MovieTab";
 import GeneralAPI from "../api/APIFunctions";
 
 function PagesTopRated() {
@@ -8,18 +8,14 @@ function PagesTopRated() {
 
   return (
     <main>
-      <h2>Top Rated</h2>
-      
-      {twelvemovies.map((movie) => (
-        <li key={movie.id}>
-        {movie.title}
-        <img src={"https://image.tmdb.org/t/p/w200/" + movie.poster_path}/>
-        </li>
-      ))}
+        <h1>Now Playing</h1>
+        <div>
+            {twelvemovies.map((movie) => (
+                <MovieTab movie={movie}></MovieTab>
+            ))}
+        </div>
     </main>
-
-    
-  );
+);
 }
 
 export default PagesTopRated;

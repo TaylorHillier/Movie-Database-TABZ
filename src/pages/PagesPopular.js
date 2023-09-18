@@ -1,4 +1,4 @@
-
+import MovieTab from "../components/MovieTab";
 import GeneralAPI from "../api/APIFunctions";
 
 function PagesPopular() {
@@ -8,18 +8,14 @@ function PagesPopular() {
 
   return (
     <main>
-      <h2>Popular</h2>
-      
-      {twelvemovies.map((movie) => (
-        <li key={movie.id}>
-        {movie.title}
-        <img src={"https://image.tmdb.org/t/p/w200/" + movie.poster_path}/>
-        </li>
-      ))}
+        <h1>Now Playing</h1>
+        <div>
+            {twelvemovies.map((movie) => (
+                <MovieTab movie={movie}></MovieTab>
+            ))}
+        </div>
     </main>
-
-    
-  );
+);
 }
 
 export default PagesPopular;
