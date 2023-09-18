@@ -1,5 +1,5 @@
 
-import GeneralAPI from "../api/APIFunctionality";
+import GeneralAPI from "../api/APIFunctions";
 
 function PagesTopRated() {
   const movies = GeneralAPI('top_rated');

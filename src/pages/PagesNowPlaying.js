@@ -1,5 +1,5 @@
 
-import GeneralAPI from "../api/APIFunctionality";
+import GeneralAPI from "../api/APIFunctions";
 
 function PagesNowPlaying() {
   const movies = GeneralAPI('now_playing');

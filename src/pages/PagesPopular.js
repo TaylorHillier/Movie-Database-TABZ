@@ -1,5 +1,5 @@
 
-import GeneralAPI from "../api/APIFunctionality";
+import GeneralAPI from "../api/APIFunctions";
 
 function PagesPopular() {
   const movies = GeneralAPI('popular');
