@@ -19,7 +19,6 @@ function AppRouter() {
   return (
     <BrowserRouter>
       <div className="wrapper">
-        {/* <h2>{movie}</h2> */}
         <Nav>
         </Nav>
         <Routes>

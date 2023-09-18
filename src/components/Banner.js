@@ -1,41 +1,81 @@
 import { useLocation } from "react-router-dom";
 import React, { useRef, useState } from "react";
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
-
+import 'swiper/css/navigation';
 import "./App.css";
-
-// import required modules
-import { Pagination } from "swiper/modules";
+import PopAPI from "../api/APIFunctionality";
+import { Pagination, Autoplay , Navigation} from "swiper/modules";
 
 function Banner() {
   const location = useLocation();
-
-  // Check if the current route is the landing page ("/landingpage")
+  const movies = PopAPI('popular');
   const isLandingPage = location.pathname === "/";
+  const fourmovies = movies.slice(0, 4);
+  const twelvemovies = movies.slice(0, 12);
+
 
   return (
     <>
-      {isLandingPage && ( // Render Swiper only on the landing page
+      {isLandingPage && (
         <Swiper
           spaceBetween={30}
+          autoplay={{
+            delay: 1500,
+            disableOnInteraction: false,
+          }}
           pagination={{
             clickable: true,
           }}
-          modules={[Pagination]}
+          modules={[Pagination, Autoplay]}
           className="mySwiper"
         >
-          <SwiperSlide>Slide 1</SwiperSlide>
-          <SwiperSlide>Slide 2</SwiperSlide>
-          <SwiperSlide>Slide 3</SwiperSlide>
-          <SwiperSlide>Slide 4</SwiperSlide>
+          {fourmovies.map((movie) => (
+            <SwiperSlide key={movie.id}>
+              <img
+                className="imgBanner"
+                src={"https://image.tmdb.org/t/p/w1280/" + movie.backdrop_path}
+                alt={movie.title}
+              />
+            </SwiperSlide>
+          ))}
         </Swiper>
       )}
     </>
   );
 }
- export default Banner;
+
+function AdditionalSlider({ twelvemovies }) {
+  return (
+    <Swiper
+      slidesPerView={6}
+      spaceBetween={0}
+      navigation={true}
+      modules={[ Navigation]}
+      className="mySwiper"
+    >
+      {twelvemovies.map((movie) => (
+        <SwiperSlide key={movie.id}>
+          <img
+            className="imgBanner-pop"
+            src={"https://image.tmdb.org/t/p/w1280/" + movie.poster_path}
+            alt={movie.title}
+          />
+        </SwiperSlide>
+      ))}
+    </Swiper>
+  );
+}
+
+export default function App() {
+  const movies = PopAPI('popular');
+  const twelvemovies = movies.slice(0, 12);
+
+  return (
+    <div>
+      <Banner />
+      <AdditionalSlider twelvemovies={twelvemovies} />
+    </div>
+  );
+}
