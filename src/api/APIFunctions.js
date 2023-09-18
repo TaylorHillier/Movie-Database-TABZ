@@ -38,4 +38,12 @@ function GeneralAPI(category) {
     return movies;
 }
 
+function MovieTab(movie){
+  return (
+    <div>
+
+    </div>
+  )
+}
+
 export default GeneralAPI;

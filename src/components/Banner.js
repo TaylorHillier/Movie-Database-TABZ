@@ -24,7 +24,6 @@ function Banner({category}) {
       loop
       effect="fade"
       fade-effect-cross-fade="true"
-      centered-slides="true"
       autoplay-delay="3500"
       autoplay-disable-on-interaction="false"
       space-between="30"
@@ -36,7 +35,7 @@ function Banner({category}) {
           </div>
           <img
             key={index}
-            src={`https://image.tmdb.org/t/p/w780${movie.backdrop_path}`}
+            src={`https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`}
             alt={movie.original_title + " backdrop image"}
           />
         </swiper-slide>
