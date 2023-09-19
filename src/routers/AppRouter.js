@@ -3,15 +3,15 @@ import { useState, useEffect } from "react";
 import { UserProvider } from "../context/userState"
 import "../components/App.css";
 import Nav from "../components/Nav";
-import Footer from "../components/Footer";
-import Banner from "../components/Banner";
+// import Footer from "../components/Footer";
+// import Banner from "../components/Banner";
 import PagesPopular from "../pages/PagesPopular";
 import PagesTopRated from "../pages/PagesTopRated";
 import PagesNowPlaying from "../pages/PagesNowPlaying";
 import PagesUpcoming from "../pages/PagesUpcoming";
 import PagesFavorites from "../pages/PagesFavorites";
 import PageAbout from "../pages/PageAbout";
-import GeneralAPI from "../api/APIFunctionality";
+// import GeneralAPI from "../api/APIFunctionality";
 import PageLogin from "../pages/PageLogin";
 function AppRouter() {
 

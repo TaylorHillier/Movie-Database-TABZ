@@ -1,5 +1,5 @@
 
-function userReducer(state, action) {
+function UserReducer(state, action) {
     switch (action.type) {
         case 'CREATE_USER':
             return {
@@ -18,4 +18,4 @@ function userReducer(state, action) {
     }
 }
 
-export default userReducer;
+export default UserReducer;

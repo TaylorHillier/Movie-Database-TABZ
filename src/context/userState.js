@@ -1,5 +1,5 @@
 import React, { createContext, useReducer } from 'react';
-import userReducer from './userReducer';
+import UserReducer from './userReducer';
 
 // Initial state
 const initialState = {
@@ -12,7 +12,7 @@ const UserContext = createContext(initialState);
 
 // Provider component
 function UserProvider({ children }) {
-    const [state, dispatch] = useReducer(appReducer, initialState);
+    const [state, dispatch] = useReducer(UserReducer, initialState);
 
     // Actions
     function createUser(user) {
@@ -25,12 +25,12 @@ function UserProvider({ children }) {
     function deleteUser() {
         dispatch({
             type: 'DELETE_USER',
-            payload: null,
+            payload: "",
         });
     }
 
     return (
-        <GlobalContext.Provider
+        <UserContext.Provider
             value={{
                 user: state.user,
                 createUser,
@@ -38,7 +38,7 @@ function UserProvider({ children }) {
             }}
         >
             {children}
-        </GlobalContext.Provider>
+        </UserContext.Provider>
     );
 }
 
