@@ -25,6 +25,9 @@ function Nav() {
         <li>
           <NavLink to="/about">About</NavLink>
         </li>
+        <li>
+          <NavLink to="/login">Log In</NavLink>
+        </li>
       </ul>
     </nav>
   );

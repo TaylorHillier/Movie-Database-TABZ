@@ -5,9 +5,16 @@ function PageLogin() {
 
     const { user, createUser, deleteUser } = useContext(UserContext);
     const [newUser, setNewUser] = useState("");
+    const [error, setError] = useState("");
+
 
     function handleLogIn() {
-        createUser({ name: newUser });
+        if (newUser.trim() === "") {
+            setError("Username cannot be blank");
+        } else {
+            createUser({ name: newUser });
+            setError("");
+        }
     }
 
     function handleLogOut() {
@@ -27,9 +34,13 @@ function PageLogin() {
                         type="text"
                         placeholder="Enter a Username"
                         value={newUser}
-                        onChange={(e) => setNewUser(e.target.value)}
+                        onChange={(e) => {
+                            setNewUser(e.target.value);
+                            setError("");
+                        }}
                     />
                     <button onClick={handleLogIn}>LogIn</button>
+                    {error && <p style={{ color: "red" }}>{error}</p>}
                 </div>
             )}
         </div>
