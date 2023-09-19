@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { UserProvider } from "../context/userState"
 import "../components/App.css";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
@@ -10,25 +11,28 @@ import PagesNowPlaying from "../pages/PagesNowPlaying";
 import PagesUpcoming from "../pages/PagesUpcoming";
 import PagesFavorites from "../pages/PagesFavorites";
 import PageAbout from "../pages/PageAbout";
-import HomeAPI from "../api/APIFunctionality";
-
+import GeneralAPI from "../api/APIFunctionality";
+import PageLogin from "../pages/PageLogin";
 function AppRouter() {
 
-  
+
   return (
     <BrowserRouter>
-      <div className="wrapper">
-        <Nav>
-        </Nav>
-        <Routes>
-          <Route path="/popular" element={<PagesPopular />} />
-          <Route path="/top-rated" element={<PagesTopRated />} />
-          <Route path="/now-playing" element={<PagesNowPlaying />} />
-          <Route path="/upcoming" element={<PagesUpcoming />} />
-          <Route path="/favorites" element={<PagesFavorites />} />
-          <Route path="/about" element={<PageAbout />} />
-        </Routes>
-      </div>
+      <UserProvider>
+        <div className="wrapper">
+          <Nav>
+          </Nav>
+          <Routes>
+            <Route path="/popular" element={<PagesPopular />} />
+            <Route path="/top-rated" element={<PagesTopRated />} />
+            <Route path="/now-playing" element={<PagesNowPlaying />} />
+            <Route path="/upcoming" element={<PagesUpcoming />} />
+            <Route path="/favorites" element={<PagesFavorites />} />
+            <Route path="/about" element={<PageAbout />} />
+            <Route path="/login" element={<PageLogin />} />
+          </Routes>
+        </div>
+      </UserProvider>
     </BrowserRouter>
   );
 }
