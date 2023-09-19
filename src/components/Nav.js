@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 
+
 function Nav() {
   return (
     <nav className="main-nav">
@@ -27,6 +28,7 @@ function Nav() {
         </li>
       </ul>
     </nav>
+    
   );
 }
 
