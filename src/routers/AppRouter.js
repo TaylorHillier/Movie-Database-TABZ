@@ -14,6 +14,7 @@ import PageFavorites from "../pages/PageFavorites";
 import PageAbout from "../pages/PageAbout";
 // import GeneralAPI from "../api/APIFunctionality";
 import PageLogin from "../pages/PageLogin";
+import { FavoriteProvider } from "../context/movieState";
 
 
 function AppRouter() {
@@ -22,6 +23,7 @@ function AppRouter() {
   return (
     <BrowserRouter>
       <UserProvider>
+        <FavoriteProvider>
         <div className="wrapper">
           <Nav>
           </Nav>
@@ -36,6 +38,7 @@ function AppRouter() {
             <Route path="/login" element={<PageLogin />} />
           </Routes>
         </div>
+        </FavoriteProvider>
       </UserProvider>
     </BrowserRouter>
   );

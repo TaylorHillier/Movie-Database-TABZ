@@ -1,12 +1,16 @@
 import { useLocation } from "react-router-dom";
+import { useContext } from "react";
+import { useState } from "react";
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import 'swiper/css/navigation';
 import "./App.css";
-import PopAPI from "../api/APIFunctionality";
+import GeneralAPI from "../api/APIFunctionality";
 import { Pagination, Autoplay, Navigation } from "swiper/modules";
+import { FavoriteContext } from "../context/movieState";
+import CreateFavorite from "./CreateFavorite";
 
 
 function truncateText(text, maxWords) {
@@ -49,6 +53,12 @@ function BannerSlider({ movies }) {
 }
 
 function AdditionalSlider({ twelvemovies }) {
+  
+  const handleAddFavorite = (movie) => {
+    return <CreateFavorite movie={movie} />;
+  };
+  
+
   return (
     <Swiper
       slidesPerView={5}
@@ -72,6 +82,7 @@ function AdditionalSlider({ twelvemovies }) {
               <button className="readMore">
                 <a href="#">Read More</a>
               </button>
+              <CreateFavorite movie={movie} />;
             </div>
           </div>
         </SwiperSlide>
@@ -84,10 +95,10 @@ export default function App() {
   const location = useLocation();
   const isLandingPage = location.pathname === "/";
 
-  const popularMovies = PopAPI('popular');
-  const upcomingMovies = PopAPI('upcoming');
-  const topRatedMovies = PopAPI('top_rated');
-  const nowPlayingMovies = PopAPI('now_playing');
+  const popularMovies = GeneralAPI('popular');
+  const upcomingMovies = GeneralAPI('upcoming');
+  const topRatedMovies = GeneralAPI('top_rated');
+  const nowPlayingMovies = GeneralAPI('now_playing');
   const twelvemovies = popularMovies.slice(0, 12);
 
   return (
