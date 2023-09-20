@@ -2,12 +2,13 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import "../components/App.css";
 import Nav from "../components/Nav";
-import Banner from "../components/Banner";
+import {Banner} from "../components/Banner";
 import Footer from "../components/Footer";
 import PagesPopular from "../pages/PagesPopular";
 import PagesTopRated from "../pages/PagesTopRated";
 import PagesNowPlaying from "../pages/PagesNowPlaying";
 import PagesUpcoming from "../pages/PagesUpcoming";
+import PagesHome from "../pages/PagesHome";
 import PagesFavorites from "../pages/PagesFavorites";
 import PagesAbout from "../pages/PagesAbout";
 
@@ -20,6 +21,7 @@ function AppRouter() {
         <Nav/>
         <Banner category={"popular"}/>
         <Routes>
+          <Route path="/" element={<PagesHome />} />
           <Route path="/popular" element={<PagesPopular />} />
           <Route path="/top-rated" element={<PagesTopRated />} />
           <Route path="/now-playing" element={<PagesNowPlaying />} />
