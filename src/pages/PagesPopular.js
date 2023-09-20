@@ -8,7 +8,7 @@ function PagesPopular() {
 
   return (
     <main>
-        <h1>Now Playing</h1>
+        <h1>Popular</h1>
         <div>
             {twelvemovies.map((movie) => (
                 <MovieTab movie={movie}></MovieTab>

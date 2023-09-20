@@ -8,7 +8,7 @@ function PagesTopRated() {
 
   return (
     <main>
-        <h1>Now Playing</h1>
+        <h1>Top Rated</h1>
         <div>
             {twelvemovies.map((movie) => (
                 <MovieTab movie={movie}></MovieTab>
