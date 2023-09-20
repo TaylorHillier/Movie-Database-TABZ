@@ -179,8 +179,8 @@ img.movie-poster{
 .wrapperAll{
   border-top: solid .1rem gray ;
   border-bottom: solid .1rem gray ;
-  margin-bottom: 8rem;
-  margin-top: 8rem;
+  margin-bottom: 5rem;
+  margin-top: 2rem;
 }
 
 .info-banner .score {
@@ -199,3 +199,15 @@ img.movie-poster{
   height: 15px !important;
   background-color: #FFD43B  !important;
 }
+
+.main-title{
+  color: white;
+  background-color: #770013;
+  font-size: 1.2rem;
+  padding: .5rem 6rem;
+  width: 10rem;
+  border-radius: 1rem;
+  margin-left: -1rem;
+  margin-top: 5rem;
+}
+

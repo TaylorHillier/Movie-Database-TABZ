@@ -116,13 +116,18 @@ export default function App() {
   return (
     <div>
       {isLandingPage && (
-        <>
-          <BannerSlider movies={popularMovies} />
-          <AdditionalSlider twelvemovies={twelvemovies} />
-          <AdditionalSlider twelvemovies={upcomingMovies} />
-          <AdditionalSlider twelvemovies={topRatedMovies} />
-          <AdditionalSlider twelvemovies={nowPlayingMovies} />
-        </>
+            <>
+            <BannerSlider movies={popularMovies} />
+            <p className="main-title">Popular</p> {/* Add the label for Popular */}
+            <AdditionalSlider twelvemovies={twelvemovies} />
+            <p className="main-title">Upcoming</p> {/* Add the label for Upcoming */}
+            <AdditionalSlider twelvemovies={upcomingMovies} />
+            <p className="main-title">Top Rated</p> {/* Add the label for Top Rated */}
+            <AdditionalSlider twelvemovies={topRatedMovies} />
+            <p className="main-title">Now Playing</p> {/* Add the label for Now Playing */}
+            <AdditionalSlider twelvemovies={nowPlayingMovies} />
+          </>
+      
       )}
     </div>
   );
