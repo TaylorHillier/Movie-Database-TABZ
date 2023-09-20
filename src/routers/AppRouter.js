@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import "../components/App.css";
-import Nav from "../components/Nav";
+import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Banner from "../components/Banner";
 import PagesPopular from "../pages/PagesPopular";
@@ -19,8 +19,7 @@ function AppRouter() {
   return (
     <BrowserRouter>
       <div className="wrapper">
-        <Nav>
-        </Nav>
+        <Header/>
         <Routes>
           <Route path="/" element={<PagesHome />} />
           <Route path="/popular" element={<PagesPopular />} />
