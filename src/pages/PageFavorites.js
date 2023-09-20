@@ -27,7 +27,7 @@ function PageFavorites() {
                                     />
                                     <h3>{favoritedMovie.title}</h3>
                                     <p>{favoritedMovie.overview}</p>
-                                    <CreateFavorite movie={favoritedMovie} />;
+                                    <CreateFavorite movie={favoritedMovie} />
                                     </div>
                                 ))}
                         </div>
