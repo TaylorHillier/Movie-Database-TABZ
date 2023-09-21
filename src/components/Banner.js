@@ -104,7 +104,7 @@ export function BannerSlider({ movies }) {
   );
 }
 
-export function AdditionalSlider({ twelvemovies }) {
+export function CategorySlider({ twelvemovies }) {
   return (
     <div className="wrapperAll">
     <swiper-container
