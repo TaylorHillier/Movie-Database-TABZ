@@ -146,19 +146,3 @@ export function AdditionalSlider({ twelvemovies }) {
   );
 }
 
-export default function App() {
-  const location = useLocation();
-  const isLandingPage = location.pathname === "/";
-
-  const popularMovies = GeneralAPI('popular');
-  const upcomingMovies = GeneralAPI('upcoming');
-  const topRatedMovies = GeneralAPI('top_rated');
-  const nowPlayingMovies = GeneralAPI('now_playing');
-  const twelvemovies = popularMovies.slice(0, 12);
-
-  return (
-    <div>
-      
-    </div>
-  );
-}

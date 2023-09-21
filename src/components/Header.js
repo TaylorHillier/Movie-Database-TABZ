@@ -7,7 +7,7 @@ function Header() {
                 <img
                     className="logo"
                     width="120"
-                    src={require("../logo/logo1.png")}
+                    src={require("../images/logo/logo1.png")}
                     alt="logo"
                 />
                 <Nav />
