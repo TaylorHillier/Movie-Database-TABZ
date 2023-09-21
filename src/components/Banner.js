@@ -76,7 +76,7 @@ export function BannerSlider({ movies }) {
       {fiveMovies.map((movie) => (
         <swiper-slide key={movie.id}>
           <div className="flex justify-end">
-            <div className="info-banner">
+            <div className="flex flex-col text-left relative w-[500px] text-[white] blur-[90%] bg-[rgba(0,0,0,0.6)] text-[1.2rem] px-20 py-8">
               <p>{movie.release_date.split("-")[0]}</p>
               <h1>{movie.title}</h1>
               <p>{truncateText(movie.overview, 50)}</p>
