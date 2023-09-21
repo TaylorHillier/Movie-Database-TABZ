@@ -66,21 +66,16 @@ export function BannerSlider({ movies }) {
   const fiveMovies = movies.slice(0, 5);
 
   return (
-    <Swiper
-      spaceBetween={30}
-      autoplay={{
-        delay: 1500,
-        disableOnInteraction: false,
-      }}
-      pagination={{
-        clickable: true,
-      }}
-      modules={[Pagination, Autoplay]}
-      className="mySwiper"
+    <swiper-container
+      space-between="30"
+      autoplay-delay="3000"
+      autoplay-disable-on-interaction="false"
+      pagination-clickable="true"
+      class="mySwiper"
     >
       {fiveMovies.map((movie) => (
-        <SwiperSlide key={movie.id}>
-          <div className="imgBanner">
+        <swiper-slide key={movie.id}>
+          <div className="flex justify-end">
             <div className="info-banner">
               <p>{movie.release_date.split("-")[0]}</p>
               <h1>{movie.title}</h1>
@@ -103,25 +98,24 @@ export function BannerSlider({ movies }) {
               alt={movie.title}
             />
           </div>
-        </SwiperSlide>
+        </swiper-slide>
       ))}
-    </Swiper>
+    </swiper-container>
   );
 }
 
 export function AdditionalSlider({ twelvemovies }) {
   return (
     <div className="wrapperAll">
-    <Swiper
-      slidesPerView={6}
-      spaceBetween={0}
-      navigation={true}
-      modules={[Navigation]}
-      className="mySwiper"
+    <swiper-container
+      slides-per-view="6"
+      space-between="5"
+      navigation
+      class="mySwiper"
       style={{width: "85%"}}
     >
       {twelvemovies.map((movie) => (
-        <SwiperSlide key={movie.id}>
+        <swiper-slide key={movie.id}>
           <div className="swiper-slide-container">
             <div className="imgBanner-pop" >
               <img
@@ -139,9 +133,9 @@ export function AdditionalSlider({ twelvemovies }) {
               </div>
             </div>
           </div>
-        </SwiperSlide>
+        </swiper-slide>
       ))}
-    </Swiper>
+    </swiper-container>
     </div>
   );
 }
