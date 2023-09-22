@@ -20,7 +20,7 @@ function AppRouter() {
     <BrowserRouter>
       <div className="wrapper">
         <Header/>
-          <main className="">
+          <main>
         <Routes>
           <Route path="/" element={<PagesHome />} />
           <Route path="/popular" element={<PagesPopular />} />
