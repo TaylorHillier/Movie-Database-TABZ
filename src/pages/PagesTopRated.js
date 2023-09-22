@@ -2,21 +2,20 @@ import MovieTab from "../components/MovieTab";
 import GeneralAPI from "../api/APIFunctions";
 
 function PagesTopRated() {
-  const movies = GeneralAPI('top_rated');
+    const movies = GeneralAPI("top_rated");
 
-  const twelvemovies = movies.slice(0,12);
+    const twelvemovies = movies.slice(0, 12);
 
-  return (
-    <div>
-        <h1>Top Rated</h1>
+    return (
         <div>
-            {twelvemovies.map((movie) => (
-                <MovieTab movie={movie}></MovieTab>
-            ))}
+            <h1>Top Rated</h1>
+            <div>
+                {twelvemovies.map((movie, index) => (
+                    <MovieTab key={index} movie={movie}></MovieTab>
+                ))}
+            </div>
         </div>
-    </div>
-);
+    );
 }
 
 export default PagesTopRated;
-

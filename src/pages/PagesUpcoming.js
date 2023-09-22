@@ -10,8 +10,8 @@ function PagesUpcoming() {
     <div>
         <h1>Upcoming</h1>
         <div>
-            {twelvemovies.map((movie) => (
-                <MovieTab movie={movie}></MovieTab>
+            {twelvemovies.map((movie, index) => (
+                <MovieTab key={index} movie={movie}></MovieTab>
             ))}
         </div>
     </div>

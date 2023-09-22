@@ -2,20 +2,20 @@ import MovieTab from "../components/MovieTab";
 import GeneralAPI from "../api/APIFunctions";
 
 function PagesPopular() {
-  const movies = GeneralAPI('popular');
+    const movies = GeneralAPI("popular");
 
-  const twelvemovies = movies.slice(0,12);
+    const twelvemovies = movies.slice(0, 12);
 
-  return (
-    <div>
-        <h1>Popular</h1>
+    return (
         <div>
-            {twelvemovies.map((movie) => (
-                <MovieTab movie={movie}></MovieTab>
-            ))}
+            <h1>Popular</h1>
+            <div>
+                {twelvemovies.map((movie, index) => (
+                    <MovieTab key={index} movie={movie}></MovieTab>
+                ))}
+            </div>
         </div>
-    </div>
-);
+    );
 }
 
 export default PagesPopular;
