@@ -7,14 +7,14 @@ function PagesTopRated() {
   const twelvemovies = movies.slice(0,12);
 
   return (
-    <main>
+    <div>
         <h1>Top Rated</h1>
         <div>
             {twelvemovies.map((movie) => (
                 <MovieTab movie={movie}></MovieTab>
             ))}
         </div>
-    </main>
+    </div>
 );
 }
 

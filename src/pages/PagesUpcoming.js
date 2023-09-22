@@ -7,14 +7,14 @@ function PagesUpcoming() {
   const twelvemovies = movies.slice(0,12);
 
   return (
-    <main>
+    <div>
         <h1>Upcoming</h1>
         <div>
             {twelvemovies.map((movie) => (
                 <MovieTab movie={movie}></MovieTab>
             ))}
         </div>
-    </main>
+    </div>
 );
 }
 
