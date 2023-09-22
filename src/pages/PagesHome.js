@@ -1,7 +1,8 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import GeneralAPI from "../api/APIFunctions";
-import { BannerSlider, CategorySlider } from "../components/Banner";
+import { BannerSlider} from "../components/Banner";
+import CategorySlider from "../components/CategorySlider";
+import fetchMovies from "../api/APIFunctions";
 
 export default function PageHome() {
     const location = useLocation();
@@ -9,10 +10,10 @@ export default function PageHome() {
     // Check if the current route is the landing page ("/landingpage")
     const isLandingPage = location.pathname === "/";
 
-    const popularMovies = GeneralAPI("popular");
-    const upcomingMovies = GeneralAPI("upcoming");
-    const topRatedMovies = GeneralAPI("top_rated");
-    const nowPlayingMovies = GeneralAPI("now_playing");
+    const popularMovies = fetchMovies("popular");
+    const upcomingMovies = fetchMovies("upcoming");
+    const topRatedMovies = fetchMovies("top_rated");
+    const nowPlayingMovies = fetchMovies("now_playing");
     const twelvemovies = popularMovies.slice(0, 12);
 
     // Render the Banner component only on the landing page

@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useState, useEffect } from "react";
 import "../components/App.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -16,7 +15,7 @@ function AppRouter() {
   
   return (
     <BrowserRouter>
-      <div className="wrapper">
+      <div className="wrapper w-full">
         <Header/>
           <main>
         <Routes>

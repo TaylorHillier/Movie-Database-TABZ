@@ -1,49 +1,49 @@
-import "./App.css";
-import GeneralAPI from "../api/APIFunctions";
+// import "./App.css";
 import { truncateText } from "../utils/utilityFunctions";
+import {fetchMovies} from "../api/APIFunctions"
 // import function to register Swiper custom elements
 import { register } from "swiper/element/bundle";
 
 // register Swiper custom elements
 register();
 
-export function Banner({ category }) {
-    //   const [posters, setPosters] = useState([]);
-    const backdrops = GeneralAPI(category);
-    const movies = backdrops.slice(0, 6);
-    //   const getBackdrop = () => {
-    //     let poster = posters.find((poster) => poster.vote_count > 9);
-    //     return poster && poster.file_path;
-    //   };
-    console.log(backdrops);
+// export function Banner({ category }) {
+//     //   const [posters, setPosters] = useState([]);
+//     const backdrops = GeneralAPI(category);
+//     const movies = backdrops.slice(0, 6);
+//     //   const getBackdrop = () => {
+//     //     let poster = posters.find((poster) => poster.vote_count > 9);
+//     //     return poster && poster.file_path;
+//     //   };
+//     console.log(backdrops);
 
-    return (
-        <swiper-container
-            navigation
-            pagination
-            pagination-clickable="true"
-            loop
-            effect="fade"
-            fade-effect-cross-fade="true"
-            autoplay-delay="3500"
-            autoplay-disable-on-interaction="false"
-            space-between="30"
-        >
-            {movies.map((movie, index) => (
-                <swiper-slide>
-                    <div className="title">
-                        <h3>{movie.original_title}</h3>
-                    </div>
-                    <img
-                        key={index}
-                        src={`https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`}
-                        alt={movie.original_title + " backdrop image"}
-                    />
-                </swiper-slide>
-            ))}
-        </swiper-container>
-    );
-}
+//     return (
+//         <swiper-container
+//             navigation
+//             pagination
+//             pagination-clickable="true"
+//             loop
+//             effect="fade"
+//             fade-effect-cross-fade="true"
+//             autoplay-delay="3500"
+//             autoplay-disable-on-interaction="false"
+//             space-between="30"
+//         >
+//             {movies.map((movie, index) => (
+//                 <swiper-slide>
+//                     <div className="title">
+//                         <h3>{movie.original_title}</h3>
+//                     </div>
+//                     <img
+//                         key={index}
+//                         src={`https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`}
+//                         alt={movie.original_title + " backdrop image"}
+//                     />
+//                 </swiper-slide>
+//             ))}
+//         </swiper-container>
+//     );
+// }
 
 export function BannerSlider({ movies }) {
     const fiveMovies = movies.slice(0, 5);
@@ -58,11 +58,12 @@ export function BannerSlider({ movies }) {
         >
             {fiveMovies.map((movie) => (
                 <swiper-slide key={movie.id}>
-                    <div className="flex justify-end">
-                        <div className="flex flex-col text-left relative w-[500px] text-[white] blur-[90%] bg-[rgba(0,0,0,0.6)] text-[1.2rem] px-20 py-8">
+                    <div className="imgBanner flex justify-end">
+                        <div className="info-banner flex flex-col text-left relative w-[auto] h-[100%] text-[white] blur-[90%] bg-[rgba(0,0,0,0.6)] text-[1.2rem] px-20 py-8">
                             <p>{movie.release_date.split("-")[0]}</p>
                             <h1>{movie.title}</h1>
-                            <p>{truncateText(movie.overview, 50)}</p>
+                            {/* <p>{truncateText(movie.overview, 50)}</p> */}
+                            <p className="truncate">{movie.overview}</p>
                             <p className="score flex text-[2rem] items-center relative">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -78,17 +79,17 @@ export function BannerSlider({ movies }) {
                             </p>
                         </div>
                         <img
-                            className=" w-auto h-[546px] mr-[25rem]"
+                            className="imgBanner-poster w-auto h-[100%] mr-[25rem]"
                             src={
-                                "https://image.tmdb.org/t/p/w1280/" +
+                                "https://image.tmdb.org/t/p/original/" +
                                 movie.poster_path
                             }
                             alt={movie.title}
                         />
                         <img
-                            className="imgBanner-backdrop w-full absolute brightness-[35%]  blur-[100%] -z-1"
+                            className="imgBanner-backdrop h-[100%] w-full absolute brightness-[35%]  blur-[100%] -z-1"
                             src={
-                                "https://image.tmdb.org/t/p/w1280/" +
+                                "https://image.tmdb.org/t/p/original/" +
                                 movie.backdrop_path
                             }
                             alt={movie.title}
@@ -100,43 +101,3 @@ export function BannerSlider({ movies }) {
     );
 }
 
-export function CategorySlider({ twelvemovies }) {
-    return (
-        <div className="wrapperAll">
-            <swiper-container
-                slides-per-view="6"
-                space-between="5"
-                navigation
-                class="mySwiper"
-                style={{ width: "85%" }}
-            >
-                {twelvemovies.map((movie) => (
-                    <swiper-slide key={movie.id}>
-                        <div className="swiper-slide-container">
-                            <div className="imgBanner-pop group flex flex-wrap">
-                                <img
-                                    src={
-                                        "https://image.tmdb.org/t/p/w1280/" +
-                                        movie.poster_path
-                                    }
-                                    alt={movie.title}
-                                    className="movie-poster w-[250px]"
-                                />
-                                <div className="movie-info group-hover:opacity-100 group-hover:border-y-[solid] group-hover:border-y-[gray]">
-                                    <p className="text-justify px-6 py-2">
-                                        {movie.vote_average}
-                                    </p>
-                                    <h3>{movie.title}</h3>
-                                    <p>{truncateText(movie.overview, 30)}</p>
-                                    <button className="bg-[#770013] text-[white] p-2 rounded-lg">
-                                        <a href="#">Read More</a>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </swiper-slide>
-                ))}
-            </swiper-container>
-        </div>
-    );
-}

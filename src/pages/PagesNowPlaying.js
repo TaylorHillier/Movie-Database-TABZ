@@ -1,8 +1,8 @@
 import MovieTab from "../components/MovieTab";
-import GeneralAPI from "../api/APIFunctions";
+import {fetchMovies} from "../api/APIFunctions";
 
 function PagesNowPlaying() {
-    const movies = GeneralAPI("now_playing");
+    const movies = fetchMovies("now_playing");
 
     const twelvemovies = movies.slice(0, 12);
 

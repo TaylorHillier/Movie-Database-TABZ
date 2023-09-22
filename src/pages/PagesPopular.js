@@ -1,8 +1,8 @@
 import MovieTab from "../components/MovieTab";
-import GeneralAPI from "../api/APIFunctions";
+import { fetchMovies } from "../api/APIFunctions";
 
 function PagesPopular() {
-    const movies = GeneralAPI("popular");
+    const movies = fetchMovies("popular");
 
     const twelvemovies = movies.slice(0, 12);
 

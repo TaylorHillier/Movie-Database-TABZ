@@ -4,7 +4,7 @@ function Nav() {
     return (
         <>
             <nav className="main-nav">
-                <div className="filltering">
+                {/* <div className="filltering">
                     <ul>
                         <li>
                             <NavLink to="/popular">Popular</NavLink>
@@ -19,7 +19,7 @@ function Nav() {
                             <NavLink to="/upcoming">Upcoming</NavLink>
                         </li>
                     </ul>
-                </div>
+                </div> */}
                 <div className="menu">
                     <ul>
                         <li>
