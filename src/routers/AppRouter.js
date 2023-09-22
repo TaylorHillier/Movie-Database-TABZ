@@ -20,6 +20,7 @@ function AppRouter() {
     <BrowserRouter>
       <div className="wrapper">
         <Header/>
+          <main className="">
         <Routes>
           <Route path="/" element={<PagesHome />} />
           <Route path="/popular" element={<PagesPopular />} />
@@ -29,6 +30,7 @@ function AppRouter() {
           <Route path="/favorites" element={<PagesFavorites />} />
           <Route path="/about" element={<PagesAbout />} />
         </Routes>
+          </main>
         <Footer />
       </div>
     </BrowserRouter>
