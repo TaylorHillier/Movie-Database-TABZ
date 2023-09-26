@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "../components/App.css";
 import Header from "../components/Header";
@@ -9,10 +11,32 @@ import PagesUpcoming from "../pages/PagesUpcoming";
 import PagesHome from "../pages/PagesHome";
 import PagesFavorites from "../pages/PagesFavorites";
 import PagesAbout from "../pages/PagesAbout";
+import { fetchMovies } from "../api/APIFunctions";
+import { loadMovies } from "../features/movies/moviesSlice";
 
 function AppRouter() {
+  const dispatch = useDispatch();
 
-  
+  useEffect(() => {
+        const load = async () => {
+            try {
+                const popular = await fetchMovies("popular");
+                const upcoming = await fetchMovies("upcoming");
+                const topRated = await fetchMovies("top_rated");
+                const nowPlaying = await fetchMovies("now_playing");
+                // console.log(popular);
+                // Actions payload must have a category property and corresponding movies property
+                dispatch(loadMovies({category:"popular", movies: popular}));
+                dispatch(loadMovies({category:"upcoming", movies: upcoming}));
+                dispatch(loadMovies({category:"top_rated", movies: topRated}));
+                dispatch(loadMovies({category:"now_playing", movies: nowPlaying}));
+            } catch (error) {
+                console.error(error);
+            }
+        };
+        load();
+    }, []);
+
   return (
     <BrowserRouter>
       <div className="wrapper w-full">

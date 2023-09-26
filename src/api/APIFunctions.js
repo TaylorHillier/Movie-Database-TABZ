@@ -18,6 +18,7 @@ export const fetchMovies = async (category) => {
             authHeader
         );
         let data = await response.json();
+        console.log("RUN FETCH");
         return data.results;
     } catch (error) {
         console.error(error);

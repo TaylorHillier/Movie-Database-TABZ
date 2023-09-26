@@ -1,8 +1,9 @@
 import MovieTab from "../components/MovieTab";
 import { fetchMovies } from "../api/APIFunctions";
+import { useSelector } from "react-redux";
 
 function PagesUpcoming() {
-    const movies = fetchMovies("upcoming");
+    const movies = useSelector(state => state.movies.upcoming)
 
     const twelvemovies = movies.slice(0, 12);
 

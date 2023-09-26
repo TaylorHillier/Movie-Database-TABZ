@@ -1,8 +1,9 @@
 import MovieTab from "../components/MovieTab";
 import {fetchMovies} from "../api/APIFunctions";
+import { useSelector } from "react-redux";
 
 function PagesNowPlaying() {
-    const movies = fetchMovies("now_playing");
+    const movies = useSelector(state => state.movies.now_playing)
 
     const twelvemovies = movies.slice(0, 12);
 

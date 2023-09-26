@@ -1,8 +1,9 @@
 import MovieTab from "../components/MovieTab";
 import { fetchMovies } from "../api/APIFunctions";
+import { useSelector } from "react-redux";
 
 function PagesTopRated() {
-    const movies = fetchMovies("top_rated");
+    const movies = useSelector(state => state.movies.top_rated)
 
     const twelvemovies = movies.slice(0, 12);
 

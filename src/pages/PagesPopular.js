@@ -1,8 +1,9 @@
 import MovieTab from "../components/MovieTab";
 import { fetchMovies } from "../api/APIFunctions";
+import { useSelector } from "react-redux";
 
 function PagesPopular() {
-    const movies = fetchMovies("popular");
+    const movies = useSelector(state => state.movies.popular)
 
     const twelvemovies = movies.slice(0, 12);
 
