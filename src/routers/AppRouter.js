@@ -35,7 +35,7 @@ function AppRouter() {
             }
         };
         load();
-    }, []);
+    });
 
   return (
     <BrowserRouter>
