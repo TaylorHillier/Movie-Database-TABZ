@@ -1,5 +1,4 @@
 import MovieTab from "../components/MovieTab";
-import { fetchMovies } from "../api/APIFunctions";
 import { useSelector } from "react-redux";
 
 function PagesPopular() {
