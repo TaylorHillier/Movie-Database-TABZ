@@ -20,12 +20,16 @@ export const moviesSlice = createSlice({
             switch (action.payload.category) {
                 case "popular":
                     state.popular = action.payload.movies;
+                    break;
                 case "topRated":
                     state.topRated = action.payload.movies;
+                    break;
                 case "upcoming":
                     state.upcoming = action.payload.movies;
+                    break;
                 case "nowPlaying":
                     state.nowPlaying = action.payload.movies;
+                    break;
                 default:
                     return state;
             }
