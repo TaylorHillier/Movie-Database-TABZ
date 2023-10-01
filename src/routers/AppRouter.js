@@ -28,8 +28,8 @@ function AppRouter() {
                 // Actions payload must have a category property and corresponding movies property
                 dispatch(loadMovies({category:"popular", movies: popular}));
                 dispatch(loadMovies({category:"upcoming", movies: upcoming}));
-                dispatch(loadMovies({category:"top_rated", movies: topRated}));
-                dispatch(loadMovies({category:"now_playing", movies: nowPlaying}));
+                dispatch(loadMovies({category:"topRated", movies: topRated}));
+                dispatch(loadMovies({category:"nowPlaying", movies: nowPlaying}));
             } catch (error) {
                 console.error(error);
             }

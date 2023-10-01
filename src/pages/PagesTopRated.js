@@ -3,7 +3,7 @@ import { fetchMovies } from "../api/APIFunctions";
 import { useSelector } from "react-redux";
 
 function PagesTopRated() {
-    const movies = useSelector(state => state.movies.top_rated)
+    const movies = useSelector(state => state.movies.topRated)
 
     const twelvemovies = movies.slice(0, 12);
 

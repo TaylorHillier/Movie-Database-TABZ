@@ -10,9 +10,9 @@ export default function PageHome() {
     // Select movies from state
     const popularMovies = useSelector((state) => state.movies.popular);
     const upcomingMovies = useSelector((state) => state.movies.upcoming);
-    const topRatedMovies = useSelector((state) => state.movies.top_rated);
-    const nowPlayingMovies = useSelector((state) => state.movies.now_playing);
-    const twelvemovies = popularMovies.slice(0, 12);
+    const topRatedMovies = useSelector((state) => state.movies.topRated);
+    const nowPlayingMovies = useSelector((state) => state.movies.nowPlaying);
+    const twelveMovies = popularMovies.slice(0, 12);
 
     // Render the Banner component only on the landing page
     if (isLandingPage) {
@@ -24,7 +24,7 @@ export default function PageHome() {
                         <section>
                         <h2 className="main-title">Popular</h2>{" "}
                         {/* Add the label for Popular */}
-                        <CategorySlider twelvemovies={twelvemovies} />
+                        <CategorySlider twelvemovies={twelveMovies} />
                         </section>
                         <section>
                             <h2 className="main-title">Upcoming</h2>{" "}

@@ -6,9 +6,9 @@ const initialState = {
     // upcoming: fetchMovies('upcoming') || [],
     // now_playing: fetchMovies('now_playing') || [],
     popular: [],
-    top_rated: [],
+    topRated: [],
     upcoming: [],
-    now_playing: [],
+    nowPlaying: [],
 };
 
 export const moviesSlice = createSlice({
@@ -20,12 +20,12 @@ export const moviesSlice = createSlice({
             switch (action.payload.category) {
                 case "popular":
                     state.popular = action.payload.movies;
-                case "top_rated":
-                    state.top_rated = action.payload.movies;
+                case "topRated":
+                    state.topRated = action.payload.movies;
                 case "upcoming":
                     state.upcoming = action.payload.movies;
-                case "now_playing":
-                    state.now_playing = action.payload.movies;
+                case "nowPlaying":
+                    state.nowPlaying = action.payload.movies;
                 default:
                     return state;
             }
