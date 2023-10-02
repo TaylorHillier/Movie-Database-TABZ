@@ -41,7 +41,7 @@ function AppRouter() {
     <BrowserRouter>
       <div className="wrapper w-full">
         <Header/>
-          <main>
+          <main className="text-gray-50 px-5">
         <Routes>
           <Route path="/" element={<PagesHome />} />
           <Route path="/popular" element={<PagesPopular />} />
