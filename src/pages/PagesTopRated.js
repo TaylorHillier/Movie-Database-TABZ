@@ -2,7 +2,7 @@ import MovieTab from "../components/MovieTab";
 import { useSelector } from "react-redux";
 
 function PagesTopRated() {
-    const movies = useSelector(state => state.movies.topRated)
+    const movies = useSelector((state) => state.movies.topRated);
 
     const twelvemovies = movies.slice(0, 12);
 
@@ -11,7 +11,7 @@ function PagesTopRated() {
             <h1>Top Rated</h1>
             <div>
                 {twelvemovies.map((movie, index) => (
-                    <MovieTab key={index} movie={movie}></MovieTab>
+                    <MovieTab key={index} movieObj={movie}></MovieTab>
                 ))}
             </div>
         </div>
