@@ -3,9 +3,8 @@ import { useSelector } from "react-redux";
 
 function PagesPopular() {
     const movies = useSelector((state) => state.movies.popular);
-
     const twelvemovies = movies.slice(0, 12);
-    console.log(movies);
+
     return (
         <div>
             <h1>Popular</h1>
