@@ -130,8 +130,8 @@ function AdditionalSlider({ twelvemovies }) {
                   </svg>
                   {movie.vote_average}
                 </p>
-                <h3>{movie.title}</h3>
-                <p>{truncateText(movie.overview, 30)}</p>
+                <h3>{truncateText(movie.title, 7)}</h3>
+                <p>{truncateText(movie.overview, 25)}</p>
                 <button className="readMore">
                   <a href="#">Read More</a>
                 </button>
@@ -173,13 +173,13 @@ export default function App() {
       {isLandingPage && (
             <>
             <BannerSlider movies={popularMovies} />
-            <p className="main-title">Popular</p> {/* Add the label for Popular */}
+            <p className="main-title"><a href="/popular">Popular</a></p> 
             <AdditionalSlider twelvemovies={twelvemovies} />
-            <p className="main-title">Upcoming</p> {/* Add the label for Upcoming */}
+            <p className="main-title"><a href="/upcoming">Upcoming</a></p> 
             <AdditionalSlider twelvemovies={upcomingMovies} />
-            <p className="main-title">Top Rated</p> {/* Add the label for Top Rated */}
+            <p className="main-title"><a href="/top-rated">Top Rated</a></p> 
             <AdditionalSlider twelvemovies={topRatedMovies} />
-            <p className="main-title">Now Playing</p> {/* Add the label for Now Playing */}
+            <p className="main-title"><a href="/now-playing">Now Playing</a></p> 
             <AdditionalSlider twelvemovies={nowPlayingMovies} />
           </>
       
