@@ -6,7 +6,7 @@ import "swiper/css/pagination";
 import 'swiper/css/navigation';
 import "./App.css";
 import PopAPI from "../api/APIFunctionality";
-import { Pagination, Autoplay } from "swiper/modules";
+import { Pagination, Autoplay, Navigation } from "swiper/modules";
 import { FreeMode,Scrollbar, Mousewheel } from 'swiper/modules';
 
 function truncateText(text, maxWords) {
@@ -27,13 +27,15 @@ function BannerSlider({ movies }) {
     <Swiper
       spaceBetween={30}
       autoplay={{
-        delay: 2500,
+        delay: 3500,
 
       }}
       pagination={{
         clickable: true,
       }}
-      modules={[Pagination, Autoplay]}
+      navigation={true}
+      loop={true}
+      modules={[Pagination, Autoplay, Navigation]}
       className="mySwiper"
     >
       {fiveMovies.map((movie) => (
@@ -106,6 +108,8 @@ function AdditionalSlider({ twelvemovies }) {
          },
        }}
       spaceBetween={0}
+      navigation={true}
+      loop={true}
       className="mySwiper"
       style={{width: "85%"}}
       direction={'horizontal'}
@@ -113,7 +117,7 @@ function AdditionalSlider({ twelvemovies }) {
       freeMode={true}
       scrollbar={true}
       mousewheel={true}
-      modules={[FreeMode, Scrollbar, Mousewheel]}>
+      modules={[FreeMode, Scrollbar, Mousewheel, Navigation]}>
       {twelvemovies.map((movie) => (
         <SwiperSlide key={movie.id}>
           <div className="swiper-slide-container">
@@ -140,7 +144,7 @@ function AdditionalSlider({ twelvemovies }) {
           </div>
           <section className="description-info">
             <article className="description-title">
-              <p >{movie.title}</p>
+              <p >{truncateText(movie.title, 5)}</p>
               <button
                  className={`favorite-button ${rotationState[0] && movie.id === movieId ? 'rotate-45' : ''}`}
                 onClick={() => handleRotation(0, movie.id)} >

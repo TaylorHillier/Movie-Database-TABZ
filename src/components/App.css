@@ -133,8 +133,8 @@ img.movie-poster{
 }
 
 .movie-info p{
-  text-align: justify;
-  padding:.5rem 1.5rem;
+  text-align: left;
+  padding:.5rem 1rem;
 }
 
 .imgBanner-pop:hover .movie-info {
@@ -160,15 +160,15 @@ img.movie-poster{
 .swiper-button-prev:after, .swiper-button-next:after {
   border-radius: 5rem;
   padding:.8rem 1.5rem;
-  background-color:#770013;
   content: 'next';
   color: white;
   width: 2rem;
   scale: .7;
-  border: white solid .1rem;
   display: flex;
   position: relative;
   z-index: 3;
+  /* border: white solid .1rem; */
+  /* background-color:#770013; */
 }
 
 .wrapperAll{
