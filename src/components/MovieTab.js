@@ -6,7 +6,7 @@ export default function MovieTab({ movieObj }) {
 
     return (
         <>
-            <article className="w-1/2 mb-8">
+            <article className="w-full pb-8 text-center">
             <img
                 className="w-full"
                 src={"https://image.tmdb.org/t/p/w92/" + movieObj.poster_path}
@@ -21,9 +21,9 @@ export default function MovieTab({ movieObj }) {
                 }
                 alt={movieObj.title + " poster"}
             />
-                <h2 className="text-center mt-2">{movieObj.title}</h2>
-                <p className="hidden sm:block">{movieObj.overview}</p>
-                <b>{releaseDateString}</b>
+                <h2 className="my-3">{movieObj.title}</h2>
+                <b>Released: <br/> {releaseDateString}</b>
+                <p className="text-left hidden sm:block sm:leading-normal md:leading-[1.8">{movieObj.overview}</p>
             </article>
         </>
     );
