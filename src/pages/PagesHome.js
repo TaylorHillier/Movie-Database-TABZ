@@ -1,24 +1,56 @@
-import React from "react";
 import { useLocation } from "react-router-dom";
-import Banner from '../components/Banner';
+import { useSelector } from "react-redux";
+import { BannerSlider } from "../components/Banner";
+import CategorySlider from "../components/CategorySlider";
+import DropdownNav from "../components/DropdownNav";
 
 export default function PageHome() {
-  const location = useLocation();
+    const location = useLocation();
+    // Check if the current route is the landing page ("/landingpage")
+    const isLandingPage = location.pathname === "/";
+    // Select movies from state
+    const popularMovies = useSelector((state) => state.movies.popular);
+    const upcomingMovies = useSelector((state) => state.movies.upcoming);
+    const topRatedMovies = useSelector((state) => state.movies.topRated);
+    const nowPlayingMovies = useSelector((state) => state.movies.nowPlaying);
+    const twelveMovies = popularMovies.slice(0, 12);
 
-  // Check if the current route is the landing page ("/landingpage")
-  const isLandingPage = location.pathname === "/";
+    // Render the Banner component only on the landing page
+    if (isLandingPage) {
+        return (
+            <div className="banner">
+                {isLandingPage && (
+                    <>
+                        {/* <BannerSlider movies={popularMovies} /> */}
+                        <section>
+                            <DropdownNav></DropdownNav>
+                            <h2 className="main-title">Popular</h2>{" "}
+                            {/* Add the label for Popular */}
+                            <CategorySlider twelvemovies={twelveMovies} />
+                        </section>
+                        <section>
+                            <h2 className="main-title">Upcoming</h2>{" "}
+                            {/* Add the label for Upcoming */}
+                            <CategorySlider twelvemovies={upcomingMovies} />
+                        </section>
+                        <section>
+                            <h2 className="main-title">Top Rated</h2>{" "}
+                            {/* Add the label for Top Rated */}
+                            <CategorySlider twelvemovies={topRatedMovies} />
+                        </section>
+                        <section>
+                            <h2 className="main-title">Now Playing</h2>{" "}
+                            {/* Add the label for Now Playing */}
+                            <CategorySlider twelvemovies={nowPlayingMovies} />
+                        </section>
+                    </>
+                )}
+            </div>
+        );
+    }
 
-  // Render the Banner component only on the landing page
-  if (isLandingPage) {
-    return (
-      <div className="banner">
-        <Banner />
-      </div>
-    );
-  }
-
-  // Return null for other routes (won't render the Banner component)
-  // return null;
+    // Return null for other routes (won't render the Banner component)
+    // return null;
 }
 
 // export PageHome;

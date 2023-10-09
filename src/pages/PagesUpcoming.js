@@ -1,25 +1,17 @@
-
-import GeneralAPI from "../api/APIFunctionality";
+import { useSelector } from "react-redux";
+import PagesTemplate from "./PagesTemplate";
+import DropdownNav from "../components/DropdownNav";
 
 function PagesUpcoming() {
-  const movies = GeneralAPI('upcoming');
+    const movies = useSelector((state) => state.movies.upcoming);
+    const twelveMovies = movies.slice(0, 12);
 
-  const twelvemovies = movies.slice(0,12);
-
-  return (
-    <main>
-      <h2>Upcoming</h2>
-      
-      {twelvemovies.map((movie) => (
-        <li key={movie.id}>
-        {movie.title}
-        <img src={"https://image.tmdb.org/t/p/w200/" + movie.poster_path}/>
-        </li>
-      ))}
-    </main>
-
-    
-  );
+    return (
+        <>
+            <DropdownNav></DropdownNav>
+            <PagesTemplate category="Upcoming" twelveMovies={twelveMovies} />
+        </>
+    );
 }
 
 export default PagesUpcoming;

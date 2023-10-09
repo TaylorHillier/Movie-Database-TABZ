@@ -1,25 +1,17 @@
-
-import GeneralAPI from "../api/APIFunctionality";
+import { useSelector } from "react-redux";
+import PagesTemplate from "./PagesTemplate";
+import DropdownNav from "../components/DropdownNav";
 
 function PagesNowPlaying() {
-  const movies = GeneralAPI('now_playing');
+    const movies = useSelector((state) => state.movies.nowPlaying);
+    const twelveMovies = movies.slice(0, 12);
 
-  const twelvemovies = movies.slice(0,12);
-
-  return (
-    <main>
-      <h2>Now Playing</h2>
-      
-      {twelvemovies.map((movie) => (
-        <li key={movie.id}>
-        {movie.title}
-        <img src={"https://image.tmdb.org/t/p/w200/" + movie.poster_path}/>
-        </li>
-      ))}
-    </main>
-
-    
-  );
+    return (
+        <>
+            <DropdownNav></DropdownNav>
+            <PagesTemplate category="Now Playing" twelveMovies={twelveMovies} />
+        </>
+    );
 }
 
 export default PagesNowPlaying;

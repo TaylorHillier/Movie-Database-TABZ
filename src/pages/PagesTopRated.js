@@ -1,26 +1,17 @@
-
-import GeneralAPI from "../api/APIFunctionality";
+import { useSelector } from "react-redux";
+import PagesTemplate from "./PagesTemplate";
+import DropdownNav from "../components/DropdownNav";
 
 function PagesTopRated() {
-  const movies = GeneralAPI('top_rated');
+    const movies = useSelector((state) => state.movies.topRated);
+    const twelveMovies = movies.slice(0, 12);
 
-  const twelvemovies = movies.slice(0,12);
-
-  return (
-    <main>
-      <h2>Top Rated</h2>
-      
-      {twelvemovies.map((movie) => (
-        <li key={movie.id}>
-        {movie.title}
-        <img src={"https://image.tmdb.org/t/p/w200/" + movie.poster_path}/>
-        </li>
-      ))}
-    </main>
-
-    
-  );
+    return (
+        <>
+            <DropdownNav></DropdownNav>
+            <PagesTemplate category="Top Rated" twelveMovies={twelveMovies} />
+        </>
+    );
 }
 
 export default PagesTopRated;
-
