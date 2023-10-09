@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -136,9 +137,9 @@ function AdditionalSlider({ twelvemovies }) {
                 </p>
                 <h3>{truncateText(movie.title, 7)}</h3>
                 <p>{truncateText(movie.overview, 25)}</p>
-                <button className="readMore">
-                  <a href="#">Read More</a>
-                </button>
+                <Link to={`/movie/${movie.id}`} className="readMore">
+                  Read More
+                </Link>                
               </div>
             </div>
           </div>

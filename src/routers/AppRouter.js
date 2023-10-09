@@ -11,7 +11,7 @@ import PagesUpcoming from "../pages/PagesUpcoming";
 import PagesHome from "../pages/PagesHome";
 import PagesFavorites from "../pages/PagesFavorites";
 import PageAbout from "../pages/PageAbout";
-import HomeAPI from "../api/APIFunctionality";
+import PagesInfo from "../pages/PagesInfo";
 
 function AppRouter() {
 
@@ -29,6 +29,7 @@ function AppRouter() {
           <Route path="/upcoming" element={<PagesUpcoming />} />
           <Route path="/favorites" element={<PagesFavorites />} />
           <Route path="/about" element={<PageAbout />} />
+          <Route path="/movie/:movieId" element={<PagesInfo />} />
         </Routes>
       </div>
     </BrowserRouter>
