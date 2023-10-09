@@ -20,7 +20,7 @@ function Nav() {
     return (
         <>
             <nav className="h-full bg-theme-red flex drop-shadow-md sm:justify-between">
-                <div className="bg-theme-red h-full p-3 flex-1 relative z-20 md:flex-none md:right-0">
+                <div className="bg-theme-red h-full p-3 flex-auto relative z-20 md:flex-[0_1_20%] md:right-0">
                     <NavLink to="/">
                         <img
                             className="m-0 m-auto relative top-1/2 -translate-y-1/2 -right-5 md:right-0"
@@ -31,7 +31,7 @@ function Nav() {
                     </NavLink>
                 </div>
 
-                <div className="bg-theme-red p-5 hidden relative z-20 flex-1 md:flex md:flex-col justify-center">
+                <div className="bg-theme-red p-3 hidden relative z-20 flex-1 md:flex md:flex-col justify-center">
                     <ul className="list-none m-0 flex justify-evenly items-center gap-5">
                         <li>
                             <NavLink to="/popular">Popular</NavLink>
@@ -51,7 +51,7 @@ function Nav() {
                 <div
                     className={
                         `w-[10%] bg-theme-red group ` +
-                        hamburgerOpen.isOpen
+                        hamburgerOpen.isOpen + ` md:flex md:flex-col justify-center`
                     }
                 >
                     {/* Hamburger Button */}
@@ -63,7 +63,7 @@ function Nav() {
                     </div>
                     {/* Hamburger Menu */}
                     <ul
-                        className={`bg-theme-red list-none text-center absolute inset-x-0 -z-10 flex flex-col py-4 gap-4 shadow-inner drop-shadow-2xl transition-transform duration-700 -translate-y-[100%] group-[.is-open]:translate-y-2 md:z-20 md:-translate-y-0 md:duration-0 md:relative md:shadow-none md:drop-shadow-none md:text-left md:py-0 md:gap-2 md:pt-2`}
+                        className={`bg-theme-red list-none text-center absolute inset-x-0 -z-10 flex flex-col py-4 gap-4 shadow-inner drop-shadow-2xl transition-transform duration-700 -translate-y-[100%] group-[.is-open]:translate-y-2 md:z-20 md:-translate-y-0 md:duration-0 md:relative md:shadow-none md:drop-shadow-none md:text-left md:py-0 md:gap-2 `}
                     >
                         <li>
                             <NavLink to="/">Home</NavLink>
