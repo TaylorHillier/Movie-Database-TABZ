@@ -1,27 +1,49 @@
 import React, { useContext, useState } from 'react';
 import { FavoriteContext } from '../context/movieState';
+import { UserContext } from '../context/userState';
 
 function CreateFavorite({ movie }) {
   const { favorites, addFavorite, deleteFavorite } = useContext(FavoriteContext);
+  const { user } = useContext(UserContext);
+  const [error, setError] = useState("");
 
   // Check if the movie is already in favorites by comparing its ID
   const isAlreadyFavorited = favorites.some((favoritedMovie) => favoritedMovie.id === movie.id);
 
   const handleFavoriteToggle = () => {
-    if (!isAlreadyFavorited) {
-      // Add the movie to favorites if it's not already favorited
-      addFavorite(movie);
+    if (user) {
+      if (!isAlreadyFavorited) {
+        // Add the movie to favorites if it's not already favorited
+        addFavorite(movie);
+      } else {
+        // Remove the movie from favorites if it's already favorited
+        deleteFavorite(movie);
+        console.log("removing favorite");
+      }
     } else {
-      // Remove the movie from favorites if it's already favorited
-      deleteFavorite(movie);
-      console.log("removing favorite");
+      setError("Please Log In to Add Favorites");
     }
+
+    setTimeout(() => {
+      setError("");
+    }, 3000);
+
   };
 
   return (
-    <button className={`favorite-button ${isAlreadyFavorited ? 'favorited' : ''}`} onClick={handleFavoriteToggle} >
-      {isAlreadyFavorited ? 'Remove from Favorites' : 'Add to Favorites'}
-    </button >
+    <div>
+      {user && (
+        <button className={`favorite-button ${isAlreadyFavorited ? 'favorited' : ''}`} onClick={handleFavoriteToggle}>
+          {isAlreadyFavorited ? 'Remove from Favorites' : 'Add to Favorites'}
+        </button>
+      )}
+      {!user && (
+        <button className={`favorite-button`} onClick={handleFavoriteToggle}>
+          Add to Favorites
+        </button>
+      )}
+      {error && <p style={{ color: "red" }}>{error}</p>}
+    </div>
   );
 }
 
