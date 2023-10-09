@@ -2,15 +2,16 @@ import { NavLink } from "react-router-dom";
 import { useState } from "react";
 
 function DropdownNav() {
-    const [isOpen, setIsOpen] = useState({ state: false, class: "" });
+    const [isOpen, setIsOpen] = useState({ state: false, class: "", arrowClass: '' });
 
     const toggle = () => {
         if (isOpen.state === false) {
-            setIsOpen({ state: true, class: "is-open" });
+            setIsOpen({ state: true, class: "is-open", arrowClass: 'rotate-180 opacity-50' });
         } else {
-            setIsOpen({ state: false, class: "" });
+            setIsOpen({ state: false, class: "", arrowClass: '' });
         }
     };
+
     return (
         <>
             <div
@@ -19,13 +20,15 @@ function DropdownNav() {
                     isOpen.class + ` md:hidden`
                 }
             >
+                {/* Dropdown Button */}
                 <div
-                    className="bg-slate-800 p-3"
+                    className="bg-slate-800 p-3 flex justify-between"
                     onClick={toggle}
                 >
-                    Categories
-                    {/* <input type="checkbox" className="absolute w-full h-full left-0 right-0" /> */}
+                    <span className="grow ml-4">Categories</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class={`h-[1.3rem] w-6 fill-slate-50 align-middle pt-px ` + isOpen.arrowClass} viewBox="0 0 448 512"><path d="M201.4 342.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 274.7 86.6 137.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"/></svg>
                 </div>
+                {/* Dropdown List */}
                 <nav 
                 className="h-0 overflow-hidden transition-[height] ease-out duration-500 group-[.is-open]:h-40"
                 >

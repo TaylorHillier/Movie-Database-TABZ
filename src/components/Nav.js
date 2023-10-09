@@ -21,7 +21,7 @@ function Nav() {
         <>
             <nav className="h-full bg-theme-red flex drop-shadow-md sm:justify-between">
                 {/* Logo Nav */}
-                <div className="bg-theme-red h-full p-3 flex-auto relative z-50 md:flex-[0_1_20%] md:right-0">
+                <div className="bg-theme-red h-full p-3 flex-auto relative z-[999] md:flex-[0_1_20%] md:right-0">
                     <NavLink to="/">
                         <img
                             className="my-0 mx-auto relative top-1/2 -translate-y-1/2 -right-5 md:right-0"
@@ -32,7 +32,7 @@ function Nav() {
                     </NavLink>
                 </div>
                 {/* Categories Nav */}
-                <div className="bg-theme-red p-3 hidden relative z-50 flex-1 md:flex md:flex-col justify-center">
+                <div className="bg-theme-red p-3 hidden relative z-[999] flex-1 md:flex md:flex-col justify-center">
                     <ul className="list-none m-0 flex justify-evenly items-center gap-5">
                         <li>
                             <NavLink to="/popular">Popular</NavLink>
@@ -57,14 +57,14 @@ function Nav() {
                 >
                     {/* Hamburger Button */}
                     <div
-                        className="text-center relative z-50 md:hidden"
+                        className="bg-theme-red h-full text-center relative z-[999] md:hidden"
                         onClick={toggleHamburger}
                     >
-                        <h1 className="align-middle">V</h1>
+                        <span className="align-middle">V</span>
                     </div>
                     {/* Hamburger Menu */}
                     <ul
-                        className={`bg-theme-red list-none text-center absolute inset-x-0 -z-40 flex flex-col py-4 gap-4 shadow-inner drop-shadow-2xl transition ease-in-out duration-700 -translate-y-[100%] group-[.is-open]:translate-y-2 md:z-50 md:-translate-y-0 md:duration-0 md:relative md:shadow-none md:drop-shadow-none md:text-left md:py-0 md:gap-2 `}
+                        className={`bg-theme-red list-none text-center absolute inset-x-0 z-[998] flex flex-col py-4 gap-4 shadow-inner drop-shadow-2xl transition ease-in-out duration-700 -translate-y-[100%] group-[.is-open]:translate-y-2 md:z-[999] md:-translate-y-0 md:duration-0 md:relative md:shadow-none md:drop-shadow-none md:text-left md:py-0 md:gap-2 `}
                     >
                         <li>
                             <NavLink to="/">Home</NavLink>
