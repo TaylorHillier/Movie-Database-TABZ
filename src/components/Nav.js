@@ -4,6 +4,9 @@ function Nav() {
   return (
     <nav className="main-nav">
         <div className="filltering">
+          <a href="/">
+          <img className="logo" width="120" src={require('../logo/logo1.png')} alt="logo" />
+          </a>
           <ul>
             <li>
               <NavLink to="/popular">Popular</NavLink>
