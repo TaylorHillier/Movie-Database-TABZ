@@ -2,6 +2,7 @@ import { useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { BannerSlider } from "../components/Banner";
 import CategorySlider from "../components/CategorySlider";
+import DropdownNav from "../components/DropdownNav";
 
 export default function PageHome() {
     const location = useLocation();
@@ -22,24 +23,25 @@ export default function PageHome() {
                     <>
                         {/* <BannerSlider movies={popularMovies} /> */}
                         <section>
-                        <h2 className="main-title">Popular</h2>{" "}
-                        {/* Add the label for Popular */}
-                        <CategorySlider twelvemovies={twelveMovies} />
+                            <DropdownNav></DropdownNav>
+                            <h2 className="main-title">Popular</h2>{" "}
+                            {/* Add the label for Popular */}
+                            <CategorySlider twelvemovies={twelveMovies} />
                         </section>
                         <section>
                             <h2 className="main-title">Upcoming</h2>{" "}
-                        {/* Add the label for Upcoming */}
-                        <CategorySlider twelvemovies={upcomingMovies} />
+                            {/* Add the label for Upcoming */}
+                            <CategorySlider twelvemovies={upcomingMovies} />
                         </section>
                         <section>
-                        <h2 className="main-title">Top Rated</h2>{" "}
-                        {/* Add the label for Top Rated */}
-                        <CategorySlider twelvemovies={topRatedMovies} />
+                            <h2 className="main-title">Top Rated</h2>{" "}
+                            {/* Add the label for Top Rated */}
+                            <CategorySlider twelvemovies={topRatedMovies} />
                         </section>
                         <section>
                             <h2 className="main-title">Now Playing</h2>{" "}
-                        {/* Add the label for Now Playing */}
-                        <CategorySlider twelvemovies={nowPlayingMovies} />
+                            {/* Add the label for Now Playing */}
+                            <CategorySlider twelvemovies={nowPlayingMovies} />
                         </section>
                     </>
                 )}

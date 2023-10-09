@@ -23,7 +23,7 @@ export default function MovieTab({ movieObj }) {
             />
                 <h2 className="my-3">{movieObj.title}</h2>
                 <b>Released: <br/> {releaseDateString}</b>
-                <p className="text-left hidden sm:block sm:leading-normal md:leading-[1.8]">{movieObj.overview}</p>
+                <p className="text-left mt-8 hidden sm:block sm:leading-normal md:leading-[1.8]">{movieObj.overview}</p>
             </article>
         </>
     );
