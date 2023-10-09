@@ -3,6 +3,10 @@ import { truncateText } from "../utils/utilityFunctions";
 import { fetchMovies } from "../api/APIFunctions"
 // import function to register Swiper custom elements
 import { register } from "swiper/element/bundle";
+import Swiper from "swiper";
+import Nav from "./Nav";
+import { SwiperSlide } from "swiper/element/bundle";
+import { Location, useLocation } from "react-router";
 
 // register Swiper custom elements
 register();
@@ -101,40 +105,40 @@ export function BannerSlider({ movies }) {
   );
 }
 
-function BannerSlider({ movies }) {
-  const fiveMovies = movies.slice(0, 5);
+// function BannerSlider({ movies }) {
+//   const fiveMovies = movies.slice(0, 5);
 
-  return (
-    <Swiper
-      spaceBetween={30}
-      autoplay={{
-        delay: 1500,
-        disableOnInteraction: false,
-      }}
-      pagination={{
-        clickable: true,
-      }}
-      modules={[Pagination, Autoplay]}
-      className="mySwiper"
-    >
-      {fiveMovies.map((movie) => (
-        <SwiperSlide key={movie.id}>
-          <img
-            className="imgBanner"
-            src={"https://image.tmdb.org/t/p/w1280/" + movie.backdrop_path}
-            alt={movie.title}
-          />
-        </SwiperSlide>
-      ))}
-    </Swiper>
-  );
-}
+//   return (
+//     <Swiper
+//       spaceBetween={30}
+//       autoplay={{
+//         delay: 1500,
+//         disableOnInteraction: false,
+//       }}
+//       pagination={{
+//         clickable: true,
+//       }}
+//       modules={[Pagination, Autoplay]}
+//       className="mySwiper"
+//     >
+//       {fiveMovies.map((movie) => (
+//         <SwiperSlide key={movie.id}>
+//           <img
+//             className="imgBanner"
+//             src={"https://image.tmdb.org/t/p/w1280/" + movie.backdrop_path}
+//             alt={movie.title}
+//           />
+//         </SwiperSlide>
+//       ))}
+//     </Swiper>
+//   );
+// }
 
 function AdditionalSlider({ twelvemovies }) {
 
-  const handleAddFavorite = (movie) => {
-    return <CreateFavorite movie={movie} />;
-  };
+  // const handleAddFavorite = (movie) => {
+  //   return <CreateFavorite movie={movie} />;
+  // };
 
 
   return (
@@ -142,7 +146,7 @@ function AdditionalSlider({ twelvemovies }) {
       slidesPerView={5}
       spaceBetween={0}
       navigation={true}
-      modules={[Navigation]}
+      modules={[Nav]}
       className="mySwiper"
     >
       {twelvemovies.map((movie) => (
@@ -160,7 +164,7 @@ function AdditionalSlider({ twelvemovies }) {
               <button className="readMore">
                 <a href="#">Read More</a>
               </button>
-              <CreateFavorite movie={movie} />;
+              {/* <CreateFavorite movie={movie} />; */}
             </div>
           </div>
         </SwiperSlide>
@@ -173,10 +177,10 @@ export default function App() {
   const location = useLocation();
   const isLandingPage = location.pathname === "/";
 
-  const popularMovies = GeneralAPI('popular');
-  const upcomingMovies = GeneralAPI('upcoming');
-  const topRatedMovies = GeneralAPI('top_rated');
-  const nowPlayingMovies = GeneralAPI('now_playing');
+  const popularMovies = fetchMovies('popular');
+  const upcomingMovies = fetchMovies('upcoming');
+  const topRatedMovies = fetchMovies('top_rated');
+  const nowPlayingMovies = fetchMovies('now_playing');
   const twelvemovies = popularMovies.slice(0, 12);
 
   return (

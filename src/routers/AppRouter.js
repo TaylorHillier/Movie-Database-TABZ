@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "../components/App.css";
-import Header from "../components/Header";
 import Footer from "../components/Footer";
 import PagesPopular from "../pages/PagesPopular";
 import PagesTopRated from "../pages/PagesTopRated";
@@ -10,13 +9,11 @@ import PagesNowPlaying from "../pages/PagesNowPlaying";
 import PagesUpcoming from "../pages/PagesUpcoming";
 import PagesHome from "../pages/PagesHome";
 import PageFavorites from "../pages/PageFavorites";
-import PageAbout from "../pages/PageAbout";
-// import GeneralAPI from "../api/APIFunctionality";
+import PageAbout from "../pages/PagesAbout";
 import PageLogin from "../pages/PageLogin";
-import { FavoriteProvider } from "../context/movieState";
 
-import PagesFavorites from "../pages/PagesFavorites";
-import PagesAbout from "../pages/PagesAbout";
+import { UserProvider } from "../context/userState";
+import { FavoriteProvider } from "../context/movieState";
 import { fetchMovies } from "../api/APIFunctions";
 import { loadMovies } from "../features/movies/moviesSlice";
 
