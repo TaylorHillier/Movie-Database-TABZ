@@ -1,20 +1,16 @@
-import MovieTab from "../components/MovieTab";
 import { useSelector } from "react-redux";
+import PagesTemplate from "./PagesTemplate";
+import DropdownNav from "../components/DropdownNav";
 
 function PagesUpcoming() {
     const movies = useSelector((state) => state.movies.upcoming);
-
-    const twelvemovies = movies.slice(0, 12);
+    const twelveMovies = movies.slice(0, 12);
 
     return (
-        <div>
-            <h1>Upcoming</h1>
-            <div>
-                {twelvemovies.map((movie, index) => (
-                    <MovieTab key={index} movieObj={movie}></MovieTab>
-                ))}
-            </div>
-        </div>
+        <>
+            <DropdownNav></DropdownNav>
+            <PagesTemplate category="Upcoming" twelveMovies={twelveMovies} />
+        </>
     );
 }
 
