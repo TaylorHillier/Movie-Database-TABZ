@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "../components/App.css";
+import Header from "../components/Header";
 import Footer from "../components/Footer";
 import PagesPopular from "../pages/PagesPopular";
 import PagesTopRated from "../pages/PagesTopRated";
@@ -11,7 +12,6 @@ import PagesHome from "../pages/PagesHome";
 import PageFavorites from "../pages/PageFavorites";
 import PageAbout from "../pages/PagesAbout";
 import PageLogin from "../pages/PageLogin";
-
 import { UserProvider } from "../context/userState";
 import { FavoriteProvider } from "../context/movieState";
 import { fetchMovies } from "../api/APIFunctions";
@@ -47,6 +47,7 @@ function AppRouter() {
         <UserProvider>
           <FavoriteProvider>
             <div className="wrapper">
+              <Header />
               <main className="px-5">
                 <Routes>
                   <Route path="/" element={<PagesHome />}></Route>

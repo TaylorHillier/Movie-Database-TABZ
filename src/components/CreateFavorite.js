@@ -2,9 +2,9 @@ import React, { useContext, useState } from 'react';
 import { FavoriteContext } from '../context/movieState';
 
 function CreateFavorite({ movie }) {
-  // Check if the movie is already in favorites by comparing its ID
   const { favorites, addFavorite, deleteFavorite } = useContext(FavoriteContext);
 
+  // Check if the movie is already in favorites by comparing its ID
   const isAlreadyFavorited = favorites.some((favoritedMovie) => favoritedMovie.id === movie.id);
 
   const handleFavoriteToggle = () => {

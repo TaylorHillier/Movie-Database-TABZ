@@ -30,17 +30,20 @@ function PageLogin() {
                 </div>
             ) : (
                 <div>
-                    <input
-                        type="text"
-                        placeholder="Enter a Username"
-                        value={newUser}
-                        onChange={(e) => {
-                            setNewUser(e.target.value);
-                            setError("");
-                        }}
-                    />
-                    <button onClick={handleLogIn}>LogIn</button>
-                    {error && <p style={{ color: "red" }}>{error}</p>}
+                    <h1>Welcome! Log in here to view your favorites, account details and more...</h1>
+                    <div className="login-form">
+                        <input
+                            type="text"
+                            placeholder="Enter a Username"
+                            value={newUser}
+                            onChange={(e) => {
+                                setNewUser(e.target.value);
+                                setError("");
+                            }}
+                        />
+                        <button onClick={handleLogIn}>LogIn</button>
+                        {error && <p style={{ color: "red" }}>{error}</p>}
+                    </div>
                 </div>
             )}
         </div>
