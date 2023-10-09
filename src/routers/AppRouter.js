@@ -38,23 +38,23 @@ function AppRouter() {
     });
 
   return (
-    <BrowserRouter>
-      <div className="wrapper w-full">
-        <Header/>
-          <main className="text-gray-50 px-5">
-        <Routes>
-          <Route path="/" element={<PagesHome />} />
-          <Route path="/popular" element={<PagesPopular />} />
-          <Route path="/top-rated" element={<PagesTopRated />} />
-          <Route path="/now-playing" element={<PagesNowPlaying />} />
-          <Route path="/upcoming" element={<PagesUpcoming />} />
-          <Route path="/favorites" element={<PagesFavorites />} />
-          <Route path="/about" element={<PagesAbout />} />
-        </Routes>
-          </main>
-        <Footer />
-      </div>
-    </BrowserRouter>
+      <BrowserRouter>
+          <div className="h-screen w-full text-gray-50">
+              <Header />
+              <main className="px-5">
+                  <Routes>
+                      <Route path="/" element={<PagesHome />} />
+                      <Route path="/popular" element={<PagesPopular />} />
+                      <Route path="/top-rated" element={<PagesTopRated />} />
+                      <Route path="/now-playing" element={<PagesNowPlaying />} />
+                      <Route path="/upcoming" element={<PagesUpcoming />} />
+                      <Route path="/favorites" element={<PagesFavorites />} />
+                      <Route path="/about" element={<PagesAbout />} />
+                  </Routes>
+              </main>
+              <Footer />
+          </div>
+      </BrowserRouter>
   );
 }
 

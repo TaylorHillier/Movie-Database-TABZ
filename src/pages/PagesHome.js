@@ -20,7 +20,7 @@ export default function PageHome() {
             <div className="banner">
                 {isLandingPage && (
                     <>
-                        <BannerSlider movies={popularMovies} />
+                        {/* <BannerSlider movies={popularMovies} /> */}
                         <section>
                         <h2 className="main-title">Popular</h2>{" "}
                         {/* Add the label for Popular */}
