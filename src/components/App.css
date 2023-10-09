@@ -149,3 +149,17 @@ img.movie-poster {
   margin-left: -1rem;
   margin-top: 5rem;
 }
+
+.favorite-button {
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.favorite-button.favorited {
+  background-color: #e74c3c;
+  /* Change color for favorited state */
+}

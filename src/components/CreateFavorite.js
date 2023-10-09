@@ -19,9 +19,9 @@ function CreateFavorite({ movie }) {
   };
 
   return (
-    <button onClick={handleFavoriteToggle}>
+    <button className={`favorite-button ${isAlreadyFavorited ? 'favorited' : ''}`} onClick={handleFavoriteToggle} >
       {isAlreadyFavorited ? 'Remove from Favorites' : 'Add to Favorites'}
-    </button>
+    </button >
   );
 }
 
