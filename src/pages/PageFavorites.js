@@ -15,7 +15,7 @@ function PageFavorites() {
             {user ? (
                 // If user is logged in, show the favorites content
                 <div>
-                    <h2>Welcome to Your Favorites</h2>
+                    <h2>Hi {user.name}! Welcome to Your Favorites.</h2>
                     {favorites.length > 0 ? (
                         <div className="imgBanner-pop">
                             {favorites.map((favoritedMovie) => (
@@ -32,7 +32,7 @@ function PageFavorites() {
                             ))}
                         </div>
                     ) : (
-                        <p>You have no Favorites yet</p>
+                        <p>You have no favorites yet.</p>
                     )
 
                     }
