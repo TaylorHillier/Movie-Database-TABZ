@@ -4,6 +4,14 @@ export default function MovieTab({ movieObj }) {
     const releaseDate = new Date(movieObj.release_date).toDateString();
     const releaseDateString = releaseDate.slice(4, releaseDate.length);
 
+    function shortenText(text, maxLength) {
+        if (text.length <= maxLength) {
+            return text;
+        }
+        return text.slice(0, maxLength) + '...';
+    }
+
+
     return (
         <>
             <article className="w-full pb-8 text-center">
@@ -21,10 +29,12 @@ export default function MovieTab({ movieObj }) {
                     }
                     alt={movieObj.title + " poster"}
                 />
-                <h2 className="my-3">{movieObj.title}</h2>
+                <div className="flex justify-center">
+                    <h3 className="my-3 min-h-[3rem]">{movieObj.title}</h3>
+                </div>
                 <b>Released: <br /> {releaseDateString}</b>
                 <CreateFavorite movie={movieObj} />
-                <p className="text-left mt-8 hidden sm:block sm:leading-normal md:leading-[1.8]">{movieObj.overview}</p>
+                <p className="text-left mt-8 hidden sm:block sm:leading-normal md:leading-[1.8]">{shortenText(movieObj.overview, 100)}</p>
             </article>
         </>
     );
