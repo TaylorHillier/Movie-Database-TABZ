@@ -4,11 +4,10 @@ import { UserContext } from "../context/userState";
 import { fetchMovies } from "../api/APIFunctions";
 import "../components/App.css";
 import CreateFavorite from "../components/CreateFavorite";
-
+import MovieTab from "../components/MovieTab";
 function PageFavorites() {
     const { user } = useContext(UserContext);
     const { favorites } = useContext(FavoriteContext);
-
 
     return (
         <div>
@@ -17,20 +16,11 @@ function PageFavorites() {
                 <div>
                     <h2>Hi {user.name}! Welcome to Your Favorites.</h2>
                     {favorites.length > 0 ? (
-                        <div className="imgBanner-pop">
-                            {favorites.map((favoritedMovie) => (
-                                <div className="imgBanner-pop">
-                                    <img
-                                        src={`https://image.tmdb.org/t/p/w1280/${favoritedMovie.backdrop_path}`}
-                                        alt={favoritedMovie.title}
-                                        className="movie-poster"
-                                    />
-                                    <h3>{favoritedMovie.title}</h3>
-                                    <p>{favoritedMovie.overview}</p>
-                                    <CreateFavorite movie={favoritedMovie} />
-                                </div>
+                        <section className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 md:gap-8 md:px-[3rem] xl:grid-cols-5">
+                            {favorites.map((favoritedMovie, index) => (
+                                <MovieTab key={index} movieObj={favoritedMovie}></MovieTab>
                             ))}
-                        </div>
+                        </section>
                     ) : (
                         <p>You have no favorites yet.</p>
                     )
