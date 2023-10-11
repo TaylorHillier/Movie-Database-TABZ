@@ -318,7 +318,7 @@ img.movie-poster{
   position:relative;
   justify-content: center;
   align-content: center;
-  align-items: left;
+  align-items: center;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -338,12 +338,13 @@ img.movie-poster{
 .single-detail{
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
 }
 
-.overview-text{
-  margin-bottom: 0;
+.overview-text {
+  margin: 0 2rem;
 }
 
 .trailer-sec{
@@ -375,8 +376,19 @@ img.movie-poster{
     align-items: left;
   }
 
-  .single-description p{
-    text-align: left;
+  /* .single-description p{
+      text-align: left;
+  } */
+
+  .overview-text {
+    margin: 0 6rem;
+  }
+}
+
+@media screen and (min-width: 54rem) {
+  .overview-text {
+    margin: 0 8rem;
+    text-align: center;
   }
 }
 
@@ -391,11 +403,16 @@ img.movie-poster{
     position: relative;
     top: 9rem;
     justify-content: left;
-    align-items: left;
+    align-items: start;
   }
 
   .single-description p{
     text-align: left;
+    padding-left: 0;
+  }
+
+  .overview-text {
+    margin: 0;
   }
 }
 
