@@ -1,17 +1,14 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "../components/App.css";
 import Nav from "../components/Nav";
-import Footer from "../components/Footer";
-import Banner from "../components/Banner";
+import PageAbout from "../pages/PageAbout";
+import PagesFavorites from "../pages/PagesFavorites";
+import PagesHome from "../pages/PagesHome";
+import PagesInfo from "../pages/PagesInfo";
+import PagesNowPlaying from "../pages/PagesNowPlaying";
 import PagesPopular from "../pages/PagesPopular";
 import PagesTopRated from "../pages/PagesTopRated";
-import PagesNowPlaying from "../pages/PagesNowPlaying";
 import PagesUpcoming from "../pages/PagesUpcoming";
-import PagesHome from "../pages/PagesHome";
-import PagesFavorites from "../pages/PagesFavorites";
-import PageAbout from "../pages/PageAbout";
-import PagesInfo from "../pages/PagesInfo";
 
 function AppRouter() {
 
