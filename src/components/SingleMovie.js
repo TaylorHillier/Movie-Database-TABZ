@@ -74,6 +74,11 @@ function SingleMovie() {
           <h1>{movie.title}</h1>
           <div className="single-detail">
             <p>{movie.release_date}</p>
+            {/* <p>
+              {movie.genre.map((genre, index) => (
+                <span key={index}>{genre}</span>
+              ))}
+            </p> */}
             <p className="score-small">
               <svg
                 xmlns="http://www.w3.org/2000/svg"

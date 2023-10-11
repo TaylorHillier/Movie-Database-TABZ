@@ -1,6 +1,6 @@
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; */
 
 body{
     background-color: #07112E;
@@ -13,9 +13,15 @@ h1{
 
 .main-nav{
     background-color: #770013;
+    padding: .5rem  0;
+}
+
+@media screen and (min-width: 70rem) {
+
+  .main-nav{
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
-    padding: .5rem  0;
+}
 }
 
 .menu{
@@ -286,19 +292,15 @@ img.movie-poster{
 }
 
 
-/* .single-poster{
+.single-poster{
   max-width: 280px;
   border-radius: 1rem;
-  position: absolute;
-  top: 5rem;
-} */
-
-.single-poster {
-  @apply max-w-[280px] absolute rounded-2xl top-20;
+  position: relative;
+  top: 1rem;
 }
 
-
 .single-backdrop{
+  min-height: 450px;
   width: 100%; 
   max-height: 590px;
   position: absolute;
@@ -308,30 +310,28 @@ img.movie-poster{
 }
 
 .single-info{
-  display: grid;
-  grid-template-columns: 1fr 2fr 3fr 2fr;
   color: white;
 }
 
 .single-description{
-  grid-column: 3;
-  position: relative;
-  top: 9rem;
+  position:relative;
+  justify-content: center;
+  align-content: center;
+  align-items: left;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
 }
 
-.single-description{
-
-  p {
+.single-description p{
     font-size: 1rem;
-  }
+    text-align: center;
+    padding: 0 2rem;
+}
 
-  h1 {
-    font-size: 2rem;
-    margin-bottom: 0;
-  }
+.single-description h1 {
+  font-size: 2rem;
+  margin-bottom: 0;
 }
 
 .single-detail{
@@ -360,12 +360,54 @@ img.movie-poster{
   padding-right: 1.5rem;
 }
 
+@media screen and (min-width: 35rem) {
+  .single-poster{
+    top: 1rem;
+    position: absolute;
+  }
+  .single-description{
+    grid-column: 3;
+    position: relative;
+    top: 30rem;
+    justify-content: left;
+    align-items: left;
+  }
+  
+  .single-description p{
+      text-align: left;
+  }
+}
+
+
+@media screen and (min-width: 85rem) {
+
+  .single-poster{
+    top: 5rem;
+    position: absolute;
+  }
+
+  .single-description{
+    grid-column: 3;
+    position: relative;
+    top: 9rem;
+    justify-content: left;
+    align-items: left;
+  }
+  
+  .single-description p{
+      text-align: left;
+  }
+
+}
+
+
+
 .casts-list{
   display: flex;
+  padding-inline-start: 0 !important;
   flex-wrap: wrap;
-  justify-content: right;
+  justify-content: center;
   max-width: 100%;
-  right: 10rem;
   position: relative;
   color: white;
   font-size: .8rem;
@@ -377,15 +419,15 @@ img.movie-poster{
   width: 6rem;
   margin: .5rem;
   justify-content: center;
-  flex-direction: column;
   align-items: center;
   box-shadow: 0 2px 8px rgba(255, 255, 255, 0.292);
   border: gray 1px solid;
   border-radius: 1rem;
+  flex-direction: column;
 }
 
 .casts-list img{
-  width: 6rem;
+  width: 100%;
   position: relative;
   border-radius: 1rem;
   bottom: 0;
@@ -395,15 +437,37 @@ img.movie-poster{
   height: 1.5rem;
 }
 
-@media screen and (min-width: 50rem) {
+@media screen and (min-width: 35rem) {
+  .cast-info{
+    width: 9rem;
+    margin: .5rem;
+  }
+
+  .casts-list{
+    font-size: .8rem;
+    top: 30rem;
+  }
+
+}
+
+
+@media screen and (min-width: 85rem) {
+
+  .single-info{
+    display: grid;
+    grid-template-columns: 1fr 2fr 3fr 2fr;
+  }
 
   .cast-info{
-    width: 8rem;
+    width: 9rem;
   }
 
   .casts-list{
     min-width: 70%;
     top: 18rem;
+    flex-direction: row;
+    right: 10rem;
+    justify-content: right;
   }
   
   .casts-list img{
@@ -411,4 +475,7 @@ img.movie-poster{
     position: relative;
     min-width: 100%;
   }
+
+ 
 }
+
