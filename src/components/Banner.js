@@ -211,34 +211,33 @@ function AdditionalSlider({ twelvemovies }) {
   );
 }
 
-function App() {
-  const location = useLocation();
-  const isLandingPage = location.pathname === "/";
+// function App() {
+//   const location = useLocation();
+//   const isLandingPage = location.pathname === "/";
 
-  const popularMovies = fetchMovies('popular');
-  const upcomingMovies = fetchMovies('upcoming');
-  const topRatedMovies = fetchMovies('top_rated');
-  const nowPlayingMovies = fetchMovies('now_playing');
-  const twelvemovies = popularMovies.slice(0, 12);
+//   const popularMovies = fetchMovies('popular');
+//   const upcomingMovies = fetchMovies('upcoming');
+//   const topRatedMovies = fetchMovies('top_rated');
+//   const nowPlayingMovies = fetchMovies('now_playing');
+//   const twelvemovies = popularMovies.slice(0, 12);
 
-  return (
-    <div>
-      {isLandingPage && (
-        <>
-          <BannerSlider movies={popularMovies} />
-          <p className="main-title"><a href="/popular">Popular</a></p>
-          <AdditionalSlider twelvemovies={twelvemovies} />
-          <p className="main-title"><a href="/upcoming">Upcoming</a></p>
-          <AdditionalSlider twelvemovies={upcomingMovies} />
-          <p className="main-title"><a href="/top-rated">Top Rated</a></p>
-          <AdditionalSlider twelvemovies={topRatedMovies} />
-          <p className="main-title"><a href="/now-playing">Now Playing</a></p>
-          <AdditionalSlider twelvemovies={nowPlayingMovies} />
-        </>
-      )}
-    </div>
-  );
-}
+//   return (
+//     <div>
+//       {isLandingPage && (
+//         <>
+//           <BannerSlider movies={popularMovies} />
+//           <p className="main-title"><a href="/popular">Popular</a></p>
+//           <AdditionalSlider twelvemovies={twelvemovies} />
+//           <p className="main-title"><a href="/upcoming">Upcoming</a></p>
+//           <AdditionalSlider twelvemovies={upcomingMovies} />
+//           <p className="main-title"><a href="/top-rated">Top Rated</a></p>
+//           <AdditionalSlider twelvemovies={topRatedMovies} />
+//           <p className="main-title"><a href="/now-playing">Now Playing</a></p>
+//           <AdditionalSlider twelvemovies={nowPlayingMovies} />
+//         </>
+//       )}
+//     </div>
+//   );}
+
 
 export { BannerSlider, AdditionalSlider }
-export default App

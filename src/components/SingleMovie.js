@@ -57,12 +57,12 @@ function SingleMovie() {
 
   return (
     <div>
-      <section className="single-info">
         <img
           className="single-backdrop"
           src={"https://image.tmdb.org/t/p/w1280/" + movie.backdrop_path}
           alt={movie.title}
         />
+      <section className="single-info">
         <article className="image-container">
           <img
             className="single-poster"
@@ -96,23 +96,25 @@ function SingleMovie() {
               </svg>
             </button>
           </div>
-          <h2 className="overview-title">Overview:</h2>
+          <h3 className="overview-title">Overview:</h3>
           <p className="overview-text">{movie.overview}</p>
         </article>
       </section>
-      <ul className="casts-list">
-        {movieCredits.cast.map((actor) => (
-          <li key={actor.id} className="cast-info">
-            {actor.profile_path && (
-              <img
-              src={`https://image.tmdb.org/t/p/w1280${actor.profile_path}`}
-              alt={actor.name}
-              />
-              )}
-              <p>{actor.name}</p>
-          </li>
-        ))}
-      </ul>
+      <section className="casts-lists">
+        <ul className="casts-list">
+          {movieCredits.cast.map((actor) => (
+            <li key={actor.id} className="cast-info">
+              {actor.profile_path && (
+                <img
+                src={`https://image.tmdb.org/t/p/w1280${actor.profile_path}`}
+                alt={actor.name}
+                />
+                )}
+                <p>{actor.name}</p>
+            </li>
+          ))}
+        </ul>
+      </section>
     </div>
   );
 }
