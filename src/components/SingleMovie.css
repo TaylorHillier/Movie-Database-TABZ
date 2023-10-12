@@ -249,7 +249,9 @@
     display: flex;
     position: absolute;
     max-width: 3rem;
-    fill: rgb(180, 179, 179);
+    fill: rgb(237 237 237);
     margin: 1rem;
     top: 6rem;
+    stroke-width: 0.1rem;
+    stroke: #d5d5d5;
   }

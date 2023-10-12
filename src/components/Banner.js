@@ -174,7 +174,7 @@ function AdditionalSlider({ twelvemovies }) {
               <img
                 src={"https://image.tmdb.org/t/p/w92/" + movie.poster_path}
                 srcSet={
-                    "https://image.tmdb.org/t/p/w92/" + movie.poster_path + " 92w, " +
+                    "https://image.tmdb.org/t/p/w92/" +  movie.poster_path + " 92w, " +
                     "https://image.tmdb.org/t/p/w154/" + movie.poster_path + " 154w, " +
                     "https://image.tmdb.org/t/p/w185/" + movie.poster_path + " 185w, " +
                     "https://image.tmdb.org/t/p/w342/" + movie.poster_path + " 342w, " +
@@ -226,34 +226,5 @@ function AdditionalSlider({ twelvemovies }) {
     </div>
   );
 }
-
-// function App() {
-//   const location = useLocation();
-//   const isLandingPage = location.pathname === "/";
-
-//   const popularMovies = fetchMovies('popular');
-//   const upcomingMovies = fetchMovies('upcoming');
-//   const topRatedMovies = fetchMovies('top_rated');
-//   const nowPlayingMovies = fetchMovies('now_playing');
-//   const twelvemovies = popularMovies.slice(0, 12);
-
-//   return (
-//     <div>
-//       {isLandingPage && (
-//         <>
-//           <BannerSlider movies={popularMovies} />
-//           <p className="main-title"><a href="/popular">Popular</a></p>
-//           <AdditionalSlider twelvemovies={twelvemovies} />
-//           <p className="main-title"><a href="/upcoming">Upcoming</a></p>
-//           <AdditionalSlider twelvemovies={upcomingMovies} />
-//           <p className="main-title"><a href="/top-rated">Top Rated</a></p>
-//           <AdditionalSlider twelvemovies={topRatedMovies} />
-//           <p className="main-title"><a href="/now-playing">Now Playing</a></p>
-//           <AdditionalSlider twelvemovies={nowPlayingMovies} />
-//         </>
-//       )}
-//     </div>
-//   );}
-
 
 export { BannerSlider, AdditionalSlider }
