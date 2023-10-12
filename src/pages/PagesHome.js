@@ -1,9 +1,10 @@
 import { useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { AdditionalSlider, BannerSlider } from "../components/Banner";
+import AdditionalSlider from "../components/AdditionalSlider";
+import BannerSlider from "../components/BannerSlider";
 import DropdownNav from "../components/DropdownNav";
 
-export default function PageHome() {
+export default function PagesHome() {
     const location = useLocation();
     // Check if the current route is the landing page ("/landingpage")
     const isLandingPage = location.pathname === "/";
@@ -21,8 +22,8 @@ export default function PageHome() {
             <>
                 {isLandingPage && (
                     <>
-                    <BannerSlider movies={popularMovies} />
-                    <section>
+                        <BannerSlider movies={popularMovies} />
+                        <section>
                             <DropdownNav></DropdownNav>
                             <h2 className="main-title">Popular</h2>{" "}
                             {/* Add the label for Popular */}
