@@ -295,17 +295,12 @@ img.movie-poster{
   max-width: 280px;
   border-radius: 1rem;
   position: absolute;
-  top: -27rem;
-
+  display: none;
 }
 
 .single-backdrop{
-  min-height: 450px;
   width: 100%; 
-  max-height: 590px;
   position: relative;
-  filter: brightness(10%);
-  filter: blur(100%);
   z-index: -1;
 }
 
@@ -321,7 +316,7 @@ img.movie-poster{
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  margin: 2rem 0;
+  margin:0 0 2rem 0;
 }
 
 .overview-title {
@@ -376,15 +371,23 @@ img.movie-poster{
 }
 
 
-@media screen and (min-width: 35rem) {
+@media screen and (min-width: 50rem) {
   .single-poster{
+    display: block;
     position: absolute;
-    top: -27rem;
+    top: -28rem;
+    max-width: 279px;
   }
+
   .single-description{
     grid-column: 3;
     position: inherit;    
     justify-content: left;
+  }
+
+  .single-backdrop{
+    filter: brightness(10%);
+    filter: blur(100%);
   }
   
 
@@ -393,14 +396,12 @@ img.movie-poster{
   }
 }
 
-@media screen and (min-width: 54rem) {
+@media screen and (min-width: 65rem) {
+
   .overview-text {
-    margin: 0 8rem;
+    margin: 0 ;
     text-align: center;
   }
-}
-
-@media screen and (min-width: 65rem) {
 
   .single-detail {
     padding: 0;
@@ -412,6 +413,7 @@ img.movie-poster{
 
   .single-backdrop{
     position: relative;
+    max-height: 600px;
   }
 
   .single-poster{
@@ -425,21 +427,20 @@ img.movie-poster{
     top: -31rem;
     justify-content: left;
     align-items: start;
-    padding-left: 2rem;
+    padding-left: 5rem;
   }
   
   .single-description p{
       text-align: left;
       padding-left: 0;
       font-size: 1rem;
-  }
+      text-align: justify;
 
-  .overview-text {
-    margin: 0;
   }
 
   .single-description h1{
     font-size: 2rem;
+    padding: 0;
   }
 
 }
@@ -503,7 +504,7 @@ img.movie-poster{
 
   .single-info{
     display: grid;
-    grid-template-columns: 1fr 2fr 3.5fr 2fr;
+    grid-template-columns: 1fr 1.5fr 3.5fr 1fr;
     position: absolute;
   }
 
@@ -516,8 +517,8 @@ img.movie-poster{
     flex-direction: row;
     justify-content: right;
     justify-content: right;
-    right: 8rem;
-    top: -5rem;
+    right: 5rem;
+    top: -4rem;
   }
   
   .casts-list img{
@@ -529,3 +530,11 @@ img.movie-poster{
  
 }
 
+.arrow-back svg{
+  display: flex;
+  position: absolute;
+  max-width: 3rem;
+  fill: rgb(180, 179, 179);
+  margin: 1rem;
+  top: 6rem;
+}
