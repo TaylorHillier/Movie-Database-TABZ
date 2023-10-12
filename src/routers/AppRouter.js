@@ -42,7 +42,7 @@ function AppRouter() {
       <BrowserRouter>
           <div className="h-screen w-full text-gray-50">
               <Header />
-              <main className="px-5">
+              <main className="">
                   <Routes>
                       <Route path="/" element={<PagesHome />} />
                       <Route path="/popular" element={<PagesPopular />} />

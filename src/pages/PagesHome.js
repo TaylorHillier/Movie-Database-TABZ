@@ -17,7 +17,8 @@ export default function PageHome() {
     // Render the Banner component only on the landing page
     if (isLandingPage) {
         return (
-            <div className="banner">
+            // <div className="banner">
+            <>
                 {isLandingPage && (
                     <>
                     <BannerSlider movies={popularMovies} />
@@ -44,7 +45,8 @@ export default function PageHome() {
                         </section>
                     </>
                 )}
-            </div>
+            </>
+            // </div>
         );
     }
 

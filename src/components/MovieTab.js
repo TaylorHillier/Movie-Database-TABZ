@@ -19,6 +19,13 @@ export default function MovieTab({ movieObj }) {
                     "https://image.tmdb.org/t/p/w780/" + movieObj.poster_path + " 780w, " +
                     "https://image.tmdb.org/t/p/original/" + movieObj.poster_path + " 1000w"
                 }
+                sizes="(max-width: 600px) 92px,
+                        (max-width: 900px) 154px,
+                        (max-width: 1200px) 185px,
+                        (max-width: 1600px) 342px,
+                        (max-width: 2000px) 500px,
+                        (max-width: 2400px) 780px,
+                        1000px"
                 alt={movieObj.title + " poster"}
             />
                 <h2 className="my-3">{movieObj.title}</h2>
