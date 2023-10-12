@@ -1,7 +1,6 @@
 import { useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { BannerSlider } from "../components/Banner";
-import CategorySlider from "../components/CategorySlider";
+import { AdditionalSlider, BannerSlider } from "../components/Banner";
 import DropdownNav from "../components/DropdownNav";
 
 export default function PageHome() {
@@ -21,27 +20,27 @@ export default function PageHome() {
             <div className="banner">
                 {isLandingPage && (
                     <>
-                        {/* <BannerSlider movies={popularMovies} /> */}
-                        <section>
+                    <BannerSlider movies={popularMovies} />
+                    <section>
                             <DropdownNav></DropdownNav>
                             <h2 className="main-title">Popular</h2>{" "}
                             {/* Add the label for Popular */}
-                            <CategorySlider twelvemovies={twelveMovies} />
+                            <AdditionalSlider twelvemovies={twelveMovies} />
                         </section>
                         <section>
                             <h2 className="main-title">Upcoming</h2>{" "}
                             {/* Add the label for Upcoming */}
-                            <CategorySlider twelvemovies={upcomingMovies} />
+                            <AdditionalSlider twelvemovies={upcomingMovies} />
                         </section>
                         <section>
                             <h2 className="main-title">Top Rated</h2>{" "}
                             {/* Add the label for Top Rated */}
-                            <CategorySlider twelvemovies={topRatedMovies} />
+                            <AdditionalSlider twelvemovies={topRatedMovies} />
                         </section>
                         <section>
                             <h2 className="main-title">Now Playing</h2>{" "}
                             {/* Add the label for Now Playing */}
-                            <CategorySlider twelvemovies={nowPlayingMovies} />
+                            <AdditionalSlider twelvemovies={nowPlayingMovies} />
                         </section>
                     </>
                 )}

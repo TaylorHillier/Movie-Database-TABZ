@@ -8,7 +8,7 @@ export default function CategorySlider({ twelvemovies }) {
                 slides-per-view="6"
                 space-between="5"
                 navigation
-                class="mySwiper"
+                className="mySwiper"
                 style={{ width: "85%" }}
             >
                 {twelvemovies.map((movie) => (
