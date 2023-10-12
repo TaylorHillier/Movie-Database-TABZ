@@ -47,6 +47,13 @@ useEffect(() => {
 
   console.log('Query:', query);
   console.log('Movies:', movies);
+
+  function formatDate(APIDate) {
+    const date = new Date(APIDate);
+    const options = { year: 'numeric'};
+    return date.toLocaleDateString('en-US', options);
+  }
+  
   return (
       
     <div>
@@ -67,7 +74,7 @@ useEffect(() => {
                 alt={movie.original_title + " backdrop image"}
                 />
                 <div className=''>
-                <h2 className='p-2'>{movie.title} ({movie.release_date})</h2>
+                <h2 className='p-2'>{movie.title} ({formatDate(movie.release_date)})</h2>
                 <p className='p-2'>{movie.overview}</p>
                 </div>
             </div>
