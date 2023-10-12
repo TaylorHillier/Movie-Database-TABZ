@@ -56,13 +56,18 @@ useEffect(() => {
         value={query}
         onChange={(e) => setQuery(e.target.value)}
       />
-      {movies.length === 0 ? (
-        <p>No movies found.</p>
-        ) : (
-        movies.map((movie) => (
-            <div key={movie.id}>{movie.title}</div>
+      {
+        movies.map((movie, index) => (
+            <div key={index}>
+                <img
+            key={index}
+            src={`https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`}
+            alt={movie.original_title + " backdrop image"}
+          />
+                <h2>{movie.title}</h2>
+                </div>
         ))
-        )}
+        }
     </div>
     );
 }

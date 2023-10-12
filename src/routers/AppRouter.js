@@ -16,6 +16,7 @@ import { UserProvider } from "../context/userState";
 import { FavoriteProvider } from "../context/movieState";
 import { fetchMovies } from "../api/APIFunctions";
 import { loadMovies } from "../features/movies/moviesSlice";
+import SearchBar from "../components/SearchBar";
 
 function AppRouter() {
   const dispatch = useDispatch();
@@ -47,6 +48,7 @@ function AppRouter() {
           <FavoriteProvider>
             <div className="wrapper">
               <Header />
+              <SearchBar />
               <main className="px-5">
                 <Routes>
                   <Route path="/" element={<PagesHome />}></Route>

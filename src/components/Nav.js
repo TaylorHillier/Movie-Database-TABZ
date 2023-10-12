@@ -79,9 +79,6 @@ function Nav() {
                         <li>
                             <NavLink to="/login">Account</NavLink>
                         </li>
-                        <li>
-                            <SearchBar />
-                        </li>
                     </ul>
                 </div>
             </nav>
