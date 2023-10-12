@@ -6,14 +6,15 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import PagesPopular from "../pages/PagesPopular";
 import PagesTopRated from "../pages/PagesTopRated";
-import PagesNowPlaying from "../pages/PagesNowPlaying";
 import PagesUpcoming from "../pages/PagesUpcoming";
+import PagesNowPlaying from "../pages/PagesNowPlaying"
 import PagesHome from "../pages/PagesHome";
 import PageFavorites from "../pages/PageFavorites";
 import PageAbout from "../pages/PagesAbout";
 import PageLogin from "../pages/PageLogin";
 import { UserProvider } from "../context/userState";
 import { FavoriteProvider } from "../context/movieState";
+import PagesInfo from "../pages/PagesInfo";
 import { fetchMovies } from "../api/APIFunctions";
 import { loadMovies } from "../features/movies/moviesSlice";
 import SearchBar from "../components/SearchBar";
@@ -58,6 +59,7 @@ function AppRouter() {
                   <Route path="/upcoming" element={<PagesUpcoming />} />
                   <Route path="/favorites" element={<PageFavorites />} />
                   <Route path="/about" element={<PageAbout />} />
+                  <Route path="/movie/:movieId" element={<PagesInfo />} />
                   <Route path="/login" element={<PageLogin />} />
                 </Routes>
               </main>

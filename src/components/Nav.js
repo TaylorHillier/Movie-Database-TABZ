@@ -20,7 +20,7 @@ function Nav() {
 
     return (
         <>
-            <nav className="h-full bg-theme-red flex drop-shadow-md sm:justify-between">
+            <nav className="relative z-[999] h-full bg-theme-red flex drop-shadow-md sm:justify-between">
                 {/* Logo Nav */}
                 <div className="bg-theme-red h-full p-3 flex-auto relative z-[999] md:flex-[0_1_20%] md:right-0">
                     <NavLink to="/">
