@@ -74,7 +74,7 @@ useEffect(() => {
                 alt={movie.original_title + " backdrop image"}
                 />
                 <div className=''>
-                <h2 className='p-2'>{movie.title} ({formatDate(movie.release_date)})</h2>
+                <a href={`https://www.themoviedb.org/movie/${movie.id}`}><h2 className='p-2'>{movie.title} ({formatDate(movie.release_date)})</h2></a>
                 <p className='p-2'>{movie.overview}</p>
                 </div>
             </div>
