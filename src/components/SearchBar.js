@@ -61,7 +61,7 @@ useEffect(() => {
             <div key={index}>
                 <img
             key={index}
-            src={`https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`}
+            src={`https://image.tmdb.org/t/p/w1280${movie.poster_path}`}
             alt={movie.original_title + " backdrop image"}
           />
                 <h2>{movie.title}</h2>
