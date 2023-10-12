@@ -40,7 +40,6 @@ function AppRouter() {
     load();
   });
 
-
   return (
     <BrowserRouter>
       <div className="h-screen w-full text-gray-50">

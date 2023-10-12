@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
+import SearchBar from "./SearchBar";
 
 function Nav() {
     const [hamburgerOpen, setHamburgerOpen] = useState({
@@ -77,6 +78,9 @@ function Nav() {
                         </li>
                         <li>
                             <NavLink to="/login">Account</NavLink>
+                        </li>
+                        <li>
+                            <SearchBar />
                         </li>
                     </ul>
                 </div>

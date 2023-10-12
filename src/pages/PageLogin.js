@@ -30,8 +30,9 @@ function PageLogin() {
                 </div>
             ) : (
                 <div>
-                    <h1>Welcome! Log in here to view your favorites, account details and more...</h1>
-                    <div className="login-form">
+                    <h1 className="p-8">Welcome! Log in here to view your favorites, account details and more...</h1>
+                    <div className="login-form pl-8 pb-8">
+                        <h2 className="pb-2">Log In:</h2>
                         <input
                             type="text"
                             placeholder="Enter a Username"
@@ -41,7 +42,7 @@ function PageLogin() {
                                 setError("");
                             }}
                         />
-                        <button onClick={handleLogIn}>LogIn</button>
+                        <button onClick={handleLogIn}>Log In</button>
                         {error && <p style={{ color: "red" }}>{error}</p>}
                     </div>
                 </div>
