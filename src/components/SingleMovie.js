@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from 'react-router-dom';
-import "./App.css";
+import "./SingleMovie.css";
 import YouTubePopup from "./YouTubePopup";
-
 
 function convertVoteAverageToPercentage(voteAverage) {
   voteAverage = Math.min(10, Math.max(0, parseFloat(voteAverage)));

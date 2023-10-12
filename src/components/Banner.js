@@ -23,7 +23,7 @@ register();
 //             autoplay-delay="3000"
 //             autoplay-disable-on-interaction="false"
 //             pagination-clickable="true"
-//             class="mySwiper"
+//             className="mySwiper"
 //         >
 //             {fiveMovies.map((movie) => (
 //                 <swiper-slide key={movie.id}>
