@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { FavoriteContext } from '../context/movieState';
 import { UserContext } from '../context/userState';
+import style from './CreateFavorite.module.css';
 
 function CreateFavorite({ movie }) {
   const { favorites, addFavorite, deleteFavorite } = useContext(FavoriteContext);
@@ -33,12 +34,12 @@ function CreateFavorite({ movie }) {
   return (
     <div>
       {user && (
-        <button className={`favorite-button mt-4 ${isAlreadyFavorited ? 'favorited' : ''}`} onClick={handleFavoriteToggle}>
+        <button className={style["favorites-button"] + `mt-4 ${isAlreadyFavorited ? 'favorited' : ''}`} onClick={handleFavoriteToggle}>
           {isAlreadyFavorited ? 'Remove from Favorites' : 'Add to Favorites'}
         </button>
       )}
       {!user && (
-        <button className={`favorite-button`} onClick={handleFavoriteToggle}>
+        <button className={`mt-4 ${style["favorites-button"]}`} onClick={handleFavoriteToggle}>
           Add to Favorites
         </button>
       )}
