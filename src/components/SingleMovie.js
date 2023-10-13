@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import "./SingleMovie.css";
 import YouTubePopup from "./YouTubePopup";
 import "./YouTubePopup.css";
+import { fetchCredits, fetchSingleMovie, fetchVideo } from "../api/APIFunctions";
 
 function convertVoteAverageToPercentage(voteAverage) {
   voteAverage = Math.min(10, Math.max(0, parseFloat(voteAverage)));
@@ -16,7 +17,9 @@ function SingleMovie() {
   const [movieCredits, setMovieCredits] = useState({ cast: [], crew: [] });
   const [movieVideo, setMovieVideo] = useState(null);
   const [enableTrailer, setEnableTrailer] = useState(false);
-
+	const [movieDetails, setMovieDetails] = useState([]);
+  const [genres, setGenres] = useState([]);
+  
   useEffect(() => {
     fetch(
       `https://api.themoviedb.org/3/movie/${movieId}?api_key=ef270fffed69bc1d47de32648ff050cd&language=en-US`
@@ -29,6 +32,7 @@ function SingleMovie() {
       })
       .then((data) => {
         setMovie(data);
+        setGenres(data.genres);
       })
       .catch((error) => {
         console.error("Error fetching movie data:", error);
@@ -74,12 +78,57 @@ function SingleMovie() {
         console.error("Error fetching movie video:", error);
         setMovieVideo(null);
       });
-  }, [movieId]);
+  // const loadSingleMovie = async () => {
+  //   try {
+  //     const movie = await fetchSingleMovie(movieId)
+  //   if(movie){
+  //     setMovie(movie);
+  //     setGenres(movie.genres);
+  //   }else{
+  //     setMovie(null)
+  //   }
+  //   } catch (error) {
+  //     console.error(error)
+  //   }
+  // }
+  
+  // const loadCredits = async () => {
+  //   try {
+  //     const credits = await fetchCredits(movieId)
+  //     if(credits){
+  //       setMovieCredits({ ...movieCredits, cast: credits.cast.slice(0, 6) });
+  //     }
+  //     else{
+  //       setMovieCredits({ cast: [], crew: [] });
+  //     }
+  //   } catch (error) {
+  //     console.error(error)
+  //   }
+  // }
+  
+  // const loadVideo = async () => {
+  //   try {
+  //     const video = await fetchVideo(movieId)
+  //     if (video) {
+  //       if (video.results && video.results.length > 0) {
+  //         setMovieVideo(video.results[0]);
+  //       } else {
+  //         setMovieVideo(null);
+  //       }
+  //     }
+  //   } catch (error) {
+  //     console.error(error)
+  //   }
+  // }
 
-  if (!movie || (!movieCredits.cast.length && !movieCredits.crew.length)) {
-    return <div>Loading...</div>;
-  }
+  // loadSingleMovie();
+  // loadCredits();
+  // loadVideo();
+}, [movieId]);
 
+if (!movie || (!movieCredits.cast.length && !movieCredits.crew.length)) {
+  return <div>Loading...</div>;
+}
 
   return (
     <div>
@@ -101,6 +150,19 @@ function SingleMovie() {
         </article>
         <article className="single-description">
           <h1>{movie.title}</h1>
+
+          <div>
+              <ul className="movie-extra-info">
+              Genres:
+              {genres &&
+              genres.map(genre => (
+                <li key={genre.id} className="genre-container">
+                  {genre.name},
+                </li>
+              ))}
+              </ul>
+            </div>
+
           <div className="single-detail">
             <p>Release Date: {movie.release_date}</p>
             <p className="score-small">
@@ -121,7 +183,6 @@ function SingleMovie() {
                 <path d="M24 9h-9v-9h-6v9h-9v6h9v9h6v-9h9z"/>
               </svg>
             </button>
-
             {movieVideo ? (
               <div className="movie-video">
                 <a className="trailer-sec"
