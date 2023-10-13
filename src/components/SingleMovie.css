@@ -73,7 +73,8 @@
   }
   
   .trailer-sec svg{
-    padding-right: .5rem;
+    padding-right: 0;
+    margin-right: 0.5rem;
   }
   
   .single-detail p{
@@ -83,6 +84,18 @@
   
   .single-detail a{
     font-size: .9rem;
+    padding-left: 1rem;
+  }
+
+  .movie-extra-info{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    padding-top: .5rem;
+  }
+
+  .genre-container{
+    padding-left: .5rem;
   }
   
   
