@@ -161,6 +161,10 @@ img.movie-poster{
   margin-top: 5rem;
 }
 
+.title-info:hover {
+  font-weight: bold;
+}
+
 .description-info{
   width: 234px;
   background-color:rgba(111, 111, 111, 0.5) ;
@@ -249,3 +253,4 @@ img.movie-poster{
     margin-top: .3rem;
   }
 }
+

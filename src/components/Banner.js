@@ -119,6 +119,7 @@ function AdditionalSlider({ twelvemovies }) {
         <SwiperSlide key={movie.id}>
           <div className="swiper-slide-container">
             <div className="imgBanner-pop" >
+            <Link to={`/movie/${movie.id}`}>
               <img
                 src={"https://image.tmdb.org/t/p/w92/" + movie.poster_path}
                 srcSet={
@@ -140,6 +141,7 @@ function AdditionalSlider({ twelvemovies }) {
                 alt={movie.title}
                 className="movie-poster"
               />
+              </Link>     
               <div className="movie-info">
                 <p className="score-small">
                   <svg xmlns="http://www.w3.org/2000/svg" height="20px" width="20px" viewBox="0 0 576 512" fill="#FFD43B">
@@ -157,7 +159,9 @@ function AdditionalSlider({ twelvemovies }) {
           </div>
           <section className="description-info">
             <article className="description-title">
-              <p >{truncateText(movie.title, 5)}</p>
+              <Link to={`/movie/${movie.id}`}>
+              <p className="title-info">{truncateText(movie.title, 5)}</p>
+              </Link>  
               <button
                 className={`favorite-button ${rotationState[0] && movie.id === movieId ? 'rotate-45' : ''}`}
                 onClick={() => handleRotation(0, movie.id)} >
