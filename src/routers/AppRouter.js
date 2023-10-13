@@ -57,7 +57,7 @@ function AppRouter() {
             <div className="wrapper">
               <Header />
               <SearchBar resetSearch={resetSearch} />
-              <main className='px-5' >
+              <main>
                 <Routes>
                   <Route path="/" element={<PagesHome />}></Route>
                   <Route path="/popular" element={<PagesPopular />} />

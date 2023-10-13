@@ -3,7 +3,7 @@ import Nav from "./Nav";
 function Header() {
     return (
         <>
-            <header className="h-[10%]">
+            <header className="h-[20%]">
                 <Nav />
             </header>
         </>
