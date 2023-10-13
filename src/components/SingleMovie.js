@@ -67,10 +67,8 @@ function SingleMovie() {
       })
       .then((data) => {
         if (data.results && data.results.length > 0) {
-          // Set the first video result as the movie video
           setMovieVideo(data.results[0]);
         } else {
-          // If no video is available, set it to null
           setMovieVideo(null);
         }
       })
