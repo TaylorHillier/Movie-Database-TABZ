@@ -21,13 +21,13 @@ export default function BannerSlider({ movies }) {
         navigation={true}
         loop={true}
         modules={[Pagination, Autoplay, Navigation]}
-        className="max-h-fit w-full"
+        className={style['bannerContainer']}
       >
         {fiveMovies.map((movie) => (
           <SwiperSlide key={movie.id} className="">
             <div className={style['imgBanner']}>
               <img
-                className={style['imgBanner-poster'] + ` hidden`}
+                className={style['imgBanner-poster']}
                 src={"https://image.tmdb.org/t/p/w1280/" + movie.poster_path}
                 alt={movie.title}
               />
