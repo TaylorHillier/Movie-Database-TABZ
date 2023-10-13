@@ -7,8 +7,10 @@ function Footer() {
         <>
             <footer className="footer">
                 <div className="footer-content">
+                    <div className="footer-copyright">
                     <p>&copy; 2023 TABZ Movie Database</p>
                     <p>Contact us: contact@example.com</p>
+                    </div>
                     <nav>
                         <ul>
                             <li><a href="/">Home</a></li>
