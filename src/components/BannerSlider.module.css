@@ -1,19 +1,28 @@
-.imgBanner {
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #ffffff00;
     display: flex;
-    justify-content: right;
+    justify-content: center;
+    align-items: center;
+}
+
+.imgBanner {
+    /* display: flex; */
+    /* justify-content: right; */
 }
 
 .imgBanner-backdrop {
-    width: 100%;
-    position: absolute;
-    filter: brightness(35%);
-    filter: blur(100%);
-    z-index: -1;
+    /* width: 100%; */
+    /* position: absolute; */
+    /* filter: brightness(35%); */
+    /* filter: blur(100%); */
+    /* z-index: -1; */
 }
 .imgBanner-poster {
-    width: auto;
+    /* width: auto;
     max-height: 546px;
-    margin-right: 25rem;
+    margin-right: 25rem; */
 }
 
 img.movie-poster {
@@ -25,7 +34,7 @@ img.movie-poster {
     flex-direction: column;
     text-align: left;
     position: relative;
-    max-width: 500px;
+    min-height: 100%;
     color: white;
     filter: blur(90%);
     background-color: rgba(0, 0, 0, 0.6);
@@ -34,7 +43,8 @@ img.movie-poster {
 }
 
 .info-banner p {
-    text-align: justify;
+    /* text-align: justify; */
+    margin: 0.5rem 0;
 }
 
 .logo {
@@ -61,7 +71,7 @@ img.movie-poster {
 
 .movie-info p {
     text-align: left;
-    padding: 1.8rem 1.5rem;
+    padding: 0.5rem 1rem;
 }
 
 .movie-info h3 {
@@ -129,4 +139,16 @@ img.movie-poster {
 
 .score svg {
     padding-right: 1rem;
+}
+
+.swiper-pagination-bullet {
+    width: 15px !important;
+    height: 15px !important;
+    background-color: #ffd43b !important;
+}
+
+.imgBanner-pop img {
+    border-right: solid 0.1rem gray;
+    border-left: solid 0.1rem gray;
+    /* border-bottom: solid .1rem gray ; */
 }
