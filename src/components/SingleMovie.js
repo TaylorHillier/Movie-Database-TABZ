@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import "./SingleMovie.css";
 import YouTubePopup from "./YouTubePopup";
+import "./YouTubePopup.css";
 
 function convertVoteAverageToPercentage(voteAverage) {
   voteAverage = Math.min(10, Math.max(0, parseFloat(voteAverage)));
@@ -14,6 +15,7 @@ function SingleMovie() {
   const [movie, setMovie] = useState(null);
   const [movieCredits, setMovieCredits] = useState({ cast: [], crew: [] });
   const [movieVideo, setMovieVideo] = useState(null);
+  const [enableTrailer, setEnableTrailer] = useState(false);
 
   useEffect(() => {
     fetch(
@@ -113,10 +115,17 @@ function SingleMovie() {
               </svg>
               {convertVoteAverageToPercentage(movie.vote_average)}%
             </p>
+
+            <button className="favorite-button">
+              <svg id="rotatingSvg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path d="M24 9h-9v-9h-6v9h-9v6h9v9h6v-9h9z"/>
+              </svg>
+            </button>
+
             {movieVideo ? (
               <div className="movie-video">
                 <a className="trailer-sec"
-                  href={`https://www.youtube.com/watch?v=${movieVideo.key}`}
+                  onClick={()=>   setEnableTrailer(!enableTrailer)}
                   target="_blank"
                   rel="noopener noreferrer"
                 >              
@@ -124,17 +133,12 @@ function SingleMovie() {
                   </svg>
                   Play Trailer
                   
-                </a>               
+                </a>   
+                {enableTrailer && <YouTubePopup embedId={movieVideo.key} onClose={() => setEnableTrailer(false)} />}            
               </div>
             ) : (
               <p>No trailer available</p>
             )}
-           
-            <button className="favorite-button">
-              <svg id="rotatingSvg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                <path d="M24 9h-9v-9h-6v9h-9v6h9v9h6v-9h9z"/>
-              </svg>
-            </button>
           </div>
           <h3 className="overview-title">Overview:</h3>
           <p className="overview-text">{movie.overview}</p>
