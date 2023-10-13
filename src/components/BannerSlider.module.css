@@ -70,7 +70,8 @@ img.movie-poster {
         display: block;
         position: absolute;
         z-index: 10;
-        width: 35%;
+        /* width: 35%; */
+        max-height: 100%;
         right: 2rem;
     }
 
