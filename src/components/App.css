@@ -155,7 +155,7 @@ img.movie-poster{
   background-color: #770013;
   font-size: 1rem;
   padding: .5rem 6rem;
-  width: 10rem;
+  width: 18rem;
   border-radius: 1rem;
   margin-left: -1rem;
   margin-top: 5rem;
@@ -181,6 +181,7 @@ img.movie-poster{
 
 .description-title p{
   margin:.5rem .5rem ;
+  
 }
 
 .description-date{
@@ -207,4 +208,44 @@ img.movie-poster{
 .rotate-45 {
   transform: rotate(45deg);
   fill: #770013;
+}
+
+@media (max-width: 610px) {
+
+  .swiper-slide-container {
+    height: 11.5rem;
+  }
+
+  .mySwiper{
+    height: 240px;
+  }
+
+  img.movie-poster{
+    max-height: 50%;
+  }
+
+  .movie-info{
+    display: none;
+  }
+
+  .description-info{
+    width: 109px;
+  }
+
+  .description-title p {
+    margin: .5rem 0.3rem 0 .3rem;
+    font-size: .8rem;
+  }
+
+  .description-date{
+    display: none;
+  }
+
+  svg#rotatingSvg {
+    width: 15px;
+  }
+
+  .favorite-button{
+    margin-top: .3rem;
+  }
 }
