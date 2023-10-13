@@ -1,5 +1,7 @@
 // Individual Movie Poster Tabs
 import CreateFavorite from "./CreateFavorite";
+import colorScore from "./ColorScore";
+
 export default function MovieTab({ movieObj }) {
     const releaseDate = new Date(movieObj.release_date).toDateString();
     const releaseDateString = releaseDate.slice(4, releaseDate.length);
@@ -34,14 +36,16 @@ export default function MovieTab({ movieObj }) {
                         (max-width: 2000px) 500px,
                         (max-width: 2400px) 780px,
                         1000px"
-                    alt={movieObj.title + " poster"}
-                />
-                <div className="flex justify-center">
-                    <h3 className="my-3 min-h-[3rem]">{movieObj.title}</h3>
+                alt={movieObj.title + " poster"}
+            />
+                <h3 className="my-3 min-h-[3rem]">{movieObj.title}</h3>
+                <div className='rating flex justify-around'>
+                    <b>Released: <br/> {releaseDateString}</b>
+                      <p className={`border-solid w-fit p-2 ml-1 ${colorScore(movieObj.vote_average)}`}>{parseFloat(movieObj.vote_average).toFixed(1)}</p>
                 </div>
-                <b>Released: <br /> {releaseDateString}</b>
-                <CreateFavorite movie={movieObj} />
-                <p className="text-left mt-8 hidden sm:block sm:leading-normal md:leading-[1.8]">{shortenText(movieObj.overview, 100)}</p>
+                <p className="text-left mt-8 hidden sm:block sm:leading-normal md:leading-[1.8]">
+                {shortenText(movieObj.overview, 100)}</p>
+                <CreateFavorite movie={movieObj}/>
             </article>
         </>
     );

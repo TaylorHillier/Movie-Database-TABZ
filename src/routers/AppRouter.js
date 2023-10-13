@@ -17,6 +17,8 @@ import { UserProvider } from "../context/userState";
 import { FavoriteProvider } from "../context/movieState";
 import { fetchMovies } from "../api/APIFunctions";
 import { loadMovies } from "../features/movies/moviesSlice";
+import SearchBar from "../components/SearchBar";
+import { useState } from "react";
 
 function AppRouter() {
   const dispatch = useDispatch();
@@ -41,6 +43,11 @@ function AppRouter() {
     load();
   });
 
+  const [query, setQuery] = useState('');
+
+  const resetSearch = () => {
+    setQuery(''); // Reset the query to an empty string
+  };
 
   return (
     <BrowserRouter>
@@ -49,7 +56,8 @@ function AppRouter() {
           <FavoriteProvider>
             <div className="wrapper">
               <Header />
-              <main className="px-5">
+              <SearchBar resetSearch={resetSearch} />
+              <main className='px-5' >
                 <Routes>
                   <Route path="/" element={<PagesHome />}></Route>
                   <Route path="/popular" element={<PagesPopular />} />

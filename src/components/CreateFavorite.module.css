@@ -1,0 +1,13 @@
+.favorites-button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .favorites-button.favorited {
+    background-color: #e74c3c;
+    /* Change color for favorited state */
+  }
