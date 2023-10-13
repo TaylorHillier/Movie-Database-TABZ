@@ -36,6 +36,14 @@ export default function AdditionalSlider({ twelvemovies }) {
           slidesPerView: 2,
           spaceBetween: 10,
         },
+        500: {
+          slidesPerView: 3,
+          spaceBetween: 10,
+        },
+        610: {
+          slidesPerView: 2,
+          spaceBetween: 10,
+        },
         880: {
            slidesPerView: 3,
            spaceBetween: 10,
