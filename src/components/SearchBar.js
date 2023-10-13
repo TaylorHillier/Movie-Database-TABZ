@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import ColorScore from './ColorScore';
 import style from './SearchBar.module.css';
+import { Link } from "react-router-dom";
 
-
-function SearchBar({searchResults}) {
+function SearchBar(resetSearch) {
   const [query, setQuery] = useState('');
   const [movies, setMovies] = useState([]);
 
@@ -64,8 +64,6 @@ useEffect(() => {
     return text.slice(0, maxLength) + '...';
 }
 
-
- 
   return (
       
     <div>
@@ -79,7 +77,7 @@ useEffect(() => {
         onChange={(e) => setQuery(e.target.value)}
       />
       </div>
-      <section className={`${query ? 'visible' : 'hidden'} search-area backdrop-blur backdrop-brightness-50 absolute m-auto flex w-full ${style['animated-section']}`}>
+      <section className={`${query ? 'visible' : 'hidden'} search-area backdrop-blur backdrop-brightness-50 absolute m-auto flex w-full z-50 ${style['animated-section']}`}>
         {movies.length > 0 ? (
         <div className='results-container m-auto md:w-3/5'>
           {query && (
@@ -92,14 +90,17 @@ useEffect(() => {
               movies.map((movie, index) => (
 
                 <div key={index} className='grid grid-row-[10fr-1fr] md:grid-cols-[3fr_17fr] m-auto mb-4 md:border-solid md:p-2'>
-                  <a href="">
-                  <img
+                  
+                   <Link to={`/movie/${movie.id}`} onClick={resetSearch}>
+                   <img
                       key={index}
                       src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                       alt={movie.original_title + " backdrop image"}
                       className='mb-2 object-cover rounded-md'
                       />
-                    </a>
+                </Link>   
+
+                    
 
                     <div className='search-info justify-between md:block'>
 
@@ -107,7 +108,7 @@ useEffect(() => {
 
                         <div className='movie-title flex flex-col md:flex-row md:items-center mb-2 md:mb-0'>
 
-                          <a href={`https://www.themoviedb.org/movie/${movie.id}`}><h3 className='md:p-2 mb-2  md:mb-0'>{movie.title} </h3></a><p>({formatDate(movie.release_date)})</p>
+                        <Link to={`/movie/${movie.id}`} onClick={resetSearch}><h3 className='md:p-2 mb-2  md:mb-0'>{movie.title} </h3> </Link>  <p>({formatDate(movie.release_date)})</p>
 
                         </div>
                         <div className='rating'>

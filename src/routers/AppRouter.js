@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useState } from "react";
 import "../components/App.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -19,6 +18,8 @@ import PagesInfo from "../pages/PagesInfo";
 import { fetchMovies } from "../api/APIFunctions";
 import { loadMovies } from "../features/movies/moviesSlice";
 import SearchBar from "../components/SearchBar";
+
+import { useState } from "react";
 
 function AppRouter() {
   const dispatch = useDispatch();
@@ -43,6 +44,12 @@ function AppRouter() {
     load();
   });
 
+  const [query, setQuery] = useState('');
+
+  const resetSearch = () => {
+    setQuery(''); // Reset the query to an empty string
+  };
+
   return (
     <BrowserRouter>
       <div className="h-screen w-full text-gray-50">
@@ -50,7 +57,7 @@ function AppRouter() {
           <FavoriteProvider>
             <div className="wrapper">
               <Header />
-              <SearchBar/>
+              <SearchBar resetSearch={resetSearch} />
               <main className='px-5' >
                 <Routes>
                   <Route path="/" element={<PagesHome />}></Route>
