@@ -1,6 +1,6 @@
 @keyframes slideIn {
     from {
-      transform: translateY(-40%);
+      transform: translateY(-1%);
       opacity: 0;
     }
     to {

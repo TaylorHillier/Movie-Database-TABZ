@@ -80,20 +80,20 @@ const handleKeyPress = (e) => {
     <div>
       <div className='search-bar flex m-8 z-100'>
         <svg className="" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M15.853 16.56c-1.683 1.517-3.911 2.44-6.353 2.44-5.243 0-9.5-4.257-9.5-9.5s4.257-9.5 9.5-9.5 9.5 4.257 9.5 9.5c0 2.442-.923 4.67-2.44 6.353l7.44 7.44-.707.707-7.44-7.44zm-6.353-15.56c4.691 0 8.5 3.809 8.5 8.5s-3.809 8.5-8.5 8.5-8.5-3.809-8.5-8.5 3.809-8.5 8.5-8.5z" fill='black'/></svg>
-      <input
-      className='p-4 w-3/5 m-auto'
-        type="text"
-        placeholder="Search for movies..."
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-        onKeyDown={handleKeyPress}
-      />
+        <input
+        className='p-4 w-3/5 m-auto'
+          type="text"
+          placeholder="Search for movies..."
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          onKeyDown={handleKeyPress}
+        />
       </div>
       <section className={`${query ? 'visible' : 'hidden'} search-area backdrop-blur backdrop-brightness-50 absolute m-auto flex w-full z-50 h-max ${style['animated-section']}`}>
         {movies.length > 0 ? (
         <div className='results-container m-auto md:w-3/5'>
           {query && (
-          <h1 >Closest matches for: {query}</h1>
+          <h1 className='ml-4 md:ml-0' >Closest matches for: {query}</h1>
           )}
           
           <div className='grid-cols-2 grid grid-cols-2 gap-4 md:grid-cols-1 md:gap-0 md:bg-theme-bg search-results w-full h-full p-4 rounded-lg shadow-lg'>
