@@ -18,7 +18,6 @@ import PagesInfo from "../pages/PagesInfo";
 import { fetchMovies } from "../api/APIFunctions";
 import { loadMovies } from "../features/movies/moviesSlice";
 import SearchBar from "../components/SearchBar";
-
 import { useState } from "react";
 
 function AppRouter() {

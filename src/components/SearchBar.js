@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import ColorScore from './ColorScore';
 import style from './SearchBar.module.css';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function SearchBar(resetSearch) {
   const [query, setQuery] = useState('');
@@ -64,6 +65,16 @@ useEffect(() => {
     return text.slice(0, maxLength) + '...';
 }
 
+const navigate = useNavigate();
+
+const handleKeyPress = (e) => {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    // Navigate to the search results page with the query as a URL parameter
+    navigate(`/search-results?query=${query}`);
+  }
+};
+
   return (
       
     <div>
@@ -75,19 +86,20 @@ useEffect(() => {
         placeholder="Search for movies..."
         value={query}
         onChange={(e) => setQuery(e.target.value)}
+        onKeyDown={handleKeyPress}
       />
       </div>
-      <section className={`${query ? 'visible' : 'hidden'} search-area backdrop-blur backdrop-brightness-50 absolute m-auto flex w-full z-50 ${style['animated-section']}`}>
+      <section className={`${query ? 'visible' : 'hidden'} search-area backdrop-blur backdrop-brightness-50 absolute m-auto flex w-full z-50 h-max ${style['animated-section']}`}>
         {movies.length > 0 ? (
         <div className='results-container m-auto md:w-3/5'>
           {query && (
-          <h1>Search Results for: {query}</h1>
+          <h1 >Closest matches for: {query}</h1>
           )}
           
-          <div className='grid-cols-2 grid gap-4 md:grid-cols-1 md:gap-0 bg-theme-bg search-results w-full h-full p-4 rounded-lg shadow-lg'>
-            <div className='overflow-y-auto'>{
+          <div className='grid-cols-2 grid grid-cols-2 gap-4 md:grid-cols-1 md:gap-0 md:bg-theme-bg search-results w-full h-full p-4 rounded-lg shadow-lg'>
+              {
 
-              movies.map((movie, index) => (
+              movies.slice(0, 12).map((movie, index) => (
 
                 <div key={index} className='grid grid-row-[10fr-1fr] md:grid-cols-[3fr_17fr] m-auto mb-4 md:border-solid md:p-2'>
                   
@@ -96,7 +108,7 @@ useEffect(() => {
                       key={index}
                       src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                       alt={movie.original_title + " backdrop image"}
-                      className='mb-2 object-cover rounded-md'
+                      className='mb-2 object-cover rounded-md w-200px'
                       />
                 </Link>   
 
@@ -108,7 +120,7 @@ useEffect(() => {
 
                         <div className='movie-title flex flex-col md:flex-row md:items-center mb-2 md:mb-0'>
 
-                        <Link to={`/movie/${movie.id}`} onClick={resetSearch}><h3 className='md:p-2 mb-2  md:mb-0'>{movie.title} </h3> </Link>  <p>({formatDate(movie.release_date)})</p>
+                        <Link to={`/movie/${movie.id}`} onClick={resetSearch}><h4 className='md:p-2 mb-2  md:mb-0'>{movie.title} </h4> </Link>  <p>({formatDate(movie.release_date)})</p>
 
                         </div>
                         <div className='rating'>
@@ -127,7 +139,7 @@ useEffect(() => {
                   
                 
                   ))}
-              </div>
+              
           </div>
         </div> ) : (
           <p className='w-full text-center p-12 h-full'>{query ? 'No Movies found.' : 'Start Typing to find movies.'}</p>
