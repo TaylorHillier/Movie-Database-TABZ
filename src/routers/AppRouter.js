@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useState } from "react";
 import "../components/App.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -49,8 +50,8 @@ function AppRouter() {
           <FavoriteProvider>
             <div className="wrapper">
               <Header />
-              <SearchBar />
-              <main className="px-5">
+              <SearchBar/>
+              <main className='px-5' >
                 <Routes>
                   <Route path="/" element={<PagesHome />}></Route>
                   <Route path="/popular" element={<PagesPopular />} />

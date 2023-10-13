@@ -34,7 +34,7 @@ function CreateFavorite({ movie }) {
   return (
     <div>
       {user && (
-        <button className={style["favorites-button"] + `mt-4 ${isAlreadyFavorited ? 'favorited' : ''}`} onClick={handleFavoriteToggle}>
+        <button className={`${style["favorites-button"]} mt-4 ${isAlreadyFavorited ? `${style["favorited"]}` : ''}`} onClick={handleFavoriteToggle}>
           {isAlreadyFavorited ? 'Remove from Favorites' : 'Add to Favorites'}
         </button>
       )}
