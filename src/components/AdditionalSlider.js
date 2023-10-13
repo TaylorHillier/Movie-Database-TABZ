@@ -110,9 +110,11 @@ export default function AdditionalSlider({ twelvemovies }) {
           </div>
           <section className="description-info">
             <article className="description-title">
-              <p >{truncateText(movie.title, 5)}</p>
+              <Link to={`/movie/${movie.id}`}>
+              <p className="title-info">{truncateText(movie.title, 5)}</p>
+              </Link>  
               <button
-                 className={`favorite-button ${rotationState[0] && movie.id === movieId ? 'rotate-45' : ''}`}
+                className={`favorite-button ${rotationState[0] && movie.id === movieId ? 'rotate-45' : ''}`}
                 onClick={() => handleRotation(0, movie.id)} >
                 <svg id="rotatingSvg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                   <path d="M24 9h-9v-9h-6v9h-9v6h9v9h6v-9h9z"/>
