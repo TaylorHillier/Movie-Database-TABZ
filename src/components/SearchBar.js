@@ -108,11 +108,9 @@ const handleKeyPress = (e) => {
                       key={index}
                       src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                       alt={movie.original_title + " backdrop image"}
-                      className='mb-2 object-cover rounded-md w-200px'
+                      className='mb-2 object-cover rounded-md'
                       />
                 </Link>   
-
-                    
 
                     <div className='search-info justify-between md:block'>
 
