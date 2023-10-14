@@ -8,6 +8,7 @@ function PagesNowPlaying() {
 
     return (
         <>
+
             <DropdownNav></DropdownNav>
             <PagesTemplate category="Now Playing" twelveMovies={twelveMovies} />
         </>

@@ -56,14 +56,13 @@ function AppRouter() {
           <FavoriteProvider>
             <div className="wrapper">
               <Header />
-              <SearchBar resetSearch={resetSearch} />
               <main>
                 <Routes>
-                  <Route path="/" element={<PagesHome />}></Route>
-                  <Route path="/popular" element={<PagesPopular />} />
-                  <Route path="/top-rated" element={<PagesTopRated />} />
-                  <Route path="/now-playing" element={<PagesNowPlaying />} />
-                  <Route path="/upcoming" element={<PagesUpcoming />} />
+                  <Route path="/" element={<><SearchBar/><PagesHome /></>}></Route>
+                  <Route path="/popular" element={<><SearchBar/><PagesPopular /></>} />
+                  <Route path="/top-rated" element={<><SearchBar/><PagesTopRated /></>} />
+                  <Route path="/now-playing" element={<><SearchBar/><PagesNowPlaying /></>} />
+                  <Route path="/upcoming" element={<><SearchBar/><PagesUpcoming /></>} />
                   <Route path="/favorites" element={<PageFavorites />} />
                   <Route path="/about" element={<PageAbout />} />
                   <Route path="/movie/:movieId" element={<PagesInfo />} />

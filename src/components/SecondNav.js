@@ -6,7 +6,7 @@ function SecondNav (){
 return (
     <>
     {/* Categories Nav */}
-    <div className=" mt-8 mb-12 hidden relative z-[999] flex-1 md:flex md:flex-col justify-center">
+    <div className=" mt-8 mb-12 hidden relative flex-1 md:flex md:flex-col justify-center">
     <ul className="secound-nav list-none m-0 flex justify-center items-center">
         <li>
             <NavLink to="/popular">Popular</NavLink>

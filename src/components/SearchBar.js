@@ -129,7 +129,9 @@ useEffect(() => {
               
           </div>
         </div> ) : (
-          <p className='w-full text-center p-12 h-full'>{query ? 'No Movies found.' : 'Start Typing to find movies.'}</p>
+          setTimeout(() => {
+            <p className='w-full text-center p-12 h-full'>{query ? 'No Movies found.' : 'Start Typing to find movies.'}</p>
+          }, 1000)
         )}
       </section>
     </div>
