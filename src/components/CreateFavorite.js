@@ -54,13 +54,19 @@ function CreateFavorite({ movie }) {
   return (
     <div>
       {user && (
-        <button className={`${style["favorites-button"]} mt-4 ${isAlreadyFavorited ? `${style["favorited"]}` : ''}`} onClick={handleFavoriteToggle}>
-          {isAlreadyFavorited ? 'Remove from Favorites' : 'Add to Favorites'}
+        <button className={`${style["favorites-button"]} ${isAlreadyFavorited ? `${style["favorited"]}` : ''}`} onClick={handleFavoriteToggle}>
+          {isAlreadyFavorited ? <svg id="rotatingSvg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white">
+            <path d="M24 9h-9v-9h-6v9h-9v6h9v9h6v-9h9z" />
+          </svg> : <svg id="rotatingSvg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white">
+            <path d="M24 9h-9v-9h-6v9h-9v6h9v9h6v-9h9z" />
+          </svg>}
         </button>
       )}
       {!user && (
-        <button className={`mt-4 ${style["favorites-button"]}`} onClick={handleFavoriteToggle}>
-          Add to Favorites
+        <button className={`${style["favorites-button"]}`} onClick={handleFavoriteToggle}>
+          <svg id="rotatingSvg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white">
+            <path d="M24 9h-9v-9h-6v9h-9v6h9v9h6v-9h9z" />
+          </svg>
         </button>
 
       )}

@@ -6,6 +6,7 @@ import YouTubePopup from "./YouTubePopup";
 import "./YouTubePopup.css";
 import { fetchCredits, fetchMovieData, fetchVideo } from "../api/APIFunctions";
 import ColorScore from "./ColorScore";
+import CreateFavorite from "./CreateFavorite";
 
 function convertVoteAverageToPercentage(voteAverage) {
   voteAverage = Math.min(10, Math.max(0, parseFloat(voteAverage)));
@@ -100,12 +101,7 @@ function SingleMovie() {
           <div className="single-detail">
             <p className="single-rd">Release Date: {movie.release_date}</p>
             <p className={`border-solid font-medium max-w-fit p-1 m-4 ${ColorScore(movie.vote_average)}`}>{parseFloat(movie.vote_average).toFixed(1)}</p>
-
-            <button className="favorite-button">
-              <svg id="rotatingSvg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                <path d="M24 9h-9v-9h-6v9h-9v6h9v9h6v-9h9z" />
-              </svg>
-            </button>
+            <CreateFavorite movie={movie} />
             {movieVideo ? (
               <div className="movie-video">
                 <a className="trailer-sec"

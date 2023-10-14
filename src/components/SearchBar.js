@@ -91,7 +91,7 @@ function SearchBar(resetSearch) {
 
                   <div key={index} className='grid grid-row-[10fr-1fr] md:grid-cols-[3fr_17fr] m-auto mb-4 md:border-solid md:p-2'>
 
-                    <Link to={`/movie/${movie.id}`} onClick={resetSearch}>
+                    <Link to={`/movie/${movie.id}`} >
                       <img
                         key={index}
                         src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
@@ -106,7 +106,7 @@ function SearchBar(resetSearch) {
 
                         <div className='movie-title flex flex-col md:flex-row md:items-center mb-2 md:mb-0'>
 
-                          <Link to={`/movie/${movie.id}`} onClick={resetSearch}><h3 className='md:p-2 mb-2  md:mb-0'>{movie.title} </h3> </Link>  <p>({formatDate(movie.release_date)})</p>
+                          <Link to={`/movie/${movie.id}`} ><h3 className='md:p-2 mb-2  md:mb-0'>{movie.title} </h3> </Link>  <p>({formatDate(movie.release_date)})</p>
 
                         </div>
                         <div className='rating'>

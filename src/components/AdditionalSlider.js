@@ -10,7 +10,7 @@ import 'swiper/css/navigation';
 import { FreeMode, Scrollbar, Mousewheel, Navigation } from 'swiper/modules';
 import CreateFavorite from "./CreateFavorite";
 import ColorScore from "./ColorScore";
-// register Swiper custom elements
+
 register();
 
 export default function AdditionalSlider({ twelvemovies }) {
@@ -110,13 +110,7 @@ export default function AdditionalSlider({ twelvemovies }) {
                 <Link to={`/movie/${movie.id}`}>
                   <p className="title-info">{truncateText(movie.title, 5)}</p>
                 </Link>
-                <button
-                  className={`favorite-button ${rotationState[0] && movie.id === movieId ? 'rotate-45' : ''}`}
-                  onClick={() => handleRotation(0, movie.id)} >
-                  <svg id="rotatingSvg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                    <path d="M24 9h-9v-9h-6v9h-9v6h9v9h6v-9h9z" />
-                  </svg>
-                </button>
+                <CreateFavorite movie={movie} />
               </article>
               <p className="description-date">{movie.release_date.split("-")[0]}</p>
             </section>
