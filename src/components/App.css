@@ -26,7 +26,7 @@
   margin-right: 25rem;
 }
 
-img.movie-poster{
+img.movie-poster {
   max-width: 250px;
 }
 
@@ -65,22 +65,22 @@ img.movie-poster{
   opacity: 0;
   transition: opacity 0.3s ease;
   font-size: 1rem;
-  border-right: solid .1rem gray ;
-  border-left: solid .1rem gray ;
+  border-right: solid .1rem gray;
+  border-left: solid .1rem gray;
 }
 
-.movie-info p{
+.movie-info .home-movie-p {
   text-align: left;
   padding: 1.8rem 1.5rem;
 }
 
-.movie-info h3{
-  padding:0 .5rem;
+.movie-info h3 {
+  padding: 0 .5rem;
 }
 
 .imgBanner-pop:hover .movie-info {
-  opacity: 1; 
-} 
+  opacity: 1;
+}
 
 .imgBanner-pop {
   display: flex;
@@ -97,10 +97,12 @@ img.movie-poster{
   border-radius: .5rem;
 }
 
-.swiper-button-next:after, .swiper-rtl .swiper-button-prev:after,
-.swiper-button-prev:after, .swiper-button-next:after {
+.swiper-button-next:after,
+.swiper-rtl .swiper-button-prev:after,
+.swiper-button-prev:after,
+.swiper-button-next:after {
   border-radius: 5rem;
-  padding:.8rem 1.5rem;
+  padding: .8rem 1.5rem;
   content: 'next';
   color: white;
   width: 2rem;
@@ -131,11 +133,11 @@ img.movie-poster{
   align-items: center;
 }
 
-.score-small svg{
+.score-small svg {
   padding-right: .5rem;
 }
 
-.score svg{
+.score svg {
   padding-right: 1rem;
 }
 
@@ -145,13 +147,13 @@ img.movie-poster{
   background-color: #FFD43B !important;
 }
 
-.imgBanner-pop img{
-  border-right: solid .1rem gray ;
-  border-left: solid .1rem gray ;
+.imgBanner-pop img {
+  border-right: solid .1rem gray;
+  border-left: solid .1rem gray;
   /* border-bottom: solid .1rem gray ; */
 }
 
-.main-title{
+.main-title {
   color: white;
   background-color: #770013;
   font-size: 1.1rem;
@@ -166,40 +168,40 @@ img.movie-poster{
   font-weight: bold;
 }
 
-.description-info{
+.description-info {
   width: 234px;
-  background-color:rgba(111, 111, 111, 0.5) ;
+  background-color: rgba(111, 111, 111, 0.5);
   height: 5rem;
   color: white;
   text-align: left;
   font-size: 1rem;
-  padding:0 .5rem;
-  border-right: solid .1rem gray ;
-  border-left: solid .1rem gray ;
+  padding: 0 .5rem;
+  border-right: solid .1rem gray;
+  border-left: solid .1rem gray;
 }
 
-.description-title{
+.description-title {
   display: flex;
   justify-content: space-between;
   padding-top: .1rem;
 }
 
-.description-title p{
-  margin:.5rem .5rem ;
-  
+.description-title p {
+  margin: .5rem .5rem;
+
 }
 
-.description-date{
+.description-date {
   font-size: .8rem;
   padding: 0 .5rem;
   margin: 0;
 }
 
-.favorite-button{
+.favorite-button {
   background-color: transparent;
   fill: rgba(49, 49, 49, 0.5);
   stroke: rgb(184, 182, 182);
-  border:none ;
+  border: none;
   margin-top: .5rem;
 }
 
@@ -207,7 +209,7 @@ img.movie-poster{
 .favorite-button:focus,
 .favorite-button:visited,
 .favorite-button:active {
-  fill:#770013;
+  fill: #770013;
 }
 
 .rotate-45 {
@@ -221,19 +223,19 @@ img.movie-poster{
     height: 11.5rem;
   }
 
-  .mySwiper{
+  .mySwiper {
     height: 240px;
   }
 
-  img.movie-poster{
+  img.movie-poster {
     max-height: 50%;
   }
 
-  .movie-info{
+  .movie-info {
     display: none;
   }
 
-  .description-info{
+  .description-info {
     width: 109px;
   }
 
@@ -242,7 +244,7 @@ img.movie-poster{
     font-size: .8rem;
   }
 
-  .description-date{
+  .description-date {
     display: none;
   }
 
@@ -250,14 +252,14 @@ img.movie-poster{
     width: 15px;
   }
 
-  .favorite-button{
+  .favorite-button {
     margin-top: .3rem;
   }
 }
 
 .secound-nav li {
   margin: 0 .5rem;
-  padding: .7rem ;
+  padding: .7rem;
   font-size: 1.2rem;
   color: rgb(255, 255, 255);
 }
@@ -266,7 +268,7 @@ img.movie-poster{
   font-weight: 600;
 }
 
-.secound-nav{
+.secound-nav {
   border-top: solid 1px gray;
   border-bottom: solid 1px gray;
   background-color: #8f8c8d66;
@@ -278,21 +280,21 @@ img.movie-poster{
 
 @media (min-width: 768px) {
 
-  .main-nav-first{
+  .main-nav-first {
     display: flex;
     flex-direction: row;
   }
 
-  .main-nav-first a{ 
+  .main-nav-first a {
     padding-left: .8rem;
   }
 
-  .main-nav-first a:hover{
+  .main-nav-first a:hover {
     font-weight: bold;
   }
 
   .navbar-menu {
-    width: 15rem ;
+    width: 15rem;
     margin-right: 1rem;
   }
 }

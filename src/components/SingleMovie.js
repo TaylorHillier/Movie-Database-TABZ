@@ -17,9 +17,9 @@ function SingleMovie() {
   const [movieCredits, setMovieCredits] = useState({ cast: [], crew: [] });
   const [movieVideo, setMovieVideo] = useState(null);
   const [enableTrailer, setEnableTrailer] = useState(false);
-	const [movieDetails, setMovieDetails] = useState([]);
+  const [movieDetails, setMovieDetails] = useState([]);
   const [genres, setGenres] = useState([]);
-  
+
   useEffect(() => {
 
     fetchMovieData(`${movieId}?api_key=ef270fffed69bc1d47de32648ff050cd&language=en-US`)
@@ -32,8 +32,8 @@ function SingleMovie() {
         setMovie(null);
       });
 
-  
-      fetchMovieData(`${movieId}/credits?api_key=ef270fffed69bc1d47de32648ff050cd`)
+
+    fetchMovieData(`${movieId}/credits?api_key=ef270fffed69bc1d47de32648ff050cd`)
       .then((data) => {
         setMovieCredits({ ...movieCredits, cast: data.cast.slice(0, 6) });
       })
@@ -43,7 +43,7 @@ function SingleMovie() {
       });
 
 
-      fetchMovieData(`${movieId}/videos?api_key=ef270fffed69bc1d47de32648ff050cd`)
+    fetchMovieData(`${movieId}/videos?api_key=ef270fffed69bc1d47de32648ff050cd`)
       .then((data) => {
         if (data.results && data.results.length > 0) {
           setMovieVideo(data.results[0]);
@@ -56,23 +56,23 @@ function SingleMovie() {
         setMovieVideo(null);
       });
 
- 
-}, [movieId]);
 
-if (!movie || (!movieCredits.cast.length && !movieCredits.crew.length)) {
-  return <div>Loading...</div>;
-}
+  }, [movieId]);
+
+  if (!movie || (!movieCredits.cast.length && !movieCredits.crew.length)) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div>
-        <img
-          className="single-backdrop"
-          src={"https://image.tmdb.org/t/p/w1280/" + movie.backdrop_path}
-          alt={movie.title}
-        />
-        <Link className="arrow-back" to="#" onClick={() => window.history.back()}> 
-        <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fillRule="evenodd" clipRule="evenodd"><path d="M20 .755l-14.374 11.245 14.374 11.219-.619.781-15.381-12 15.391-12 .609.755z"/></svg>
-        </Link>
+      <img
+        className="single-backdrop"
+        src={"https://image.tmdb.org/t/p/w1280/" + movie.backdrop_path}
+        alt={movie.title}
+      />
+      <Link className="arrow-back" to="#" onClick={() => window.history.back()}>
+        <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fillRule="evenodd" clipRule="evenodd"><path d="M20 .755l-14.374 11.245 14.374 11.219-.619.781-15.381-12 15.391-12 .609.755z" /></svg>
+      </Link>
       <section className="single-info">
         <article className="image-container">
           <img
@@ -85,16 +85,16 @@ if (!movie || (!movieCredits.cast.length && !movieCredits.crew.length)) {
           <h1>{movie.title}</h1>
 
           <div>
-              <ul className="movie-extra-info">
+            <ul className="movie-extra-info">
               Genres:
               {genres &&
-              genres.map(genre => (
-                <li key={genre.id} className="genre-container">
-                  {genre.name},
-                </li>
-              ))}
-              </ul>
-            </div>
+                genres.map(genre => (
+                  <li key={genre.id} className="genre-container">
+                    {genre.name},
+                  </li>
+                ))}
+            </ul>
+          </div>
 
           <div className="single-detail">
             <p>Release Date: {movie.release_date}</p>
@@ -113,22 +113,22 @@ if (!movie || (!movieCredits.cast.length && !movieCredits.crew.length)) {
 
             <button className="favorite-button">
               <svg id="rotatingSvg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                <path d="M24 9h-9v-9h-6v9h-9v6h9v9h6v-9h9z"/>
+                <path d="M24 9h-9v-9h-6v9h-9v6h9v9h6v-9h9z" />
               </svg>
             </button>
             {movieVideo ? (
               <div className="movie-video">
                 <a className="trailer-sec"
-                  onClick={()=>   setEnableTrailer(!enableTrailer)}
+                  onClick={() => setEnableTrailer(!enableTrailer)}
                   target="_blank"
                   rel="noopener noreferrer"
-                >              
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="gray" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-3 18v-12l10 6-10 6z"/>
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="gray" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-3 18v-12l10 6-10 6z" />
                   </svg>
                   Play Trailer
-                  
-                </a>   
-                {enableTrailer && <YouTubePopup embedId={movieVideo.key} onClose={() => setEnableTrailer(false)} />}            
+
+                </a>
+                {enableTrailer && <YouTubePopup embedId={movieVideo.key} onClose={() => setEnableTrailer(false)} />}
               </div>
             ) : (
               <p>No trailer available</p>
@@ -144,11 +144,11 @@ if (!movie || (!movieCredits.cast.length && !movieCredits.crew.length)) {
             <li key={actor.id} className="cast-info">
               {actor.profile_path && (
                 <img
-                src={`https://image.tmdb.org/t/p/w1280${actor.profile_path}`}
-                alt={actor.name}
+                  src={`https://image.tmdb.org/t/p/w1280${actor.profile_path}`}
+                  alt={actor.name}
                 />
-                )}
-                <p>{actor.name}</p>
+              )}
+              <p>{actor.name}</p>
             </li>
           ))}
         </ul>

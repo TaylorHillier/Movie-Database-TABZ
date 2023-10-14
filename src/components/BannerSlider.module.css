@@ -65,7 +65,7 @@ img.movie-poster {
     }
 }
 
-@media (min-width: 73em){
+@media (min-width: 73em) {
     .imgBanner-poster {
         display: block;
         position: absolute;
@@ -116,7 +116,7 @@ img.movie-poster {
     border-left: solid 0.1rem gray;
 }
 
-.movie-info p {
+.movie-info .home-movie-p {
     text-align: left;
     padding: 0.5rem 1rem;
 }
