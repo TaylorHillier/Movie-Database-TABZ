@@ -42,6 +42,7 @@ function CreateFavorite({ movie }) {
         <button className={`mt-4 ${style["favorites-button"]}`} onClick={handleFavoriteToggle}>
           Add to Favorites
         </button>
+
       )}
       {error && <p style={{ color: "red" }}>{error}</p>}
     </div>

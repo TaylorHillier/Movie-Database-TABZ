@@ -31,7 +31,7 @@ function PageLogin() {
                     <h1 className="ml-4">Welcome, {user.name}!</h1>
                     <p className="ml-4 mb-4">You currently have {favorites.length} favorited movies.</p>
                     {favorites.length > 0 ? (
-                        <p>Checkout your favorites <a href="">Here</a></p>
+                        <p className="ml-4">Checkout your favorites <a href="/favorites" className="text-red-700">Here</a></p>
                     ) : (
                         <div className="search">
                             <p className="ml-4">Explore our database below.</p>

@@ -1,4 +1,4 @@
-import React, { createContext, useReducer } from 'react';
+import React, { createContext, useReducer, useEffect } from 'react';
 import MovieReducer from './movieReducer';
 
 const initialState = {
@@ -9,6 +9,10 @@ const FavoriteContext = createContext(initialState);
 
 function FavoriteProvider({ children }) {
   const [state, dispatch] = useReducer(MovieReducer, initialState);
+
+  useEffect(() => {
+    dispatch({ type: 'INITIALIZE_FAVORITES' });
+  }, []); //ensure favorites are rendered upon page refresh
 
   function addFavorite(movie) {
     dispatch({

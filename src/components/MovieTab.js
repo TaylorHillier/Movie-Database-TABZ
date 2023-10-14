@@ -36,16 +36,16 @@ export default function MovieTab({ movieObj }) {
                         (max-width: 2000px) 500px,
                         (max-width: 2400px) 780px,
                         1000px"
-                alt={movieObj.title + " poster"}
-            />
+                    alt={movieObj.title + " poster"}
+                />
                 <h3 className="my-3 min-h-[3rem]">{movieObj.title}</h3>
                 <div className='rating flex justify-around'>
-                    <b>Released: <br/> {releaseDateString}</b>
-                      <p className={`border-solid w-fit p-2 ml-1 ${colorScore(movieObj.vote_average)}`}>{parseFloat(movieObj.vote_average).toFixed(1)}</p>
+                    <b>Released: <br /> {releaseDateString}</b>
+                    <p className={`border-solid w-fit p-2 ml-1 ${colorScore(movieObj.vote_average)}`}>{parseFloat(movieObj.vote_average).toFixed(1)}</p>
                 </div>
-                <p className="text-left mt-8 hidden sm:block sm:leading-normal md:leading-[1.8] min-h-[9rem]">
-                {shortenText(movieObj.overview, 100)}</p>
-                <CreateFavorite movie={movieObj}/>
+                <p className="text-left mt-8 hidden sm:block sm:leading-normal md:leading-[1.8] min-h-[8rem]">
+                    {shortenText(movieObj.overview, 100)}</p>
+                <CreateFavorite movie={movieObj} />
             </article>
         </>
     );

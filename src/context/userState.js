@@ -1,5 +1,6 @@
-import React, { createContext, useReducer } from 'react';
+import React, { createContext, useReducer, useEffect } from 'react';
 import UserReducer from './userReducer';
+import MovieReducer from './movieReducer';
 
 // Initial state
 const initialState = {
@@ -10,18 +11,29 @@ const initialState = {
 // Create context
 const UserContext = createContext(initialState);
 
-// Provider component
+
 function UserProvider({ children }) {
     const [state, dispatch] = useReducer(UserReducer, initialState);
 
-    // Actions
+    useEffect(() => {
+        dispatch({ type: 'INITIALIZE_USER' });
+    }, []);
+
+    //create user
     function createUser(user) {
+
+        if (user !== state.user) {
+            // If it's a different user, clear the favorites
+            dispatch({ type: 'CLEAR_FAVORITES' });
+        }
+
         dispatch({
             type: 'CREATE_USER',
             payload: user,
         });
     }
 
+    //delete user
     function deleteUser() {
         dispatch({
             type: 'DELETE_USER',
@@ -33,6 +45,7 @@ function UserProvider({ children }) {
         <UserContext.Provider
             value={{
                 user: state.user,
+                isAuthenticated: state.isAuthenticated,
                 createUser,
                 deleteUser,
             }}

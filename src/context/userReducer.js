@@ -23,6 +23,17 @@ function UserReducer(state, action) {
             localStorage.removeItem('isAuthenticated');
 
             return destroyUser;
+
+        case 'INITIALIZE_USER':
+            const storedUser = localStorage.getItem('user');
+            const storedIsAuthenticated = localStorage.getItem('isAuthenticated');
+
+            return {
+                ...state,
+                user: storedUser ? JSON.parse(storedUser) : null,
+                isAuthenticated: storedIsAuthenticated === 'true',
+            };
+
         default:
             return state;
     }
