@@ -11,6 +11,7 @@ function PageFavorites() {
 
     return (
         <div>
+            <h1 className="m-auto flex w-3/5 my-8">Welcome to Your Favorites</h1>
             {user ? (
                 // If user is logged in, show the favorites content
                 <div>
@@ -29,10 +30,10 @@ function PageFavorites() {
                 </div>
             ) : (
                 // If user is not logged in, show a login prompt
-                <div className="no-user m-auto p-8 flex w-3/5 flex-col">
+                <div className="no-user m-auto flex w-3/5 flex-col mb-8">
                     <p>You must be logged in to access your favorites.</p>
                     <p>
-                        <a href="/login" className="">Login</a> to continue.
+                        Login<a href="/login" className="">here</a> to continue.
                     </p>
                 </div>
             )}

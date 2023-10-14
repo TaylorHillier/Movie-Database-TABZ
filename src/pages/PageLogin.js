@@ -1,6 +1,8 @@
 import { UserContext } from "../context/userState";
 import { useContext } from "react";
 import { useState } from "react";
+import { FavoriteContext } from "../context/movieState";
+
 function PageLogin() {
 
     const { user, createUser, deleteUser } = useContext(UserContext);
@@ -22,29 +24,32 @@ function PageLogin() {
     }
 
     return (
-        <div>
+        <div className="w-4/5 m-auto">
             {user ? (
                 <div>
-                    <p>Welcome, {user.name}!</p>
-                    <button onClick={handleLogOut}>Logout</button>
+                    <h1>Welcome, {user.name}!</h1>
+                    <p>You currently have {}</p>
+                    <button onClick={handleLogOut} className="p-2 my-4 bg-theme-red text-white border-none">Logout</button>
                 </div>
             ) : (
-                <div>
-                    <h1 className="p-8">Welcome! Log in here to view your favorites, account details and more...</h1>
-                    <div className="login-form pl-8 pb-8">
+                <div className="flex m-auto">
+                    <div className="login-form flex justify-center flex-col">
                         <h2 className="pb-2">Log In:</h2>
                         <input
                             type="text"
                             placeholder="Enter a Username"
                             value={newUser}
+                            className="my-2 p-2"
                             onChange={(e) => {
                                 setNewUser(e.target.value);
                                 setError("");
                             }}
                         />
-                        <button onClick={handleLogIn}>Log In</button>
+                        <button onClick={handleLogIn} className="p-2 bg-theme-red text-white border-none">Log In</button>
                         {error && <p style={{ color: "red" }}>{error}</p>}
                     </div>
+                    <h1 className="p-8">Welcome! Log in here to view your favorites, account details and more...</h1>
+                    
                 </div>
             )}
         </div>
