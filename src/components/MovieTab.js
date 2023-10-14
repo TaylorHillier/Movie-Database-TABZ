@@ -16,7 +16,7 @@ export default function MovieTab({ movieObj }) {
 
     return (
         <>
-            <article className="w-full pb-8 text-center">
+            <article className="w-full pb-8 text-center flex flex-col">
                 <img
                     className="w-full"
                     src={"https://image.tmdb.org/t/p/w92/" + movieObj.poster_path}
@@ -43,7 +43,7 @@ export default function MovieTab({ movieObj }) {
                     <b>Released: <br/> {releaseDateString}</b>
                       <p className={`border-solid w-fit p-2 ml-1 ${colorScore(movieObj.vote_average)}`}>{parseFloat(movieObj.vote_average).toFixed(1)}</p>
                 </div>
-                <p className="text-left mt-8 hidden sm:block sm:leading-normal md:leading-[1.8]">
+                <p className="text-left mt-8 hidden sm:block sm:leading-normal md:leading-[1.8] min-h-[9rem]">
                 {shortenText(movieObj.overview, 100)}</p>
                 <CreateFavorite movie={movieObj}/>
             </article>
