@@ -58,11 +58,11 @@ function AppRouter() {
               <Header />
               <main>
                 <Routes>
-                  <Route path="/" element={<><SearchBar/><PagesHome /></>}></Route>
-                  <Route path="/popular" element={<><SearchBar/><PagesPopular /></>} />
-                  <Route path="/top-rated" element={<><SearchBar/><PagesTopRated /></>} />
-                  <Route path="/now-playing" element={<><SearchBar/><PagesNowPlaying /></>} />
-                  <Route path="/upcoming" element={<><SearchBar/><PagesUpcoming /></>} />
+                  <Route path="/" element={<><SearchBar /><PagesHome /></>}></Route>
+                  <Route path="/popular" element={<><SearchBar /><PagesPopular /></>} />
+                  <Route path="/top-rated" element={<><SearchBar /><PagesTopRated /></>} />
+                  <Route path="/now-playing" element={<><SearchBar /><PagesNowPlaying /></>} />
+                  <Route path="/upcoming" element={<><SearchBar /><PagesUpcoming /></>} />
                   <Route path="/favorites" element={<PageFavorites />} />
                   <Route path="/about" element={<PageAbout />} />
                   <Route path="/movie/:movieId" element={<PagesInfo />} />

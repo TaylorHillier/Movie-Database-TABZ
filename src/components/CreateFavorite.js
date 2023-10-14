@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { FavoriteContext } from '../context/movieState';
 import { UserContext } from '../context/userState';
 import style from './CreateFavorite.module.css';
@@ -7,9 +7,28 @@ function CreateFavorite({ movie }) {
   const { favorites, addFavorite, deleteFavorite } = useContext(FavoriteContext);
   const { user } = useContext(UserContext);
   const [error, setError] = useState("");
+  const [prevUser, setPrevUser] = useState(null);
+  const { dispatch } = useContext(FavoriteContext);
 
   // Check if the movie is already in favorites by comparing its ID
   const isAlreadyFavorited = favorites.some((favoritedMovie) => favoritedMovie.id === movie.id);
+
+  //runs when user changes
+  useEffect(() => {
+    // Check if a different user has logged in
+    if (user && prevUser && user.name !== prevUser.name) {
+      // Clear favorites if a new user has logged in
+      clearFavorites();
+    }
+
+    // Update the previous user with the current user
+    setPrevUser(user);
+  }, [user, prevUser]);
+
+  const clearFavorites = () => {
+    dispatch({ type: 'CLEAR_FAVORITES' });
+  };
+
 
   const handleFavoriteToggle = () => {
     if (user) {
@@ -31,6 +50,7 @@ function CreateFavorite({ movie }) {
 
   };
 
+  //if there is a user, then favorites is available, if not, they will be prompted to log in.
   return (
     <div>
       {user && (

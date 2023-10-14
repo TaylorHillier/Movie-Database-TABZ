@@ -24,12 +24,14 @@ function PageLogin() {
         deleteUser();
     }
 
+    const favoritesCount = JSON.parse(localStorage.getItem('favorites') || '[]').length;
+
     return (
         <div className=" md:m-auto">
             {user ? (
                 <div>
                     <h1 className="ml-4">Welcome, {user.name}!</h1>
-                    <p className="ml-4 mb-4">You currently have {favorites.length} favorited movies.</p>
+                    <p className="ml-4 mb-4">You currently have {favoritesCount} favorited movies.</p>
                     {favorites.length > 0 ? (
                         <p className="ml-4">Checkout your favorites <a href="/favorites" className="text-red-700">Here</a></p>
                     ) : (

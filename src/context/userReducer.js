@@ -19,9 +19,6 @@ function UserReducer(state, action) {
                 isAuthenticated: false,
             }
 
-            localStorage.removeItem('user');
-            localStorage.removeItem('isAuthenticated');
-
             return destroyUser;
 
         case 'INITIALIZE_USER':

@@ -41,7 +41,7 @@ export default function BannerSlider({ movies }) {
               <h2>{movie.title}</h2>
               <p>{movie.release_date.split("-")[0]}</p>
               <p className="home-movie-p">{truncateText(movie.overview, 50)}</p>
-              <p className={`border-solid max-w-fit p-2 ml-1 ${ColorScore(movie.vote_average)}`}>{parseFloat(movie.vote_average).toFixed(1)}</p>
+              <p className={`border-solid font-medium max-w-fit p-2 ml-1 ${ColorScore(movie.vote_average)}`}>{parseFloat(movie.vote_average).toFixed(1)}</p>
             </div>
           </div>
         </SwiperSlide>

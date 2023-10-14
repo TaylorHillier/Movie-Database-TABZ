@@ -6,7 +6,9 @@ function MovieReducer(state, action) {
         ...state,
         favorites: storedFavorites ? JSON.parse(storedFavorites) : state.favorites,
       }; //initialize favorites from localstorage if present
+
     case 'ADD_FAVORITE':
+      //if movie is not already added
       if (!state.favorites.some((movie) => movie.id === action.payload.id)) {
         const favoritesAdd = [...state.favorites, action.payload];
         localStorage.setItem('favorites', JSON.stringify(favoritesAdd));
@@ -14,7 +16,8 @@ function MovieReducer(state, action) {
           ...state,
           favorites: favoritesAdd,
         };// all movies with the same id will be added from favorite
-      }
+      };
+
     case 'DELETE_FAVORITE':
       const favoritesDelete = state.favorites.filter(
         (movie) => movie.id !== action.payload.id
@@ -24,12 +27,14 @@ function MovieReducer(state, action) {
         ...state,
         favorites: favoritesDelete,
       };
+
     case 'CLEAR_FAVORITES':
       localStorage.removeItem('favorites');
       return {
         ...state,
         favorites: [],
-      } //clear favorites if different user logs in
+      }; //clear favorites if different user logs in
+
     default:
       return state;
   }

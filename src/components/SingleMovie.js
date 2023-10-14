@@ -5,6 +5,7 @@ import "./SingleMovie.css";
 import YouTubePopup from "./YouTubePopup";
 import "./YouTubePopup.css";
 import { fetchCredits, fetchMovieData, fetchVideo } from "../api/APIFunctions";
+import ColorScore from "./ColorScore";
 
 function convertVoteAverageToPercentage(voteAverage) {
   voteAverage = Math.min(10, Math.max(0, parseFloat(voteAverage)));
@@ -97,19 +98,8 @@ function SingleMovie() {
           </div>
 
           <div className="single-detail">
-            <p>Release Date: {movie.release_date}</p>
-            <p className="score-small">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                height="20px"
-                width="20px"
-                viewBox="0 0 576 512"
-                fill="#FFD43B"
-              >
-                <path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z" />
-              </svg>
-              {convertVoteAverageToPercentage(movie.vote_average)}%
-            </p>
+            <p className="single-rd">Release Date: {movie.release_date}</p>
+            <p className={`border-solid font-medium max-w-fit p-1 m-4 ${ColorScore(movie.vote_average)}`}>{parseFloat(movie.vote_average).toFixed(1)}</p>
 
             <button className="favorite-button">
               <svg id="rotatingSvg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">

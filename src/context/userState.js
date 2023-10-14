@@ -1,6 +1,5 @@
 import React, { createContext, useReducer, useEffect } from 'react';
 import UserReducer from './userReducer';
-import MovieReducer from './movieReducer';
 
 // Initial state
 const initialState = {
@@ -15,6 +14,7 @@ const UserContext = createContext(initialState);
 function UserProvider({ children }) {
     const [state, dispatch] = useReducer(UserReducer, initialState);
 
+
     useEffect(() => {
         dispatch({ type: 'INITIALIZE_USER' });
     }, []);
@@ -22,10 +22,16 @@ function UserProvider({ children }) {
     //create user
     function createUser(user) {
 
-        if (user !== state.user) {
-            // If it's a different user, clear the favorites
+        const storedUser = JSON.parse(localStorage.getItem('user')); //retrieve localstorage user
+
+        console.log(storedUser.name);
+        console.log(user.name);
+        if (storedUser && storedUser.name !== user.name) {
+            // If the stored user's name is different from the new user's name, clear the favorites
             dispatch({ type: 'CLEAR_FAVORITES' });
+            localStorage.removeItem('favorites');
         }
+
 
         dispatch({
             type: 'CREATE_USER',

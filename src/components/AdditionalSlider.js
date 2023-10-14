@@ -96,7 +96,7 @@ export default function AdditionalSlider({ twelvemovies }) {
                   className="movie-poster"
                 />
                 <div className="movie-info">
-                  <p className={`border-solid p-2 max-w-fit m-2 ${ColorScore(movie.vote_average)}`}>{parseFloat(movie.vote_average).toFixed(1)}</p>
+                  <p className={`border-solid font-medium p-2 max-w-fit m-2 ${ColorScore(movie.vote_average)}`}>{parseFloat(movie.vote_average).toFixed(1)}</p>
                   <h3>{truncateText(movie.title, 7)}</h3>
                   <p className="home-movie-p">{truncateText(movie.overview, 25)}</p>
                   <Link to={`/movie/${movie.id}`} className="readMore">
