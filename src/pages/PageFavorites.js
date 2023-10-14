@@ -11,7 +11,6 @@ function PageFavorites() {
 
     return (
         <div>
-            <h1 className="m-auto flex w-3/5 my-8">Welcome to Your Favorites</h1>
             {user ? (
                 // If user is logged in, show the favorites content
                 <div>

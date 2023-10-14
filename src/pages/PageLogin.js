@@ -41,7 +41,7 @@ function PageLogin() {
                     <button onClick={handleLogOut} className="p-2 my-4 bg-theme-red text-white border-none ml-4">Logout</button>
                 </div>
             ) : (
-                <div className="flex m-auto">
+                <div className="flex flex-col-reverse m-8 md:flex-row md:w-4/5 md:m-auto">
                     <div className="login-form flex justify-center flex-col">
                         <h2 className="pb-2">Log In:</h2>
                         <input

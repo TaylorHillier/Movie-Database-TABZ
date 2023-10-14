@@ -16,13 +16,13 @@
   width: 100%;
 }
 
-.footer-content  ul {
+.footer-content ul {
   margin-top: 1rem;
 }
 
 .footer-content ul li {
   display: inline;
-  
+
 }
 
 .footer-content a {
@@ -47,14 +47,14 @@
   .footer-content {
     display: grid;
     position: relative;
-    grid-template-columns:  1fr 1fr 1fr ;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 
   .footer-content a {
     font-size: 18px;
   }
 
-  .footer-copyright{
+  .footer-copyright {
     grid-column: 2/3;
     display: grid;
     position: absolute;
@@ -63,12 +63,21 @@
     align-self: center;
   }
 
-  .footer-content  ul {
+  .web-nav {
     list-style: none;
     text-align: left;
     grid-column: 1/3;
     margin-top: 0;
     margin-left: 3rem;
+    font-size: 1.2rem;
+  }
+
+  .cat-nav {
+    list-style: none;
+    text-align: right;
+    grid-column: 3/4;
+    margin-top: 0;
+    margin-right: 3rem;
     font-size: 1.2rem;
   }
 }
