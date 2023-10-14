@@ -154,12 +154,12 @@ img.movie-poster{
 .main-title{
   color: white;
   background-color: #770013;
-  font-size: 1rem;
-  padding: .5rem 6rem;
-  width: 18rem;
-  border-radius: 1rem;
-  margin-left: -1rem;
-  margin-top: 5rem;
+  font-size: 1.1rem;
+  padding: .8rem 7rem;
+  width: 22rem;
+  border-radius: 2rem;
+  margin-left: -3rem;
+  margin-top: 0;
 }
 
 .title-info:hover {
@@ -255,3 +255,44 @@ img.movie-poster{
   }
 }
 
+.secound-nav li {
+  margin: 0 .5rem;
+  padding: .7rem ;
+  font-size: 1.2rem;
+  color: rgb(255, 255, 255);
+}
+
+.secound-nav li:hover {
+  font-weight: 600;
+}
+
+.secound-nav{
+  border-top: solid 1px gray;
+  border-bottom: solid 1px gray;
+  background-color: #8f8c8d66;
+}
+
+.align-middle svg {
+  margin-top: 1rem;
+}
+
+@media (min-width: 768px) {
+
+  .main-nav-first{
+    display: flex;
+    flex-direction: row;
+  }
+
+  .main-nav-first a{ 
+    padding-left: .8rem;
+  }
+
+  .main-nav-first a:hover{
+    font-weight: bold;
+  }
+
+  .navbar-menu {
+    width: 15rem ;
+    margin-right: 1rem;
+  }
+}

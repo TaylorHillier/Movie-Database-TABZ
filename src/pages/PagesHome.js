@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import AdditionalSlider from "../components/AdditionalSlider";
 import BannerSlider from "../components/BannerSlider";
 import DropdownNav from "../components/DropdownNav";
+import SecondNav from "../components/SecondNav";
 
 export default function PagesHome() {
     const location = useLocation();
@@ -25,6 +26,7 @@ export default function PagesHome() {
                         <BannerSlider movies={popularMovies} />
                         <section>
                             <DropdownNav></DropdownNav>
+                            <SecondNav></SecondNav>
                             <h2 className="main-title">Popular</h2>{" "}
                             {/* Add the label for Popular */}
                             <AdditionalSlider twelvemovies={twelveMovies} />

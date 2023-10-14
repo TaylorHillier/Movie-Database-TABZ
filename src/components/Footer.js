@@ -5,19 +5,17 @@ import ScrollToTopButton from "./ScrollToTopButton.js";
 function Footer() {
     return (
         <>
-            <footer className="footer relative left-0 right-0 bottom-0 z-1">
+            <footer className="footer">
                 <div className="footer-content">
                     <div className="footer-copyright">
-                    <p>&copy; 2023 TABZ Movie Database</p>
-                    <p>Contact us: contact@example.com</p>
+                        <p>&copy; 2023 TABZ Movie Database</p>
+                        <p>Contact us: contact@example.com</p>
                     </div>
-                    <nav>
-                        <ul>
-                            <li><a href="/">Home</a></li>
-                            <li><a href="/favorites">Favorites</a></li>
-                            <li><a href="/about">About</a></li>
-                        </ul>
-                    </nav>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/favorites">Favorites</a></li>
+                        <li><a href="/about">About</a></li>
+                    </ul>
                 </div>
             </footer>
             <ScrollToTopButton />

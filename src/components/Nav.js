@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
+import "./App.css";
 import SearchBar from "./SearchBar";
 
 function Nav() {
@@ -9,12 +10,15 @@ function Nav() {
         isOpen: "",
     });
     // const [hidden, setHidden] = useState("hidden");
+    const [isFirstIcon, setIsFirstIcon] = useState(true); 
 
     const toggleHamburger = () => {
         if (hamburgerOpen.open === false) {
             setHamburgerOpen({ open: true, hidden: "", isOpen: "is-open" });
+            setIsFirstIcon(false);
         } else {
             setHamburgerOpen({ open: false, hidden: "hidden", isOpen: "" });
+            setIsFirstIcon(true);
         }
     };
 
@@ -32,27 +36,10 @@ function Nav() {
                         />
                     </NavLink>
                 </div>
-                {/* Categories Nav */}
-                <div className="bg-theme-red p-3 hidden relative z-[999] flex-1 md:flex md:flex-col justify-center">
-                    <ul className="list-none m-0 flex justify-evenly items-center gap-5">
-                        <li>
-                            <NavLink to="/popular">Popular</NavLink>
-                        </li>
-                        <li>
-                            <NavLink to="/top-rated">Top Rated</NavLink>
-                        </li>
-                        <li>
-                            <NavLink to="/now-playing">Now Playing</NavLink>
-                        </li>
-                        <li>
-                            <NavLink to="/upcoming">Upcoming</NavLink>
-                        </li>
-                    </ul>
-                </div>
                 {/* Hamburger Nav */}
                 <div
-                    className={
-                        `w-[10%] bg-theme-red group ` +
+                    className={ 
+                        `navbar-menu w-[10%] bg-theme-red group ` +
                         hamburgerOpen.isOpen + ` md:flex md:flex-col justify-center`
                     }
                 >
@@ -61,11 +48,21 @@ function Nav() {
                         className="bg-theme-red h-full text-center relative z-[999] md:hidden"
                         onClick={toggleHamburger}
                     >
-                        <span className="align-middle">V</span>
+                        <span className="align-middle">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24" fill="white">
+                                <path
+                                    d={
+                                        isFirstIcon
+                                            ? "M24 6h-24v-4h24v4zm0 4h-24v4h24v-4zm0 8h-24v4h24v-4z"
+                                            : "M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1"
+                                    }
+                                />
+                            </svg>
+                        </span>
                     </div>
                     {/* Hamburger Menu */}
                     <ul
-                        className={`bg-theme-red list-none text-center absolute inset-x-0 z-[998] flex flex-col py-4 gap-4 shadow-inner drop-shadow-2xl transition ease-in-out duration-700 -translate-y-[100%] group-[.is-open]:translate-y-2 md:z-[999] md:-translate-y-0 md:duration-0 md:relative md:shadow-none md:drop-shadow-none md:text-left md:py-0 md:gap-2 `}
+                        className={`main-nav-first bg-theme-red list-none text-center absolute inset-x-0 z-[998] flex flex-col py-4 gap-4 shadow-inner drop-shadow-2xl transition ease-in-out duration-700 -translate-y-[100%] group-[.is-open]:translate-y-2 md:z-[999] md:-translate-y-0 md:duration-0 md:relative md:shadow-none md:drop-shadow-none md:text-left md:py-0 md:gap-2 `}
                     >
                         <li>
                             <NavLink to="/favorites">Favorites</NavLink>
