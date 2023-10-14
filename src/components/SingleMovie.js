@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import "./SingleMovie.css";
 import YouTubePopup from "./YouTubePopup";
 import "./YouTubePopup.css";
-import { fetchCredits, fetchSingleMovie, fetchVideo } from "../api/APIFunctions";
+import { fetchCredits, fetchMovieData, fetchVideo } from "../api/APIFunctions";
 
 function convertVoteAverageToPercentage(voteAverage) {
   voteAverage = Math.min(10, Math.max(0, parseFloat(voteAverage)));
@@ -21,15 +21,8 @@ function SingleMovie() {
   const [genres, setGenres] = useState([]);
   
   useEffect(() => {
-    fetch(
-      `https://api.themoviedb.org/3/movie/${movieId}?api_key=ef270fffed69bc1d47de32648ff050cd&language=en-US`
-    )
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json();
-      })
+
+    fetchMovieData(`${movieId}?api_key=ef270fffed69bc1d47de32648ff050cd&language=en-US`)
       .then((data) => {
         setMovie(data);
         setGenres(data.genres);
@@ -39,15 +32,8 @@ function SingleMovie() {
         setMovie(null);
       });
 
-    fetch(
-      `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=ef270fffed69bc1d47de32648ff050cd`
-    )
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json();
-      })
+  
+      fetchMovieData(`${movieId}/credits?api_key=ef270fffed69bc1d47de32648ff050cd`)
       .then((data) => {
         setMovieCredits({ ...movieCredits, cast: data.cast.slice(0, 6) });
       })
@@ -56,15 +42,8 @@ function SingleMovie() {
         setMovieCredits({ cast: [], crew: [] });
       });
 
-    fetch(
-      `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=ef270fffed69bc1d47de32648ff050cd`
-    )
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json();
-      })
+
+      fetchMovieData(`${movieId}/videos?api_key=ef270fffed69bc1d47de32648ff050cd`)
       .then((data) => {
         if (data.results && data.results.length > 0) {
           setMovieVideo(data.results[0]);
@@ -76,52 +55,8 @@ function SingleMovie() {
         console.error("Error fetching movie video:", error);
         setMovieVideo(null);
       });
-  // const loadSingleMovie = async () => {
-  //   try {
-  //     const movie = await fetchSingleMovie(movieId)
-  //   if(movie){
-  //     setMovie(movie);
-  //     setGenres(movie.genres);
-  //   }else{
-  //     setMovie(null)
-  //   }
-  //   } catch (error) {
-  //     console.error(error)
-  //   }
-  // }
-  
-  // const loadCredits = async () => {
-  //   try {
-  //     const credits = await fetchCredits(movieId)
-  //     if(credits){
-  //       setMovieCredits({ ...movieCredits, cast: credits.cast.slice(0, 6) });
-  //     }
-  //     else{
-  //       setMovieCredits({ cast: [], crew: [] });
-  //     }
-  //   } catch (error) {
-  //     console.error(error)
-  //   }
-  // }
-  
-  // const loadVideo = async () => {
-  //   try {
-  //     const video = await fetchVideo(movieId)
-  //     if (video) {
-  //       if (video.results && video.results.length > 0) {
-  //         setMovieVideo(video.results[0]);
-  //       } else {
-  //         setMovieVideo(null);
-  //       }
-  //     }
-  //   } catch (error) {
-  //     console.error(error)
-  //   }
-  // }
 
-  // loadSingleMovie();
-  // loadCredits();
-  // loadVideo();
+ 
 }, [movieId]);
 
 if (!movie || (!movieCredits.cast.length && !movieCredits.crew.length)) {
