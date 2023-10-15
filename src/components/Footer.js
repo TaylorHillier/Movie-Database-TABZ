@@ -1,4 +1,4 @@
-import React from "react";
+import { NavLink } from "react-router-dom";
 import "./Footer.css";
 import ScrollToTopButton from "./ScrollToTopButton.js";
 
@@ -12,15 +12,29 @@ function Footer() {
                         <p>Contact us: contact@example.com</p>
                     </div>
                     <ul className="web-nav">
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/favorites">Favorites</a></li>
-                        <li><a href="/about">About</a></li>
+                        <li>
+                            <NavLink to="/">Home</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/favorites">Favorites</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/about">About</NavLink>
+                        </li>
                     </ul>
                     <ul className="cat-nav">
-                        <li><a href="/top-rated">Top Rated</a></li>
-                        <li><a href="/popular">Popular</a></li>
-                        <li><a href="/upcoming">Upcoming</a></li>
-                        <li><a href="/now-playing">Now Playing</a></li>
+                        <li>
+                            <NavLink to="/popular">Popular</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/top-rated">Top Rated</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/now-playing">Now Playing</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/upcoming">Upcoming</NavLink>
+                        </li>
                     </ul>
                 </div>
             </footer>
