@@ -17,7 +17,7 @@ function MovieReducer(state, action) {
           favorites: favoritesAdd,
         };// all movies with the same id will be added from favorite
       };
-
+      break;
     case 'DELETE_FAVORITE':
       const favoritesDelete = state.favorites.filter(
         (movie) => movie.id !== action.payload.id

@@ -1,7 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import "./App.css";
-import SearchBar from "./SearchBar";
 
 function Nav() {
     const [hamburgerOpen, setHamburgerOpen] = useState({

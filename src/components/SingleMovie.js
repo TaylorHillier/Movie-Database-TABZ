@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import "./SingleMovie.css";
 import YouTubePopup from "./YouTubePopup";
 import "./YouTubePopup.css";
-import { fetchCredits, fetchMovieData, fetchVideo } from "../api/APIFunctions";
+import { fetchMovieData } from "../api/APIFunctions";
 import ColorScore from "./ColorScore";
 import CreateFavorite from "./CreateFavorite";
 
@@ -19,7 +19,6 @@ function SingleMovie() {
   const [movieCredits, setMovieCredits] = useState({ cast: [], crew: [] });
   const [movieVideo, setMovieVideo] = useState(null);
   const [enableTrailer, setEnableTrailer] = useState(false);
-  const [movieDetails, setMovieDetails] = useState([]);
   const [genres, setGenres] = useState([]);
 
   useEffect(() => {

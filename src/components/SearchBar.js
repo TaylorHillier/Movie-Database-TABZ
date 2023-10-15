@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import ColorScore from './ColorScore';
 import style from './SearchBar.module.css';
 import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
 
 function SearchBar(resetSearch) {
   const [query, setQuery] = useState('');
