@@ -31,7 +31,7 @@ img.movie-poster {
     background-color: rgba(0, 0, 0, 0.6);
     padding: 2rem 5rem;
     font-size: 1.2rem;
-    width: 100%;
+    /* width: 100%; */
 }
 
 .bannerContainer {

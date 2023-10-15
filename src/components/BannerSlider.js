@@ -14,7 +14,7 @@ export default function BannerSlider({ movies }) {
     <Swiper
       spaceBetween={30}
       autoplay={{
-        delay: 35000
+        delay: 3500
       }}
       pagination={{
         clickable: true,
