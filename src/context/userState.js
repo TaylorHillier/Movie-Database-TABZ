@@ -24,7 +24,6 @@ function UserProvider({ children }) {
 
         const storedUser = JSON.parse(localStorage.getItem('user')); //retrieve localstorage user
 
-        console.log(storedUser.name);
         console.log(user.name);
         if (storedUser && storedUser.name !== user.name) {
             // If the stored user's name is different from the new user's name, clear the favorites
