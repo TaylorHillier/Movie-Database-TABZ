@@ -1,6 +1,7 @@
 {
   "name": "movie-database",
   "authors": "Taylor Andrew Bruce Zeinab",
+  "homepage": "https://devmonkey.ca/tabz-movies",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

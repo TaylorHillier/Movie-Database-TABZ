@@ -50,7 +50,7 @@ function AppRouter() {
   };
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={'/tabz-movies'}>
       <div className="h-screen w-full text-gray-50">
         <UserProvider>
           <FavoriteProvider>
